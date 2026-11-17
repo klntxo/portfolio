@@ -791,11 +791,15 @@
                 <!-- CARD: Left 4 Dead Remake (GCL2 CA4) -->
                 <div class="portfolio-item bg-brand-card rounded-2xl border border-brand-border overflow-hidden hover-card flex flex-col group" data-category="code">
                     <div class="aspect-video bg-brand-dark relative overflow-hidden flex items-center justify-center border-b border-brand-border/50">
-                        <video controls playsinline preload="metadata" class="object-cover w-full h-full">
-                            <source src="videos/ca4-l4d-gameplay.mp4" type="video/mp4">
-                        </video>
-                        <div class="absolute top-3 left-3 px-2.5 py-1 rounded-md bg-brand-dark/80 backdrop-blur-sm text-[11px] font-semibold text-brand-cyan border border-brand-cyan/20 flex items-center gap-1.5 pointer-events-none">
-                            <i class="fas fa-volume-high text-[10px]"></i> Gameplay · sound on
+                        <button type="button" class="yt-facade absolute inset-0 w-full h-full group/yt" data-yt="Zcf_ynQDqSg" aria-label="Play Left 4 Dead Remake gameplay video">
+                            <img src="https://i.ytimg.com/vi/Zcf_ynQDqSg/hqdefault.jpg" alt="Left 4 Dead Remake gameplay video thumbnail" loading="lazy" class="absolute inset-0 w-full h-full object-cover">
+                            <span class="absolute inset-0 bg-brand-dark/20 group-hover/yt:bg-brand-dark/0 transition-colors"></span>
+                            <span class="absolute inset-0 flex items-center justify-center">
+                                <span class="w-16 h-16 rounded-full bg-red-600/90 text-white flex items-center justify-center text-xl shadow-lg group-hover/yt:scale-110 transition-transform"><i class="fas fa-play ml-1"></i></span>
+                            </span>
+                        </button>
+                        <div class="absolute top-3 left-3 px-2.5 py-1 rounded-md bg-brand-dark/80 backdrop-blur-sm text-[11px] font-semibold text-brand-cyan border border-brand-cyan/20 flex items-center gap-1.5 pointer-events-none yt-badge">
+                            <i class="fab fa-youtube text-[10px]"></i> Gameplay · HD · sound on
                         </div>
                         <div class="absolute top-3 right-3 px-2.5 py-1 rounded-md bg-amber-400/90 text-[11px] font-bold text-brand-dark pointer-events-none"><i class="fas fa-star text-[9px] mr-1"></i>Featured</div>
                     </div>
@@ -1349,6 +1353,23 @@
             }
 
         })();
+
+        // ===== YouTube: load the player only when clicked (keeps the page fast) =====
+        window.addEventListener('DOMContentLoaded', () => {
+            document.querySelectorAll('.yt-facade').forEach(btn => {
+                btn.addEventListener('click', () => {
+                    const box = btn.parentElement;
+                    box.querySelectorAll('.yt-badge, .pointer-events-none').forEach(el => el.remove());
+                    const f = document.createElement('iframe');
+                    f.src = 'https://www.youtube-nocookie.com/embed/' + btn.dataset.yt + '?autoplay=1&rel=0&modestbranding=1';
+                    f.title = 'Left 4 Dead Remake gameplay';
+                    f.allow = 'autoplay; encrypted-media; picture-in-picture; fullscreen';
+                    f.allowFullscreen = true;
+                    f.className = 'absolute inset-0 w-full h-full border-0';
+                    btn.replaceWith(f);
+                });
+            });
+        });
 
         // ===== Project breakdown pop-up =====
         (function () {
