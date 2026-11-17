@@ -1149,9 +1149,6 @@
                         <div class="absolute top-3 left-3 px-2.5 py-1 rounded-md bg-brand-dark/80 backdrop-blur-sm text-[11px] font-semibold text-brand-lavender border border-brand-lavender/20">
                             Illustration & Animation
                         </div>
-                        <div class="absolute bottom-3 right-3 w-11 h-11 rounded-full bg-brand-dark/80 backdrop-blur-sm border border-brand-lavender/50 text-brand-lavender flex items-center justify-center group-hover:scale-110 transition-transform pointer-events-none">
-                            <i class="fas fa-play ml-0.5"></i>
-                        </div>
                     </div>
                     <div class="p-6 flex-1 flex flex-col">
                         <h3 class="text-lg font-bold text-white mb-1">Pablo Doesn't Think So</h3>
@@ -1163,13 +1160,13 @@
                             <li><strong>Illustrations:</strong> Cover and 15 full-colour spreads</li>
                             <li><strong>Animation:</strong> Story video produced in Canva</li>
                         </ul>
-                        <div class="flex flex-wrap items-center gap-x-5 gap-y-2">
-                            <button type="button" data-gallery="storycraft" class="gallery-btn hidden items-center gap-2 text-xs font-bold text-brand-lavender hover:text-white transition-colors">
-                                <i class="fas fa-play"></i> Watch & Browse <span class="gallery-count opacity-70"></span> <i class="fas fa-arrow-right text-[10px]"></i>
-                            </button>
-                            <a href="files/storycraft-book.pdf" target="_blank" rel="noopener" data-requires="files/storycraft-book.pdf" class="hidden items-center gap-2 text-xs font-bold text-brand-lavender hover:text-white transition-colors">
-                                <i class="fas fa-book"></i> Read the Full Book <i class="fas fa-arrow-up-right-from-square text-[10px]"></i>
+                        <div class="grid grid-cols-2 gap-2">
+                            <a href="https://drive.google.com/file/d/1jABlaEpLgw0NeRRV56pnE_HPBsPmCP1c/view" target="_blank" rel="noopener" class="flex items-center justify-center gap-2 px-3 py-2.5 rounded-xl bg-brand-lavender/10 border border-brand-lavender/30 text-xs font-bold text-brand-lavender hover:bg-brand-lavender/20 hover:text-white transition-colors">
+                                <i class="fas fa-play"></i> Watch Animation
                             </a>
+                            <button type="button" data-gallery="storycraft" class="flex items-center justify-center gap-2 px-3 py-2.5 rounded-xl bg-brand-dark border border-brand-border text-xs font-bold text-gray-200 hover:border-brand-lavender/50 hover:text-white transition-colors">
+                                <i class="fas fa-book-open"></i> Read the Book
+                            </button>
                         </div>
                     </div>
                 </div>
@@ -1441,7 +1438,6 @@
             storycraft: {
                 title: "Pablo Doesn't Think So",
                 items: [
-                    { embed: 'https://drive.google.com/file/d/1jABlaEpLgw0NeRRV56pnE_HPBsPmCP1c/preview', link: 'https://drive.google.com/file/d/1jABlaEpLgw0NeRRV56pnE_HPBsPmCP1c/view', caption: 'Animated story video · made in Canva' },
                     { src: 'images/storycraft/cover-front.jpg', caption: 'Front cover' },
                     { src: 'images/storycraft/spread-02.jpg', caption: 'Spread 1' },
                     { src: 'images/storycraft/spread-03.jpg', caption: 'Spread 2' },
@@ -1485,27 +1481,11 @@
             const loadImg = src => new Promise(res => { const i = new Image(); i.onload = () => res(true); i.onerror = () => res(false); i.src = src; });
             const exists = url => location.protocol === 'file:' ? Promise.resolve(true) : fetch(url, { method: 'HEAD' }).then(r => r.ok).catch(() => false);
 
-            async function resolveGallery(g) {
-                if (g.resolved) return g.resolved;
-                const out = [];
-                for (const it of (g.items || [])) {
-                    if (it.embed || (it.video ? await exists(it.video) : await loadImg(it.src))) out.push(it);
-                }
-                if (g.pattern) {
-                    const checks = [];
-                    for (let n = 1; n <= g.max; n++) {
-                        const base = g.pattern.replace('{n}', pad(n));
-                        checks.push((async () => {
-                            for (const ext of ['.png', '.jpg', '.jpeg', '.webp']) {
-                                if (await loadImg(base + ext)) return { src: base + ext, caption: g.caption ? `${g.caption} ${n}` : '' };
-                            }
-                            return null;
-                        })());
-                    }
-                    (await Promise.all(checks)).forEach(x => x && out.push(x));
-                }
-                g.resolved = out;
-                return out;
+            // All gallery files are listed in GALLERIES, so open instantly without checking/downloading them first
+            function resolveGallery(g) { return (g && g.items) ? g.items : []; }
+
+            function preload(it) {
+                if (it && it.src && !it._pre) { const i = new Image(); i.decoding = 'async'; i.src = it.src; it._pre = true; }
             }
 
             const lb = document.getElementById('lightbox');
@@ -1529,6 +1509,9 @@
                     el.src = it.src; el.alt = it.caption || '';
                 }
                 media.appendChild(el);
+                // warm up the next and previous images so swiping feels instant
+                preload(items[(idx + 1) % items.length]);
+                preload(items[(idx - 1 + items.length) % items.length]);
                 lb.querySelector('.lb-caption').textContent = it.caption || '';
                 lb.querySelector('.lb-counter').textContent = `${idx + 1} / ${items.length}`;
                 thumbs.querySelectorAll('button').forEach((b, k) => b.classList.toggle('is-active', k === idx));
@@ -1539,10 +1522,10 @@
                 thumbs.style.display = multi ? '' : 'none';
             }
 
-            async function open(key) {
+            function open(key) {
                 const g = GALLERIES[key];
                 if (!g) return;
-                items = await resolveGallery(g);
+                items = resolveGallery(g);
                 if (!items.length) return;
                 lastFocus = document.activeElement;
                 lb.querySelector('.lb-title').textContent = g.title;
