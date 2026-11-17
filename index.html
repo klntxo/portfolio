@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kia Lent Sng | Aspiring Game Developer & Audio Specialist | DJ & Performer</title>
+    <title>Kia Lent Sng | Game Developer & Audio Designer | Portfolio</title>
     
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
@@ -57,6 +57,58 @@
         .text-glow {
             text-shadow: 0 0 20px rgba(59, 130, 246, 0.45);
         }
+        /* Scroll reveal (only when JS is running) */
+        .js-reveal .reveal { opacity: 0; transform: translateY(28px); transition: none; }
+        .js-reveal .reveal.is-visible { opacity: 1; transform: none; transition: opacity .8s cubic-bezier(.2,.7,.2,1), transform .8s cubic-bezier(.2,.7,.2,1); }
+
+        /* Valorant-style crosshair cursor (mouse / trackpad only) */
+        @media (hover: hover) and (pointer: fine) {
+            html, body { cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='32' height='32' viewBox='0 0 32 32'%3E%3Cg stroke='%23000' stroke-opacity='.65' stroke-width='4' stroke-linecap='square'%3E%3Cpath d='M16 3v7M16 22v7M3 16h7M22 16h7'/%3E%3C/g%3E%3Cg stroke='%2338bdf8' stroke-width='2' stroke-linecap='square'%3E%3Cpath d='M16 3v7M16 22v7M3 16h7M22 16h7'/%3E%3C/g%3E%3Crect x='14.5' y='14.5' width='3' height='3' fill='%2338bdf8' stroke='%23000' stroke-opacity='.65'/%3E%3C/svg%3E") 16 16, crosshair; }
+            a, button, .filter-btn, canvas, [role="button"] { cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='32' height='32' viewBox='0 0 32 32'%3E%3Cg stroke='%23000' stroke-opacity='.65' stroke-width='4' stroke-linecap='square'%3E%3Cpath d='M16 3v7M16 22v7M3 16h7M22 16h7'/%3E%3C/g%3E%3Cg stroke='%23f472b6' stroke-width='2' stroke-linecap='square'%3E%3Cpath d='M16 3v7M16 22v7M3 16h7M22 16h7'/%3E%3C/g%3E%3Crect x='14.5' y='14.5' width='3' height='3' fill='%23f472b6' stroke='%23000' stroke-opacity='.65'/%3E%3C/svg%3E") 16 16, pointer; }
+        }
+        /* Project breakdown pop-up */
+        .bd { position: fixed; inset: 0; z-index: 100; background: rgba(4,7,15,.9); backdrop-filter: blur(8px); display: flex; align-items: flex-start; justify-content: center; overflow-y: auto; padding: 24px 16px; opacity: 0; transition: opacity .25s; }
+        .bd.is-open { opacity: 1; }
+        .bd[hidden] { display: none; }
+        .bd-panel { position: relative; width: 100%; max-width: 760px; margin: auto 0; background: #10172a; border: 1px solid #1e293b; border-radius: 20px; padding: 32px 28px; animation: lbIn .3s ease; }
+        .bd-close { position: absolute; top: 16px; right: 16px; }
+        .bd-kicker { font-family: 'JetBrains Mono', monospace; font-size: 12px; color: #38bdf8; margin-bottom: 4px; }
+        .bd h3 { font-size: 1.6rem; font-weight: 800; color: #fff; margin-bottom: 12px; padding-right: 48px; }
+        .bd-meta { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 8px; }
+        .bd-meta span { font-size: 12px; color: #cbd5e1; background: #070b15; border: 1px solid #1e293b; border-radius: 9999px; padding: 4px 12px; }
+        .bd-meta i { color: #3b82f6; margin-right: 4px; }
+        .bd section { margin-top: 22px; }
+        .bd h4 { font-weight: 700; color: #fff; margin-bottom: 8px; font-size: 1rem; }
+        .bd h4 i { color: #38bdf8; width: 20px; }
+        .bd p, .bd li { font-size: 14px; color: #cbd5e1; line-height: 1.6; }
+        .bd ul { list-style: disc; padding-left: 20px; display: grid; gap: 6px; }
+        .bd li b { color: #fff; font-weight: 600; }
+        @media (max-width: 640px) { .bd-panel { padding: 24px 18px; } }
+
+        /* Gallery lightbox */
+        .lb { position: fixed; inset: 0; z-index: 100; background: rgba(4,7,15,.94); backdrop-filter: blur(10px); display: flex; flex-direction: column; padding: 16px; opacity: 0; transition: opacity .25s; }
+        .lb.is-open { opacity: 1; }
+        .lb[hidden] { display: none; }
+        .lb-top { display: flex; justify-content: space-between; align-items: flex-start; gap: 16px; max-width: 1100px; width: 100%; margin: 0 auto; }
+        .lb-title { font-weight: 800; color: #fff; font-size: 1.05rem; }
+        .lb-counter { font-family: 'JetBrains Mono', monospace; font-size: 12px; color: #94a3b8; }
+        .lb-close, .lb-nav { width: 44px; height: 44px; border-radius: 9999px; background: #10172a; border: 1px solid #1e293b; color: #e2e8f0; display: flex; align-items: center; justify-content: center; flex-shrink: 0; transition: border-color .2s, color .2s; }
+        .lb-close:hover, .lb-nav:hover { border-color: #38bdf8; color: #38bdf8; }
+        .lb-stage { flex: 1; min-height: 0; display: flex; align-items: center; justify-content: center; gap: 12px; max-width: 1100px; width: 100%; margin: 12px auto 0; }
+        .lb-media { flex: 1; min-width: 0; height: 100%; display: flex; align-items: center; justify-content: center; }
+        .lb-media iframe { width: min(100%, calc((100vh - 230px) * 16 / 9)); aspect-ratio: 16 / 9; border: 0; border-radius: 14px; background: #000; }
+        .lb-media img, .lb-media video { max-width: 100%; max-height: 100%; border-radius: 14px; object-fit: contain; animation: lbIn .3s ease; }
+        @keyframes lbIn { from { opacity: 0; transform: scale(.97); } to { opacity: 1; transform: none; } }
+        .lb-caption { text-align: center; color: #cbd5e1; font-size: 13px; margin: 12px auto 0; max-width: 700px; min-height: 1.2em; }
+        .lb-thumbs { display: flex; gap: 8px; overflow-x: auto; padding: 12px 4px 4px; max-width: 1100px; width: 100%; margin: 0 auto; justify-content: safe center; }
+        .lb-thumbs button { flex: 0 0 auto; width: 64px; height: 48px; border-radius: 8px; overflow: hidden; border: 2px solid transparent; opacity: .5; background: #10172a; transition: opacity .2s, border-color .2s; }
+        .lb-thumbs button.is-active { opacity: 1; border-color: #38bdf8; }
+        .lb-thumbs img { width: 100%; height: 100%; object-fit: cover; }
+        .lb-thumbs .lb-thumb-video { display: flex; align-items: center; justify-content: center; color: #c084fc; height: 100%; }
+        @media (max-width: 640px) { .lb-nav { position: absolute; top: 50%; z-index: 2; } .lb-prev { left: 8px; } .lb-next { right: 8px; } .lb-stage { position: relative; } }
+
+        .tool-tile:hover { border-color: var(--tool); box-shadow: 0 16px 32px -14px var(--tool); }
+
         /* Smooth glass card hover dynamics */
         .hover-card {
             transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
@@ -109,11 +161,16 @@
             </a>
             <div class="hidden md:flex items-center space-x-8">
                 <a href="#about" class="text-sm font-medium text-gray-300 hover:text-brand-cyan transition-colors">About</a>
+                <a href="#skills" class="text-sm font-medium text-gray-300 hover:text-brand-cyan transition-colors">Skills</a>
                 <a href="#experience" class="text-sm font-medium text-gray-300 hover:text-brand-cyan transition-colors">Experience</a>
                 <a href="#education" class="text-sm font-medium text-gray-300 hover:text-brand-cyan transition-colors">Education & Honors</a>
                 <a href="#portfolio" class="text-sm font-medium text-gray-300 hover:text-brand-cyan transition-colors">Portfolio</a>
+                <a href="#contact" class="text-sm font-medium text-gray-300 hover:text-brand-cyan transition-colors">Contact</a>
             </div>
-            <div class="flex items-center space-x-4">
+            <div class="flex items-center space-x-3 sm:space-x-4">
+                <a href="resume.pdf" target="_blank" rel="noopener" class="hidden sm:inline-flex items-center gap-2 px-4 h-10 rounded-full bg-brand-cyan/10 border border-brand-cyan/40 text-brand-cyan text-sm font-semibold hover:bg-brand-cyan hover:text-brand-dark transition-all" title="Open Resume (PDF)">
+                    <i class="fas fa-file-lines"></i> Resume
+                </a>
                 <a href="https://github.com/klntxo/Unity-Game-Projects" target="_blank" class="w-10 h-10 rounded-full bg-brand-card flex items-center justify-center border border-brand-border text-gray-300 hover:text-brand-cyan hover:border-brand-cyan transition-all" title="GitHub Repository">
                     <i class="fab fa-github text-base"></i>
                 </a>
@@ -135,9 +192,15 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center md:text-left flex flex-col md:flex-row items-center gap-12 relative z-10">
             <div class="md:w-2/3 space-y-5">
                 <!-- Context Badge -->
-                <div class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-brand-cyan/10 border border-brand-cyan/25 text-brand-cyan text-xs font-semibold uppercase tracking-wider">
-                    <span class="w-2 h-2 rounded-full bg-brand-cyan animate-pulse"></span>
-                    <span>Year 2 Student @ SP (MAD)</span>
+                <div class="flex flex-wrap gap-2 justify-center md:justify-start">
+                    <div class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-brand-cyan/10 border border-brand-cyan/25 text-brand-cyan text-xs font-semibold uppercase tracking-wider">
+                        <span class="w-2 h-2 rounded-full bg-brand-cyan animate-pulse"></span>
+                        <span>Year 2 Student @ SP (MAD)</span>
+                    </div>
+                    <div class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-emerald-400/10 border border-emerald-400/30 text-emerald-300 text-xs font-semibold uppercase tracking-wider">
+                        <i class="fas fa-briefcase text-[10px]"></i>
+                        <span>Open to internships · Mar – Aug 2027</span>
+                    </div>
                 </div>
 
                 <!-- Main Name Header -->
@@ -147,7 +210,7 @@
 
                 <!-- Key Role Titles -->
                 <p class="text-lg sm:text-xl text-gray-200 font-medium leading-relaxed">
-                    Aspiring Game Developer & Audio Specialist 
+                    Game Developer & Audio Designer 
                     <span class="text-brand-cyan font-normal mx-1 hidden sm:inline">|</span> 
                     <span class="text-gray-300 block sm:inline">Open-Format DJ & Performer</span>
                 </p>
@@ -164,8 +227,11 @@
                     <a href="#portfolio" class="px-7 py-3.5 rounded-full bg-gradient-to-r from-brand-cyan via-brand-blue to-brand-indigo text-white font-semibold hover:shadow-[0_0_25px_rgba(59,130,246,0.5)] transition-all transform hover:-translate-y-0.5 text-center">
                         Explore Portfolio
                     </a>
-                    <a href="mailto:kialentsng@gmail.com" class="px-7 py-3.5 rounded-full bg-brand-card border border-brand-border hover:border-brand-cyan hover:text-brand-cyan transition-all text-center font-medium">
-                        Get In Touch
+                    <a href="resume.pdf" target="_blank" rel="noopener" class="px-7 py-3.5 rounded-full bg-brand-card border border-brand-border hover:border-brand-cyan hover:text-brand-cyan transition-all text-center font-medium">
+                        <i class="fas fa-file-lines mr-1.5"></i> View Resume
+                    </a>
+                    <a href="#contact" class="px-7 py-3.5 rounded-full border border-transparent text-gray-300 hover:text-brand-cyan transition-all text-center font-medium">
+                        Get In Touch <i class="fas fa-arrow-right text-xs ml-1"></i>
                     </a>
                 </div>
             </div>
@@ -184,7 +250,7 @@
 
                     <!-- 3D Interactive Canvas -->
                     <div class="relative w-full h-full flex items-center justify-center my-2 rounded-2xl overflow-hidden bg-brand-dark/50 border border-brand-border/40">
-                        <canvas id="hero-3d-canvas" class="w-full h-full cursor-grab active:cursor-grabbing"></canvas>
+                        <canvas id="hero-3d-canvas" class="w-full h-full"></canvas>
                         
                         <!-- Hover hint overlay -->
                         <div class="absolute bottom-2 right-2 opacity-60 group-hover:opacity-100 transition-opacity text-[10px] font-mono text-gray-400 bg-brand-dark/80 px-2 py-0.5 rounded border border-brand-border/60 pointer-events-none">
@@ -269,35 +335,177 @@
         </div>
     </section>
 
-    <section id="experience" class="py-24 bg-brand-dark">
+    <section id="skills" class="py-24 bg-brand-dark">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <span class="text-xs font-bold uppercase tracking-widest text-brand-cyan mb-2 block">Toolkit</span>
+                <h2 class="text-3xl md:text-4xl font-extrabold">Skills & <span class="text-neon">Tools</span></h2>
+                <div class="w-16 h-1 bg-gradient-to-r from-brand-cyan to-brand-blue mx-auto rounded-full mt-3"></div>
+            </div>
+
+            <h3 class="text-sm font-mono uppercase tracking-wider text-gray-400 mb-4">Software & Engines</h3>
+            <div class="grid grid-cols-3 sm:grid-cols-4 lg:grid-cols-6 gap-3 sm:gap-4 mb-12">
+                <div class="tool-tile group bg-brand-card rounded-2xl border border-brand-border p-4 flex flex-col items-center justify-center gap-3 text-center hover-card" style="--tool:#ffffff">
+                    <span class="transition-transform duration-300 group-hover:scale-110"><span class="w-9 h-9 block"><svg stroke="currentColor" fill="currentColor" stroke-width="0" role="img" viewBox="0 0 24 24" color="#ffffff" aria-hidden="true" style="color:#ffffff" height="100%" width="100%" xmlns="http://www.w3.org/2000/svg"><path d="m12.9288 4.2939 3.7997 2.1929c.1366.077.1415.2905 0 .3675l-4.515 2.6076a.4192.4192 0 0 1-.4246 0L7.274 6.8543c-.139-.0745-.1415-.293 0-.3675l3.7972-2.193V0L1.3758 5.5977V16.793l3.7177-2.1456v-4.3858c-.0025-.1565.1813-.2682.318-.1838l4.5148 2.6076a.4252.4252 0 0 1 .2136.3676v5.2127c.0025.1565-.1813.2682-.3179.1838l-3.7996-2.1929-3.7178 2.1457L12 24l9.6954-5.5977-3.7178-2.1457-3.7996 2.1929c-.1341.082-.3229-.0248-.3179-.1838V13.053c0-.1565.087-.2956.2136-.3676l4.5149-2.6076c.134-.082.3228.0224.3179.1838v4.3858l3.7177 2.1456V5.5977L12.9288 0Z"></path></svg></span></span>
+                    <span class="text-xs font-semibold text-gray-200 leading-tight">Unity</span>
+                </div>
+                <div class="tool-tile group bg-brand-card rounded-2xl border border-brand-border p-4 flex flex-col items-center justify-center gap-3 text-center hover-card" style="--tool:#ffffff">
+                    <span class="transition-transform duration-300 group-hover:scale-110"><span class="w-9 h-9 block"><svg stroke="currentColor" fill="currentColor" stroke-width="0" role="img" viewBox="0 0 24 24" color="#ffffff" aria-hidden="true" style="color:#ffffff" height="100%" width="100%" xmlns="http://www.w3.org/2000/svg"><path d="M12 0a12 12 0 1012 12A12 12 0 0012 0zm0 23.52A11.52 11.52 0 1123.52 12 11.52 11.52 0 0112 23.52zm7.13-9.791c-.206.997-1.126 3.557-4.06 4.942l-1.179-1.325-1.988 2a7.338 7.338 0 01-5.804-2.978 2.859 2.859 0 00.65.123c.326.006.678-.114.678-.66v-5.394a.89.89 0 00-1.116-.89c-.92.212-1.656 2.509-1.656 2.509a7.304 7.304 0 012.528-5.597 7.408 7.408 0 013.73-1.721c-1.006.573-1.57 1.507-1.57 2.29 0 1.262.76 1.109.984.923v7.28a1.157 1.157 0 00.148.256 1.075 1.075 0 00.88.445c.76 0 1.747-.868 1.747-.868V9.172c0-.6-.452-1.324-.905-1.572 0 0 .838-.149 1.484.346a5.537 5.537 0 01.387-.425c1.508-1.48 2.929-1.902 4.112-2.112 0 0-2.151 1.69-2.151 3.96 0 1.687.043 5.801.043 5.801.799.771 1.986-.342 3.059-1.441Z"></path></svg></span></span>
+                    <span class="text-xs font-semibold text-gray-200 leading-tight">Unreal Engine</span>
+                </div>
+                <div class="tool-tile group bg-brand-card rounded-2xl border border-brand-border p-4 flex flex-col items-center justify-center gap-3 text-center hover-card" style="--tool:#b388ff">
+                    <span class="transition-transform duration-300 group-hover:scale-110"><span class="w-9 h-9 block"><svg stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" color="#b388ff" aria-hidden="true" style="color:#b388ff" height="100%" width="100%" xmlns="http://www.w3.org/2000/svg"><path d="M10 9a3 3 0 0 0 -3 -3h-.5a3.5 3.5 0 0 0 -3.5 3.5v5a3.5 3.5 0 0 0 3.5 3.5h.5a3 3 0 0 0 3 -3"></path><path d="M16 7l-1 10"></path><path d="M20 7l-1 10"></path><path d="M14 10h7.5"></path><path d="M21 14h-7.5"></path></svg></span></span>
+                    <span class="text-xs font-semibold text-gray-200 leading-tight">C#</span>
+                </div>
+                <div class="tool-tile group bg-brand-card rounded-2xl border border-brand-border p-4 flex flex-col items-center justify-center gap-3 text-center hover-card" style="--tool:#00a2ff">
+                    <span class="transition-transform duration-300 group-hover:scale-110"><span class="w-9 h-9 block"><svg stroke="currentColor" fill="currentColor" stroke-width="0" role="img" viewBox="0 0 24 24" color="#00a2ff" aria-hidden="true" style="color:#00a2ff" height="100%" width="100%" xmlns="http://www.w3.org/2000/svg"><path d="M 13.936 15.356 L 1.826 12.112 L 0 18.93 L 18.928 24 L 21.608 14.01 L 14.79 12.18 L 13.936 15.356 Z M 5.072 0 L 2.394 9.992 L 9.21 11.822 L 10.064 8.644 L 22.174 11.89 L 24 5.072 L 5.072 0 Z"></path></svg></span></span>
+                    <span class="text-xs font-semibold text-gray-200 leading-tight">Roblox Studio</span>
+                </div>
+                <div class="tool-tile group bg-brand-card rounded-2xl border border-brand-border p-4 flex flex-col items-center justify-center gap-3 text-center hover-card" style="--tool:#ffffff">
+                    <span class="transition-transform duration-300 group-hover:scale-110"><span class="w-9 h-9 block"><svg stroke="currentColor" fill="currentColor" stroke-width="0" role="img" viewBox="0 0 24 24" color="#ffffff" aria-hidden="true" style="color:#ffffff" height="100%" width="100%" xmlns="http://www.w3.org/2000/svg"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"></path></svg></span></span>
+                    <span class="text-xs font-semibold text-gray-200 leading-tight">GitHub</span>
+                </div>
+                <div class="tool-tile group bg-brand-card rounded-2xl border border-brand-border p-4 flex flex-col items-center justify-center gap-3 text-center hover-card" style="--tool:#ffffff">
+                    <span class="transition-transform duration-300 group-hover:scale-110"><span class="w-9 h-9 block"><svg stroke="currentColor" fill="currentColor" stroke-width="0" role="img" viewBox="0 0 24 24" color="#ffffff" aria-hidden="true" style="color:#ffffff" height="100%" width="100%" xmlns="http://www.w3.org/2000/svg"><path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"></path></svg></span></span>
+                    <span class="text-xs font-semibold text-gray-200 leading-tight">Effect House (AR)</span>
+                </div>
+                <div class="tool-tile group bg-brand-card rounded-2xl border border-brand-border p-4 flex flex-col items-center justify-center gap-3 text-center hover-card" style="--tool:#37a5cc">
+                    <span class="transition-transform duration-300 group-hover:scale-110"><span class="w-9 h-9 block"><svg stroke="currentColor" fill="currentColor" stroke-width="0" role="img" viewBox="0 0 24 24" color="#37a5cc" aria-hidden="true" style="color:#37a5cc" height="100%" width="100%" xmlns="http://www.w3.org/2000/svg"><path d="M4.348 0 .69 2.203v16.875l3.657-2.203h17.297V1.219c0-.67-.551-1.219-1.22-1.219H4.349zm18.297 3.75v14.125H4.627l-1.943 1.17v3.736c0 .67.55 1.219 1.218 1.219H23.31V3.75h-.664zm-14.471.025h2.937l1.885 7.508 1.977-7.48-.012-.028h2.857v9.354h-2.216v-6.04l-1.565 6.026v.014h-2.203l-1.656-6.28v6.28H8.174V3.775zm1.33 14.762h1.18l1.068 3.543h-.902l-.217-.773H9.568l-.197.773h-.88l1.013-3.543zm1.918 0h.932l.648 1.494.643-1.494h.894l-1.113 2.133v1.41h-.887v-1.406l-1.117-2.137zm3.826 0h1.18l1.068 3.543h-.9l-.217-.773h-1.065l-.197.773h-.88l1.011-3.543zm-5.156.582-.362 1.53h.73l-.368-1.53zm5.744 0-.36 1.53h.73l-.37-1.53z"></path></svg></span></span>
+                    <span class="text-xs font-semibold text-gray-200 leading-tight">Autodesk Maya</span>
+                </div>
+                <div class="tool-tile group bg-brand-card rounded-2xl border border-brand-border p-4 flex flex-col items-center justify-center gap-3 text-center hover-card" style="--tool:#e87d0d">
+                    <span class="transition-transform duration-300 group-hover:scale-110"><span class="w-9 h-9 block"><svg stroke="currentColor" fill="currentColor" stroke-width="0" role="img" viewBox="0 0 24 24" color="#e87d0d" aria-hidden="true" style="color:#e87d0d" height="100%" width="100%" xmlns="http://www.w3.org/2000/svg"><path d="M12.51 13.214c.046-.8.438-1.506 1.03-2.006a3.424 3.424 0 0 1 2.212-.79c.85 0 1.631.3 2.211.79.592.5.983 1.206 1.028 2.005.045.823-.285 1.586-.865 2.153a3.389 3.389 0 0 1-2.374.938 3.393 3.393 0 0 1-2.376-.938c-.58-.567-.91-1.33-.865-2.152M7.35 14.831c.006.314.106.922.256 1.398a7.372 7.372 0 0 0 1.593 2.757 8.227 8.227 0 0 0 2.787 2.001 8.947 8.947 0 0 0 3.66.76 8.964 8.964 0 0 0 3.657-.772 8.285 8.285 0 0 0 2.785-2.01 7.428 7.428 0 0 0 1.592-2.762 6.964 6.964 0 0 0 .25-3.074 7.123 7.123 0 0 0-1.016-2.779 7.764 7.764 0 0 0-1.852-2.043h.002L13.566 2.55l-.02-.015c-.492-.378-1.319-.376-1.86.002-.547.382-.609 1.015-.123 1.415l-.001.001 3.126 2.543-9.53.01h-.013c-.788.001-1.545.518-1.695 1.172-.154.665.38 1.217 1.2 1.22V8.9l4.83-.01-8.62 6.617-.034.025c-.813.622-1.075 1.658-.563 2.313.52.667 1.625.668 2.447.004L7.414 14s-.069.52-.063.831zm12.09 1.741c-.97.988-2.326 1.548-3.795 1.55-1.47.004-2.827-.552-3.797-1.538a4.51 4.51 0 0 1-1.036-1.622 4.282 4.282 0 0 1 .282-3.519 4.702 4.702 0 0 1 1.153-1.371c.942-.768 2.141-1.183 3.396-1.185 1.256-.002 2.455.41 3.398 1.175.48.391.87.854 1.152 1.367a4.28 4.28 0 0 1 .522 1.706 4.236 4.236 0 0 1-.239 1.811 4.54 4.54 0 0 1-1.035 1.626"></path></svg></span></span>
+                    <span class="text-xs font-semibold text-gray-200 leading-tight">Blender</span>
+                </div>
+                <div class="tool-tile group bg-brand-card rounded-2xl border border-brand-border p-4 flex flex-col items-center justify-center gap-3 text-center hover-card" style="--tool:#ff4f7b">
+                    <span class="transition-transform duration-300 group-hover:scale-110"><span class="w-9 h-9 rounded-md flex items-center justify-center font-extrabold text-sm" style="background:#2a0d17;color:#ff4f7b;border:1.5px solid #ff4f7b">Pt</span></span>
+                    <span class="text-xs font-semibold text-gray-200 leading-tight">Substance 3D Painter</span>
+                </div>
+                <div class="tool-tile group bg-brand-card rounded-2xl border border-brand-border p-4 flex flex-col items-center justify-center gap-3 text-center hover-card" style="--tool:#31a8ff">
+                    <span class="transition-transform duration-300 group-hover:scale-110"><span class="w-9 h-9 block"><svg stroke="currentColor" fill="currentColor" stroke-width="0" version="1.1" viewBox="0 0 34 32" color="#31a8ff" aria-hidden="true" style="color:#31a8ff" height="100%" width="100%" xmlns="http://www.w3.org/2000/svg"><path d="M3.556 2.845v27.071h27.53v-27.071h-27.53zM28.896 27.763h-23.151v-22.765h23.151v22.765z"></path><path d="M16.555 10.442c-0.693-0.599-1.726-0.939-3.173-0.939-1.433 0-3.173 0.046-3.173 0.046l-0 11.103h2.326v-3.568c0 0 0.407-0.005 0.847-0.023 1.593-0.067 2.526-0.549 3.327-1.364 0.616-0.631 0.955-1.53 0.955-2.627s-0.447-2.062-1.109-2.628zM13.32 15.115c-0.375 0.004-0.533 0.016-0.786-0.008v-3.834c0 0 0.493-0.017 0.971 0 1.198 0.044 1.833 0.89 1.833 1.921-0 1.148-0.77 1.906-2.018 1.921z"></path><path d="M22.205 15.455c-1.005-0.356-1.324-0.559-1.324-0.949 0-0.423 0.352-0.677 0.972-0.677 0.703 0 1.767 0.454 2.136 0.658v-1.871c-0.502-0.254-1.265-0.566-2.22-0.566-2.027 0-3.334 1.169-3.334 2.728-0.017 0.965 0.636 1.655 2.329 2.231 0.955 0.322 1.206 0.767 1.206 1.191s-0.318 0.695-1.089 0.695c-0.754 0-1.86-0.431-2.329-0.718v0 1.847c0.62 0.338 1.518 0.659 2.329 0.684 2.363 0.074 3.551-1.152 3.551-2.694-0.017-1.22-0.67-2.016-2.228-2.558z"></path></svg></span></span>
+                    <span class="text-xs font-semibold text-gray-200 leading-tight">Photoshop</span>
+                </div>
+                <div class="tool-tile group bg-brand-card rounded-2xl border border-brand-border p-4 flex flex-col items-center justify-center gap-3 text-center hover-card" style="--tool:#e2e8f0">
+                    <span class="transition-transform duration-300 group-hover:scale-110"><span class="w-9 h-9 block"><svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 448 512" color="#e2e8f0" aria-hidden="true" style="color:#e2e8f0" height="100%" width="100%" xmlns="http://www.w3.org/2000/svg"><path d="M320 48a48 48 0 1 0 -96 0 48 48 0 1 0 96 0zM125.7 175.5c9.9-9.9 23.4-15.5 37.5-15.5c1.9 0 3.8 .1 5.6 .3L137.6 254c-9.3 28 1.7 58.8 26.8 74.5l86.2 53.9-25.4 88.8c-4.9 17 5 34.7 22 39.6s34.7-5 39.6-22l28.7-100.4c5.9-20.6-2.6-42.6-20.7-53.9L238 299l30.9-82.4 5.1 12.3C289 264.7 323.9 288 362.7 288l21.3 0c17.7 0 32-14.3 32-32s-14.3-32-32-32l-21.3 0c-12.9 0-24.6-7.8-29.5-19.7l-6.3-15c-14.6-35.1-44.1-61.9-80.5-73.1l-48.7-15c-11.1-3.4-22.7-5.2-34.4-5.2c-31 0-60.8 12.3-82.7 34.3L57.4 153.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l23.1-23.1zM91.2 352L32 352c-17.7 0-32 14.3-32 32s14.3 32 32 32l69.6 0c19 0 36.2-11.2 43.9-28.5L157 361.6l-9.5-6c-17.5-10.9-30.5-26.8-37.9-44.9L91.2 352z"></path></svg></span></span>
+                    <span class="text-xs font-semibold text-gray-200 leading-tight">Mixamo</span>
+                </div>
+                <div class="tool-tile group bg-brand-card rounded-2xl border border-brand-border p-4 flex flex-col items-center justify-center gap-3 text-center hover-card" style="--tool:#22d3ee">
+                    <span class="transition-transform duration-300 group-hover:scale-110"><span class="w-9 h-9 block"><svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 512 512" color="#22d3ee" aria-hidden="true" style="color:#22d3ee" height="100%" width="100%" xmlns="http://www.w3.org/2000/svg"><path d="M512 256c0 .9 0 1.8 0 2.7c-.4 36.5-33.6 61.3-70.1 61.3L344 320c-26.5 0-48 21.5-48 48c0 3.4 .4 6.7 1 9.9c2.1 10.2 6.5 20 10.8 29.9c6.1 13.8 12.1 27.5 12.1 42c0 31.8-21.6 60.7-53.4 62c-3.5 .1-7 .2-10.6 .2C114.6 512 0 397.4 0 256S114.6 0 256 0S512 114.6 512 256zM128 288a32 32 0 1 0 -64 0 32 32 0 1 0 64 0zm0-96a32 32 0 1 0 0-64 32 32 0 1 0 0 64zM288 96a32 32 0 1 0 -64 0 32 32 0 1 0 64 0zm96 96a32 32 0 1 0 0-64 32 32 0 1 0 0 64z"></path></svg></span></span>
+                    <span class="text-xs font-semibold text-gray-200 leading-tight">Canva</span>
+                </div>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-6">
+                <div class="bg-brand-card p-6 rounded-2xl border border-brand-border hover-card">
+                    <div class="flex items-center gap-3 mb-4">
+                        <span class="w-10 h-10 rounded-xl bg-brand-cyan/10 text-brand-cyan flex items-center justify-center text-lg"><i class="fas fa-gamepad"></i></span>
+                        <h3 class="font-bold text-white">Game Dev & Art</h3>
+                    </div>
+                    <div class="flex flex-wrap gap-2">
+                            <span class="text-xs font-medium px-3 py-1.5 rounded-lg bg-brand-dark border border-brand-border text-gray-200">Gameplay Scripting</span>
+                            <span class="text-xs font-medium px-3 py-1.5 rounded-lg bg-brand-dark border border-brand-border text-gray-200">Enemy AI & State Machines</span>
+                            <span class="text-xs font-medium px-3 py-1.5 rounded-lg bg-brand-dark border border-brand-border text-gray-200">3D Modeling</span>
+                            <span class="text-xs font-medium px-3 py-1.5 rounded-lg bg-brand-dark border border-brand-border text-gray-200">Texturing</span>
+                            <span class="text-xs font-medium px-3 py-1.5 rounded-lg bg-brand-dark border border-brand-border text-gray-200">3D & 2D Animation</span>
+                            <span class="text-xs font-medium px-3 py-1.5 rounded-lg bg-brand-dark border border-brand-border text-gray-200">AR Effects</span>
+                            
+                    </div>
+                </div>
+                <div class="bg-brand-card p-6 rounded-2xl border border-brand-border hover-card">
+                    <div class="flex items-center gap-3 mb-4">
+                        <span class="w-10 h-10 rounded-xl bg-brand-periwinkle/10 text-brand-periwinkle flex items-center justify-center text-lg"><i class="fas fa-sliders"></i></span>
+                        <h3 class="font-bold text-white">Audio & Performance</h3>
+                    </div>
+                    <div class="flex flex-wrap gap-2">
+                            <span class="text-xs font-medium px-3 py-1.5 rounded-lg bg-brand-dark border border-brand-border text-gray-200">Adaptive Game Audio</span>
+                            <span class="text-xs font-medium px-3 py-1.5 rounded-lg bg-brand-dark border border-brand-border text-gray-200">3D Spatial Audio</span>
+                            <span class="text-xs font-medium px-3 py-1.5 rounded-lg bg-brand-dark border border-brand-border text-gray-200">Sound Design</span>
+                            <span class="text-xs font-medium px-3 py-1.5 rounded-lg bg-brand-dark border border-brand-border text-gray-200">Live Open-Format DJing</span>
+                            <span class="text-xs font-medium px-3 py-1.5 rounded-lg bg-brand-dark border border-brand-border text-gray-200">CDJs, Controllers & Mixers</span>
+                            
+                    </div>
+                </div>
+                <div class="bg-brand-card p-6 rounded-2xl border border-brand-border hover-card">
+                    <div class="flex items-center gap-3 mb-4">
+                        <span class="w-10 h-10 rounded-xl bg-brand-lavender/10 text-brand-lavender flex items-center justify-center text-lg"><i class="fas fa-lightbulb"></i></span>
+                        <h3 class="font-bold text-white">Design & People</h3>
+                    </div>
+                    <div class="flex flex-wrap gap-2">
+                            <span class="text-xs font-medium px-3 py-1.5 rounded-lg bg-brand-dark border border-brand-border text-gray-200">Design Thinking</span>
+                            <span class="text-xs font-medium px-3 py-1.5 rounded-lg bg-brand-dark border border-brand-border text-gray-200">User-Centered Design</span>
+                            <span class="text-xs font-medium px-3 py-1.5 rounded-lg bg-brand-dark border border-brand-border text-gray-200">Cross-Cultural Collaboration</span>
+                            <span class="text-xs font-medium px-3 py-1.5 rounded-lg bg-brand-dark border border-brand-border text-gray-200">English</span>
+                            <span class="text-xs font-medium px-3 py-1.5 rounded-lg bg-brand-dark border border-brand-border text-gray-200">Chinese</span>
+                            <span class="text-xs font-medium px-3 py-1.5 rounded-lg bg-brand-dark border border-brand-border text-gray-200">Malay (Elementary)</span>
+                            
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="experience" class="py-24 bg-brand-dark/50">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-16">
                 <span class="text-xs font-bold uppercase tracking-widest text-brand-cyan mb-2 block">Career Journey</span>
-                <h2 class="text-3xl md:text-4xl font-extrabold">Work <span class="text-neon">Experience</span></h2>
+                <h2 class="text-3xl md:text-4xl font-extrabold">Experience & <span class="text-neon">Volunteering</span></h2>
                 <div class="w-16 h-1 bg-gradient-to-r from-brand-cyan to-brand-blue mx-auto rounded-full mt-3"></div>
             </div>
 
             <div class="relative border-l-2 border-brand-border max-w-3xl mx-auto space-y-10 pl-6 sm:pl-8">
-                
+
                 <!-- Experience Item 1 -->
                 <div class="relative group">
                     <div class="absolute -left-[31px] sm:-left-[39px] top-1.5 w-5 h-5 rounded-full bg-brand-dark border-4 border-brand-cyan group-hover:scale-125 transition-transform"></div>
                     <div class="bg-brand-card p-6 sm:p-8 rounded-2xl border border-brand-border hover-card">
                         <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-4">
                             <div>
-                                <h3 class="text-xl font-bold text-white">Freelance Disk Jockey</h3>
-                                <p class="text-brand-cyan font-medium text-sm">Self-Employed</p>
+                                <h3 class="text-xl font-bold text-white">Freelance Disk Jockey (DJ)</h3>
+                                <p class="text-brand-cyan font-medium text-sm">Self-Employed • Singapore</p>
                             </div>
                             <span class="text-xs font-mono text-gray-400 bg-brand-dark border border-brand-border px-3 py-1 rounded-full w-max">
                                 April 2025 - Present
                             </span>
                         </div>
-                        <ul class="space-y-2 text-sm text-gray-300 list-disc list-inside">
-                            <li><strong>Audience Analysis & Pacing:</strong> Executed live sets, translating real-time audience feedback into energy pacing—directly applicable to game level pacing.</li>
-                            <li><strong>Technical System Management:</strong> Managed complex audio hardware (CDJs, mixers), ensuring 100% technical uptime during live gigs.</li>
-                            <li><strong>Atmospheric Storytelling:</strong> Curated immersive soundscapes to shape room emotion and spatial vibe.</li>
-                            <li><strong>Crisis Management:</strong> Fast technical troubleshooting mid-performance without disrupting user flow.</li>
+                        <ul class="space-y-2.5 text-sm text-gray-300 list-disc list-outside pl-4">
+                            <li><strong class="text-white">Reading the crowd:</strong> Play live sets at clubs, cafes, private and school events, adjusting the energy based on how people react. It's the same instinct I use for pacing in games.</li>
+                            <li><strong class="text-white">Equipment:</strong> Set up and run CDJs, controllers and mixers for each gig.</li>
+                            <li><strong class="text-white">Building a mood:</strong> Plan sets that shape how a room feels, from warm-up to peak.</li>
+                            <li><strong class="text-white">Thinking on my feet:</strong> Fix technical problems mid-set without stopping the music.</li>
                         </ul>
+
+                        <div class="mt-6 pt-5 border-t border-brand-border/60 space-y-4">
+                            <div>
+                                <p class="text-[11px] font-mono uppercase tracking-wider text-gray-500 mb-2">Nightlife & Clubs (Cozy Entertainments)</p>
+                                <div class="flex flex-wrap gap-2">
+                                    <span class="text-[11px] px-2.5 py-1 rounded-full bg-brand-dark border border-brand-border text-gray-300">YANG Club</span>
+                                    <span class="text-[11px] px-2.5 py-1 rounded-full bg-brand-dark border border-brand-border text-gray-300">Chupitos</span>
+                                    <span class="text-[11px] px-2.5 py-1 rounded-full bg-brand-dark border border-brand-border text-gray-300">Level Up Bar & Arcade</span>
+                                    <span class="text-[11px] px-2.5 py-1 rounded-full bg-brand-dark border border-brand-border text-gray-300">Truth or Dare Rooftop Bar</span>
+                                    <span class="text-[11px] px-2.5 py-1 rounded-full bg-brand-dark border border-brand-border text-gray-300">1-Altitude Coast Rooftop Bar</span>
+                                    <span class="text-[11px] px-2.5 py-1 rounded-full bg-brand-dark border border-brand-border text-gray-300">1-Flowerhill Matcha Party</span>
+                                </div>
+                            </div>
+                            <div>
+                                <p class="text-[11px] font-mono uppercase tracking-wider text-gray-500 mb-2">Lounges & Cafes</p>
+                                <div class="flex flex-wrap gap-2">
+                                    <span class="text-[11px] px-2.5 py-1 rounded-full bg-brand-dark border border-brand-border text-gray-300">Notes Cafe & Bar (Unbound Collective)</span>
+                                    <span class="text-[11px] px-2.5 py-1 rounded-full bg-brand-dark border border-brand-border text-gray-300">Old Habits Cafe (Plant_1t)</span>
+                                    <span class="text-[11px] px-2.5 py-1 rounded-full bg-brand-dark border border-brand-border text-gray-300">Private birthdays & celebrations</span>
+                                </div>
+                            </div>
+                            <div>
+                                <p class="text-[11px] font-mono uppercase tracking-wider text-gray-500 mb-2">School Events (SP)</p>
+                                <div class="flex flex-wrap gap-2">
+                                    <span class="text-[11px] px-2.5 py-1 rounded-full bg-brand-dark border border-brand-border text-gray-300">Arts Fiesta Opening Night</span>
+                                    <span class="text-[11px] px-2.5 py-1 rounded-full bg-brand-dark border border-brand-border text-gray-300">Open House</span>
+                                    <span class="text-[11px] px-2.5 py-1 rounded-full bg-brand-dark border border-brand-border text-gray-300">First Steps with SP</span>
+                                    <span class="text-[11px] px-2.5 py-1 rounded-full bg-brand-dark border border-brand-border text-gray-300">RP x SP Collab</span>
+                                    <span class="text-[11px] px-2.5 py-1 rounded-full bg-brand-dark border border-brand-border text-gray-300">SP Deejays AGM</span>
+                                    <span class="text-[11px] px-2.5 py-1 rounded-full bg-brand-dark border border-brand-border text-gray-300">SDZ FOC Jam (dance battle)</span>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
 
@@ -308,16 +516,16 @@
                         <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-4">
                             <div>
                                 <h3 class="text-xl font-bold text-white">Service Crew</h3>
-                                <p class="text-brand-blue font-medium text-sm">An Acai Affair</p>
+                                <p class="text-brand-blue font-medium text-sm">An Acai Affair • Singapore</p>
                             </div>
                             <span class="text-xs font-mono text-gray-400 bg-brand-dark border border-brand-border px-3 py-1 rounded-full w-max">
                                 July 2025 - Dec 2025
                             </span>
                         </div>
-                        <ul class="space-y-2 text-sm text-gray-300 list-disc list-inside">
-                            <li><strong>Visual Polish:</strong> Maintained high aesthetic standards for handcrafted product presentation.</li>
-                            <li><strong>Workflow Optimization:</strong> Streamlined assembly pipeline under high-volume rush periods.</li>
-                            <li><strong>User Retention:</strong> Handled customer onboarding and issue resolution under high demand.</li>
+                        <ul class="space-y-2.5 text-sm text-gray-300 list-disc list-outside pl-4">
+                            <li>Prepared and presented acai bowls to the shop's standards, including during busy rushes.</li>
+                            <li>Served customers, helped first-timers choose from the menu and handled the cashier.</li>
+                            <li>Kept stock topped up and the counter clean during service.</li>
                         </ul>
                     </div>
                 </div>
@@ -329,105 +537,223 @@
                         <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-4">
                             <div>
                                 <h3 class="text-xl font-bold text-white">Retail Assistant</h3>
-                                <p class="text-brand-periwinkle font-medium text-sm">FairPrice Group</p>
+                                <p class="text-brand-periwinkle font-medium text-sm">FairPrice Group • Singapore</p>
                             </div>
                             <span class="text-xs font-mono text-gray-400 bg-brand-dark border border-brand-border px-3 py-1 rounded-full w-max">
                                 Oct 2024 - Feb 2025
                             </span>
                         </div>
-                        <ul class="space-y-2 text-sm text-gray-300 list-disc list-inside">
-                            <li><strong>Operational Layout:</strong> Optimized product placement to eliminate user bottlenecks during peak hours.</li>
-                            <li><strong>User Experience (UX):</strong> Resolved complex inquiries efficiently in fast-paced retail settings.</li>
+                        <ul class="space-y-2.5 text-sm text-gray-300 list-disc list-outside pl-4">
+                            <li>Restocked shelves and kept popular items available during peak hours.</li>
+                            <li>Helped customers find products and answered their questions.</li>
+                            <li>Handled cashier transactions and helped set up promotional displays.</li>
                         </ul>
                     </div>
                 </div>
 
             </div>
+
+            <!-- Volunteering -->
+            <div class="max-w-5xl mx-auto mt-20">
+                <h3 class="flex items-center justify-center gap-3 text-xl font-bold text-white mb-8">
+                    <span class="w-9 h-9 rounded-xl bg-brand-lavender/10 text-brand-lavender flex items-center justify-center text-base"><i class="fas fa-hand-holding-heart"></i></span>
+                    Volunteering
+                </h3>
+                <div class="grid md:grid-cols-3 gap-6">
+                <div class="bg-brand-card p-6 rounded-2xl border border-brand-border hover-card flex flex-col">
+                    <div class="flex items-start gap-3 mb-3">
+                        <span class="w-10 h-10 shrink-0 rounded-xl bg-brand-cyan/10 text-brand-cyan flex items-center justify-center"><i class="fas fa-flag"></i></span>
+                        <div><h4 class="font-bold text-white leading-snug">NDP 2024 Marching Contingent</h4><p class="text-sm text-brand-cyan">GoodHood.SG</p></div>
+                    </div>
+                    <p class="text-[11px] font-mono text-gray-500 mb-3">May – Aug 2024</p>
+                    <p class="text-xs text-gray-400 leading-relaxed">Trained 150+ hours over 4 months for the Parade & Ceremony segment and performed live for a nationwide audience. Awarded the <strong class="text-gray-200">Star Award</strong> for outstanding discipline and precision.</p>
+                </div>
+                <div class="bg-brand-card p-6 rounded-2xl border border-brand-border hover-card flex flex-col">
+                    <div class="flex items-start gap-3 mb-3">
+                        <span class="w-10 h-10 shrink-0 rounded-xl bg-brand-blue/10 text-brand-blue flex items-center justify-center"><i class="fas fa-leaf"></i></span>
+                        <div><h4 class="font-bold text-white leading-snug">Floor Assistant</h4><p class="text-sm text-brand-blue">United Women Singapore</p></div>
+                    </div>
+                    <p class="text-[11px] font-mono text-gray-500 mb-3">Apr 2024</p>
+                    <p class="text-xs text-gray-400 leading-relaxed">Supported floor management at BuyToSave 2024, a sustainability-focused fundraiser for pre-loved luxury items.</p>
+                </div>
+                <div class="bg-brand-card p-6 rounded-2xl border border-brand-border hover-card flex flex-col">
+                    <div class="flex items-start gap-3 mb-3">
+                        <span class="w-10 h-10 shrink-0 rounded-xl bg-brand-lavender/10 text-brand-lavender flex items-center justify-center"><i class="fas fa-microphone"></i></span>
+                        <div><h4 class="font-bold text-white leading-snug">Student Volunteer & Event Emcee</h4><p class="text-sm text-brand-lavender">Yishun Town Secondary School</p></div>
+                    </div>
+                    <p class="text-[11px] font-mono text-gray-500 mb-3">2020 – 2024</p>
+                    <p class="text-xs text-gray-400 leading-relaxed">Hosted events for seniors at Wellness Kampong, taught magic to children at Life Student Care Centre, and organised appreciation drives for healthcare staff during COVID-19.</p>
+                </div>
+                </div>
+            </div>
         </div>
     </section>
 
-    <section id="education" class="py-24 bg-brand-dark/50">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid md:grid-cols-2 gap-12">
-            
-            <!-- Education Column -->
-            <div>
-                <div class="flex items-center gap-3 mb-8">
-                    <div class="w-10 h-10 rounded-xl bg-brand-cyan/10 text-brand-cyan flex items-center justify-center text-lg">
-                        <i class="fas fa-graduation-cap"></i>
-                    </div>
-                    <h2 class="text-2xl font-extrabold text-white">Education</h2>
-                </div>
+    <section id="education" class="py-24 bg-brand-dark">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
-                <div class="space-y-6">
-                    <div class="bg-brand-card p-6 rounded-2xl border border-brand-border hover-card">
-                        <span class="text-xs font-mono text-brand-cyan font-semibold uppercase">Diploma</span>
-                        <h3 class="text-lg font-bold text-white mt-1">Diploma in Media, Arts and Design</h3>
-                        <p class="text-gray-300 text-sm">Singapore Polytechnic (SP MAD)</p>
-                        <p class="text-xs text-gray-400 mt-2">Specialization: Animation & Games (Interactive Media Track) • April 2025 - Present</p>
-                    </div>
-
-                    <div class="bg-brand-card p-6 rounded-2xl border border-brand-border hover-card">
-                        <span class="text-xs font-mono text-brand-blue font-semibold uppercase">Secondary</span>
-                        <h3 class="text-lg font-bold text-white mt-1">Yishun Town Secondary School</h3>
-                        <p class="text-xs text-gray-400 mt-2">Jan 2020 - Nov 2024</p>
-                    </div>
-                </div>
+            <div class="text-center mb-16">
+                <span class="text-xs font-bold uppercase tracking-widest text-brand-cyan mb-2 block">Learning & Growth</span>
+                <h2 class="text-3xl md:text-4xl font-extrabold">Education & <span class="text-neon">Honors</span></h2>
+                <div class="w-16 h-1 bg-gradient-to-r from-brand-cyan to-brand-blue mx-auto rounded-full mt-3"></div>
             </div>
 
-            <!-- Awards & Certifications Column -->
-            <div>
-                <div class="flex items-center gap-3 mb-8">
-                    <div class="w-10 h-10 rounded-xl bg-brand-blue/10 text-brand-blue flex items-center justify-center text-lg">
-                        <i class="fas fa-award"></i>
+            <!-- Education -->
+            <h3 class="flex items-center gap-3 text-lg font-bold text-white mb-5">
+                <span class="w-9 h-9 rounded-xl bg-brand-cyan/10 text-brand-cyan flex items-center justify-center text-base"><i class="fas fa-graduation-cap"></i></span>
+                Education
+            </h3>
+            <div class="grid md:grid-cols-2 gap-6 mb-16">
+                <div class="bg-brand-card p-6 rounded-2xl border border-brand-border hover-card">
+                    <span class="text-xs font-mono text-brand-cyan font-semibold uppercase">Diploma</span>
+                    <h4 class="text-lg font-bold text-white mt-1">Diploma in Media, Arts and Design</h4>
+                    <p class="text-gray-300 text-sm">Singapore Polytechnic (SP MAD)</p>
+                    <p class="text-xs text-gray-400 mt-2">Animation & Games (Interactive Media Track) • April 2025 - Present</p>
+                    <ul class="mt-5 pt-5 border-t border-brand-border/60 space-y-3">
+                        <li class="flex items-start gap-3">
+                            <i class="fas fa-headphones text-brand-cyan mt-0.5 w-4 text-center"></i>
+                            <div><p class="text-sm font-semibold text-white leading-snug">SP Deejays: EXCO Secretary (Year 2)</p><p class="text-xs text-gray-400">Events Subcommittee (Year 1) • Co-organised the AGM and Arts Fiesta 2026</p></div>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <i class="fas fa-user-group text-brand-cyan mt-0.5 w-4 text-center"></i>
+                            <div><p class="text-sm font-semibold text-white leading-snug">Class Representative (Year 2)</p><p class="text-xs text-gray-400">Volunteered to represent my class</p></div>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <i class="fas fa-person-running text-brand-cyan mt-0.5 w-4 text-center"></i>
+                            <div><p class="text-sm font-semibold text-white leading-snug">SP Strictly Dance Zone: Performer</p><p class="text-xs text-gray-400">Waves 27 & 28 • Internal Showcase • Open House</p></div>
+                        </li>
+                    </ul>
+                    <div class="flex flex-wrap items-center gap-2 mt-4">
+                        <span class="text-[11px] font-mono text-gray-500 mr-1">Electives:</span>
+                        <span class="text-[11px] px-2.5 py-1 rounded-full bg-brand-dark border border-brand-border text-gray-300">Introduction to Music Production</span>
+                        <span class="text-[11px] px-2.5 py-1 rounded-full bg-brand-dark border border-brand-border text-gray-300">Conversational Malay</span>
                     </div>
-                    <h2 class="text-2xl font-extrabold text-white">Honors & Certs</h2>
                 </div>
-
-                <div class="bg-brand-card p-6 sm:p-8 rounded-2xl border border-brand-border">
-                    <ul class="space-y-5 text-sm">
+                <div class="bg-brand-card p-6 rounded-2xl border border-brand-border hover-card">
+                    <span class="text-xs font-mono text-brand-blue font-semibold uppercase">Secondary</span>
+                    <h4 class="text-lg font-bold text-white mt-1">Yishun Town Secondary School</h4>
+                    <p class="text-xs text-gray-400 mt-2">Jan 2020 - Nov 2024</p>
+                    <ul class="mt-5 pt-5 border-t border-brand-border/60 space-y-3">
                         <li class="flex items-start gap-3">
-                            <i class="fas fa-star text-amber-400 mt-1"></i>
-                            <div>
-                                <strong class="text-white block">Star Award (NDP 2024)</strong>
-                                <span class="text-xs text-gray-400">Recognized for contribution to National Day Parade marching contingent.</span>
-                            </div>
-                        </li>
-                        <li class="flex items-start gap-3">
-                            <i class="fas fa-medal text-brand-cyan mt-1"></i>
-                            <div>
-                                <strong class="text-white block">NYAA Silver Award (2024)</strong>
-                                <span class="text-xs text-gray-400">National Youth Achievement Award</span>
-                            </div>
-                        </li>
-                        <li class="flex items-start gap-3">
-                            <i class="fas fa-trophy text-brand-blue mt-1"></i>
-                            <div>
-                                <strong class="text-white block">Bronze Award - SJBO 2024</strong>
-                                <span class="text-xs text-gray-400">Singapore Junior Biology Olympiad</span>
-                            </div>
-                        </li>
-                        <li class="flex items-start gap-3">
-                            <i class="fas fa-shield-halved text-brand-periwinkle mt-1"></i>
-                            <div>
-                                <strong class="text-white block">EAGLES Award 2023</strong>
-                                <span class="text-xs text-gray-400">Edusave Award For Achievement, Leadership And Service</span>
-                            </div>
-                        </li>
-                        <li class="flex items-start gap-3">
-                            <i class="fas fa-certificate text-brand-indigo mt-1"></i>
-                            <div>
-                                <strong class="text-white block">Certifications</strong>
-                                <span class="text-xs text-gray-400">Code for Fun Programme • Food Safety & Hygiene 1</span>
-                            </div>
+                            <i class="fas fa-bowling-ball text-brand-blue mt-0.5 w-4 text-center"></i>
+                            <div><p class="text-sm font-semibold text-white leading-snug">Vice-Captain, Tenpin Bowling CCA</p><p class="text-xs text-gray-400">2020 – 2024</p></div>
                         </li>
                     </ul>
                 </div>
             </div>
 
+            <!-- Honors & Awards -->
+            <h3 class="flex items-center gap-3 text-lg font-bold text-white mb-5">
+                <span class="w-9 h-9 rounded-xl bg-amber-400/10 text-amber-400 flex items-center justify-center text-base"><i class="fas fa-award"></i></span>
+                Honors & Awards
+            </h3>
+            <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4 mb-16">
+                <div class="bg-brand-card p-5 rounded-2xl border border-brand-border hover-card">
+                    <i class="fas fa-star text-amber-400 text-xl mb-3 block"></i>
+                    <p class="font-bold text-white text-sm leading-snug">Star Award</p>
+                    <p class="text-xs text-gray-400 mt-1">NDP 2024 marching contingent</p>
+                    <p class="text-[11px] font-mono text-gray-500 mt-3">2024</p>
+                </div>
+                <div class="bg-brand-card p-5 rounded-2xl border border-brand-border hover-card">
+                    <i class="fas fa-medal text-brand-cyan text-xl mb-3 block"></i>
+                    <p class="font-bold text-white text-sm leading-snug">NYAA Silver</p>
+                    <p class="text-xs text-gray-400 mt-1">National Youth Achievement Award</p>
+                    <p class="text-[11px] font-mono text-gray-500 mt-3">2024</p>
+                </div>
+                <div class="bg-brand-card p-5 rounded-2xl border border-brand-border hover-card">
+                    <i class="fas fa-trophy text-brand-blue text-xl mb-3 block"></i>
+                    <p class="font-bold text-white text-sm leading-snug">SJBO Bronze</p>
+                    <p class="text-xs text-gray-400 mt-1">Singapore Junior Biology Olympiad</p>
+                    <p class="text-[11px] font-mono text-gray-500 mt-3">2024</p>
+                </div>
+                <div class="bg-brand-card p-5 rounded-2xl border border-brand-border hover-card">
+                    <i class="fas fa-shield-halved text-brand-periwinkle text-xl mb-3 block"></i>
+                    <p class="font-bold text-white text-sm leading-snug">EAGLES Award</p>
+                    <p class="text-xs text-gray-400 mt-1">Edusave Award for Achievement, Good Leadership and Service</p>
+                    <p class="text-[11px] font-mono text-gray-500 mt-3">2023</p>
+                </div>
+                <div class="bg-brand-card p-5 rounded-2xl border border-brand-border hover-card">
+                    <i class="fas fa-book-bookmark text-brand-lavender text-xl mb-3 block"></i>
+                    <p class="font-bold text-white text-sm leading-snug">Edusave Merit Bursary</p>
+                    <p class="text-xs text-gray-400 mt-1">MOE award for top 25% academic performance and good conduct</p>
+                    <p class="text-[11px] font-mono text-gray-500 mt-3">2023</p>
+                </div>
+            </div>
+
+            <!-- Certifications -->
+            <h3 class="flex items-center gap-3 text-lg font-bold text-white mb-5">
+                <span class="w-9 h-9 rounded-xl bg-brand-indigo/10 text-brand-indigo flex items-center justify-center text-base"><i class="fas fa-certificate"></i></span>
+                Certifications & Programmes
+            </h3>
+
+            <!-- Featured: OSIP -->
+            <div class="bg-gradient-to-br from-brand-cyan/10 via-brand-card to-brand-card p-6 sm:p-8 rounded-2xl border border-brand-cyan/30 hover-card mb-6">
+                <div class="flex flex-col sm:flex-row sm:items-start justify-between gap-3 mb-3">
+                    <div class="flex items-start gap-4">
+                        <span class="w-11 h-11 shrink-0 rounded-xl bg-brand-cyan/15 text-brand-cyan flex items-center justify-center text-lg"><i class="fas fa-earth-asia"></i></span>
+                        <div>
+                            <h4 class="text-lg font-bold text-white leading-snug">Overseas Social Innovation Programme (OSIP) – Learning Express (LeX)</h4>
+                            <p class="text-sm text-brand-cyan">Singapore Polytechnic × Batangas State University</p>
+                        </div>
+                    </div>
+                    <span class="text-xs font-mono text-gray-400 bg-brand-dark border border-brand-border px-3 py-1 rounded-full w-max shrink-0">Oct 2026</span>
+                </div>
+                <p class="text-sm text-gray-300 leading-relaxed sm:ml-[60px]">
+                    A 2-week overseas social innovation project in Batangas, Philippines. Used human-centered design to study the operational challenges of local sugarcane farmers in Nasugbu, co-creating interactive solution prototypes, journey maps and community-driven recommendations.
+                </p>
+                <div class="flex flex-wrap gap-2 mt-4 sm:ml-[60px]">
+                    <span class="text-[11px] px-2.5 py-1 rounded-full bg-brand-dark border border-brand-border text-gray-300">Design Thinking</span>
+                    <span class="text-[11px] px-2.5 py-1 rounded-full bg-brand-dark border border-brand-border text-gray-300">Social Innovation</span>
+                </div>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-6 mb-6">
+                <div class="bg-brand-card p-6 rounded-2xl border border-brand-border hover-card flex flex-col">
+                    <div class="flex items-start justify-between gap-3 mb-3">
+                        <div>
+                            <h4 class="font-bold text-white leading-snug">Strategic Planning in the AI Age</h4>
+                            <p class="text-sm text-brand-blue">HP LIFE</p>
+                        </div>
+                        <span class="text-xs font-mono text-gray-400 bg-brand-dark border border-brand-border px-3 py-1 rounded-full shrink-0">Oct 2026</span>
+                    </div>
+                    <p class="text-xs text-gray-400 leading-relaxed">
+                        Applied strategic frameworks (SWOT, SMART goals, risk evaluation) and AI tools to plan and manage multi-step creative pipelines for digital and interactive media production.
+                    </p>
+                </div>
+                <div class="bg-brand-card p-6 rounded-2xl border border-brand-border hover-card flex flex-col">
+                    <div class="flex items-start justify-between gap-3 mb-3">
+                        <div>
+                            <h4 class="font-bold text-white leading-snug">The 7 Habits of Highly Effective College Students</h4>
+                            <p class="text-sm text-brand-periwinkle">Singapore Polytechnic</p>
+                        </div>
+                        <span class="text-xs font-mono text-gray-400 bg-brand-dark border border-brand-border px-3 py-1 rounded-full shrink-0">Apr 2025</span>
+                    </div>
+                    <p class="text-xs text-gray-400 leading-relaxed">
+                        Awarded on completing LE765: Leadership 7-6-5, covering personal leadership, time management, goal setting, proactive decision-making and collaboration.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Compact certs -->
+            <div class="bg-brand-card rounded-2xl border border-brand-border divide-y divide-brand-border/70">
+                <div class="flex items-center justify-between gap-4 px-6 py-4">
+                    <div><p class="text-sm font-semibold text-white">Food Safety and Hygiene 1</p><p class="text-xs text-gray-400">SkillsFuture SG</p></div>
+                    <span class="text-xs font-mono text-gray-500 shrink-0">Sep 2025</span>
+                </div>
+                <div class="flex items-center justify-between gap-4 px-6 py-4">
+                    <div><p class="text-sm font-semibold text-white">Code for Fun Programme</p><p class="text-xs text-gray-400">Ministry of Education, Singapore (MOE)</p></div>
+                    <span class="text-xs font-mono text-gray-500 shrink-0">Jan 2022</span>
+                </div>
+                <div class="flex items-center justify-between gap-4 px-6 py-4">
+                    <div><p class="text-sm font-semibold text-white">Corteva Agriscience Learning Journey</p><p class="text-xs text-gray-400">Corteva Agriscience</p></div>
+                    <span class="text-xs font-mono text-gray-500 shrink-0">Jan 2022</span>
+                </div>
+            </div>
+
         </div>
     </section>
 
-    <section id="portfolio" class="py-24 bg-brand-dark">
+    <section id="portfolio" class="py-24 bg-brand-dark/50">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-12">
                 <span class="text-xs font-bold uppercase tracking-widest text-brand-cyan mb-2 block">Showcase</span>
@@ -439,23 +765,134 @@
                     <button data-filter="all" class="filter-btn active px-4 py-2 rounded-full text-xs font-semibold bg-brand-cyan/20 text-brand-cyan border border-brand-cyan/40 transition-all">
                         All Projects
                     </button>
+                    <button data-filter="code" class="filter-btn px-4 py-2 rounded-full text-xs font-semibold bg-brand-card text-gray-400 border border-brand-border hover:border-brand-blue hover:text-white transition-all">
+                        <i class="fas fa-gamepad mr-1 text-brand-blue"></i> Game Projects
+                    </button>
                     <button data-filter="art" class="filter-btn px-4 py-2 rounded-full text-xs font-semibold bg-brand-card text-gray-400 border border-brand-border hover:border-brand-cyan hover:text-white transition-all">
                         <i class="fas fa-cube mr-1 text-brand-cyan"></i> 3D Models
                     </button>
                     <button data-filter="anim" class="filter-btn px-4 py-2 rounded-full text-xs font-semibold bg-brand-card text-gray-400 border border-brand-border hover:border-brand-periwinkle hover:text-white transition-all">
                         <i class="fas fa-film mr-1 text-brand-periwinkle"></i> Animation
                     </button>
-                    <button data-filter="code" class="filter-btn px-4 py-2 rounded-full text-xs font-semibold bg-brand-card text-gray-400 border border-brand-border hover:border-brand-blue hover:text-white transition-all">
-                        <i class="fas fa-code mr-1 text-brand-blue"></i> Game Code
-                    </button>
                     <button data-filter="audio" class="filter-btn px-4 py-2 rounded-full text-xs font-semibold bg-brand-card text-gray-400 border border-brand-border hover:border-brand-lavender hover:text-white transition-all">
                         <i class="fas fa-headphones mr-1 text-brand-lavender"></i> Audio & DJ
+                    </button>
+                    <button data-filter="roblox" class="filter-btn px-4 py-2 rounded-full text-xs font-semibold bg-brand-card text-gray-400 border border-brand-border hover:border-brand-cyan hover:text-white transition-all">
+                        <i class="fas fa-shirt mr-1 text-brand-cyan"></i> Roblox & UGC
+                    </button>
+                    <button data-filter="design" class="filter-btn px-4 py-2 rounded-full text-xs font-semibold bg-brand-card text-gray-400 border border-brand-border hover:border-brand-indigo hover:text-white transition-all">
+                        <i class="fas fa-camera mr-1 text-brand-indigo"></i> Design & Illustration
                     </button>
                 </div>
             </div>
 
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" id="portfolio-grid">
-                
+
+                <!-- CARD: Left 4 Dead Remake (GCL2 CA4) -->
+                <div class="portfolio-item bg-brand-card rounded-2xl border border-brand-border overflow-hidden hover-card flex flex-col group" data-category="code">
+                    <div class="aspect-video bg-brand-dark relative overflow-hidden flex items-center justify-center border-b border-brand-border/50">
+                        <video controls playsinline preload="metadata" class="object-cover w-full h-full">
+                            <source src="videos/ca4-l4d-gameplay.mp4" type="video/mp4">
+                        </video>
+                        <div class="absolute top-3 left-3 px-2.5 py-1 rounded-md bg-brand-dark/80 backdrop-blur-sm text-[11px] font-semibold text-brand-cyan border border-brand-cyan/20 flex items-center gap-1.5 pointer-events-none">
+                            <i class="fas fa-volume-high text-[10px]"></i> Gameplay · sound on
+                        </div>
+                        <div class="absolute top-3 right-3 px-2.5 py-1 rounded-md bg-amber-400/90 text-[11px] font-bold text-brand-dark pointer-events-none"><i class="fas fa-star text-[9px] mr-1"></i>Featured</div>
+                    </div>
+                    <div class="p-6 flex-1 flex flex-col">
+                        <h3 class="text-lg font-bold text-white mb-1">Left 4 Dead Remake</h3>
+                        <span class="text-xs text-brand-blue font-mono mb-2">Unity · C# · Year 2 Sem 1 (GCL2 CA4)</span>
+                        <div class="flex items-center gap-2 text-[11px] font-mono text-gray-400 mb-4"><i class="fas fa-users text-brand-blue"></i> Team of 4 · My role: enemy AI, shove, animations, camera shake & all audio</div>
+                        <ul class="text-xs text-gray-300 space-y-1.5 mb-5 list-disc list-inside bg-brand-dark/40 p-3 rounded-xl border border-brand-border/40 flex-1">
+                            <li><strong>Enemy AI:</strong> one base class with chase, attack, flinch and death states, extended into a swarm zombie and the Witch</li>
+                            <li><strong>The Witch:</strong> crying gets louder as you approach; get too close and she screams and chases at 1.1× your speed</li>
+                            <li><strong>Shove &amp; feel:</strong> right-click knockback that keeps zombies on the NavMesh, plus camera shake on grenade explosions</li>
+                            <li><strong>Audio:</strong> 3D spatial zombie sounds, weapon SFX, footsteps, ambience, menu music and a death sequence that fades out every enemy</li>
+                        </ul>
+                        <div class="flex flex-wrap items-center gap-x-5 gap-y-2">
+                            <button type="button" data-breakdown="l4d" class="inline-flex items-center gap-2 text-xs font-bold text-brand-cyan hover:text-white transition-colors">
+                                <i class="fas fa-book-open"></i> Read Breakdown <i class="fas fa-arrow-right text-[10px]"></i>
+                            </button>
+                            <a href="https://github.com/klntxo/Unity-Game-Projects/tree/main/GCL2-CA4-L4D" target="_blank" rel="noopener" class="inline-flex items-center gap-2 text-xs font-bold text-brand-blue hover:text-white transition-colors">
+                                <i class="fab fa-github"></i> View Code <i class="fas fa-arrow-up-right-from-square text-[10px]"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- CARD: Donkey Kong Remake (GCL2 CA3) -->
+                <div class="portfolio-item bg-brand-card rounded-2xl border border-brand-border overflow-hidden hover-card flex flex-col group" data-category="code">
+                    <div class="aspect-video bg-brand-dark relative overflow-hidden flex items-center justify-center border-b border-brand-border/50">
+                        <video controls playsinline preload="metadata" class="object-cover w-full h-full">
+                            <source src="videos/ca3-donkeykong-gameplay.mp4" type="video/mp4">
+                        </video>
+                        <div class="absolute top-3 left-3 px-2.5 py-1 rounded-md bg-brand-dark/80 backdrop-blur-sm text-[11px] font-semibold text-brand-cyan border border-brand-cyan/20 flex items-center gap-1.5 pointer-events-none">
+                            <i class="fas fa-volume-high text-[10px]"></i> Gameplay · sound on
+                        </div>
+                        <div class="absolute top-3 right-3 px-2.5 py-1 rounded-md bg-amber-400/90 text-[11px] font-bold text-brand-dark pointer-events-none"><i class="fas fa-star text-[9px] mr-1"></i>Featured</div>
+                    </div>
+                    <div class="p-6 flex-1 flex flex-col">
+                        <h3 class="text-lg font-bold text-white mb-1">Donkey Kong Remake</h3>
+                        <span class="text-xs text-brand-blue font-mono mb-2">Unity · C# · Year 2 Sem 1 (GCL2 CA3)</span>
+                        <div class="flex items-center gap-2 text-[11px] font-mono text-gray-400 mb-4"><i class="fas fa-users text-brand-blue"></i> Team of 4 · My role: gameplay audio & core game logic</div>
+                        <ul class="text-xs text-gray-300 space-y-1.5 mb-4 list-disc list-inside bg-brand-dark/40 p-3 rounded-xl border border-brand-border/40">
+                            <li><strong>Adaptive music (my new feature):</strong> the soundtrack crossfades from calm to intense as Mario climbs towards the Princess</li>
+                            <li><strong>Level manager:</strong> 3-second start countdown, restart on death, win screen</li>
+                            <li><strong>Barrels, ladders &amp; win condition:</strong> barrel spawning, climbing and dropping through platforms, and reaching the Princess</li>
+                        </ul>
+                        <div class="p-3 bg-[#090d1a] rounded-xl border border-brand-border/50 font-mono text-[11px] text-gray-300 overflow-x-auto leading-relaxed mb-5 flex-1">
+                            <span class="text-gray-500">// AdaptiveAudioManager.cs: crossfade by height</span><br>
+                            <span class="text-brand-cyan">float</span> t = Mathf.Clamp01((y - minY) / (maxY - minY));<br>
+                            baseTrack.volume = 1f - t;<br>
+                            intenseTrack.volume = t;
+                        </div>
+                        <div class="flex flex-wrap items-center gap-x-5 gap-y-2">
+                            <button type="button" data-breakdown="dk" class="inline-flex items-center gap-2 text-xs font-bold text-brand-cyan hover:text-white transition-colors">
+                                <i class="fas fa-book-open"></i> Read Breakdown <i class="fas fa-arrow-right text-[10px]"></i>
+                            </button>
+                            <a href="https://github.com/klntxo/Unity-Game-Projects/tree/main/GCL2-CA3-DonkeyKong" target="_blank" rel="noopener" class="inline-flex items-center gap-2 text-xs font-bold text-brand-blue hover:text-white transition-colors">
+                                <i class="fab fa-github"></i> View Code <i class="fas fa-arrow-up-right-from-square text-[10px]"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- CARD: Deep Sea Simulator (LumiBun Studios) -->
+                <div class="portfolio-item bg-brand-card rounded-2xl border border-brand-border overflow-hidden hover-card flex flex-col group" data-category="code roblox">
+                    <div class="aspect-video bg-black relative overflow-hidden flex items-center justify-center border-b border-brand-border/50">
+                        <video controls playsinline preload="metadata" poster="images/deep-sea-gameplay.jpg" class="w-full h-full object-contain">
+                            <source src="videos/deep-sea-gameplay.mp4" type="video/mp4">
+                        </video>
+                        <div class="absolute top-3 left-3 px-2.5 py-1 rounded-md bg-brand-dark/80 backdrop-blur-sm text-[11px] font-semibold text-brand-cyan border border-brand-cyan/20 flex items-center gap-1.5 pointer-events-none">
+                            <i class="fas fa-play text-[9px]"></i> Gameplay · Unreleased
+                        </div>
+                        <div class="absolute top-3 right-3 px-2.5 py-1 rounded-md bg-amber-400/90 text-[11px] font-bold text-brand-dark pointer-events-none"><i class="fas fa-star text-[9px] mr-1"></i>Featured</div>
+                    </div>
+                    <div class="p-6 flex-1 flex flex-col">
+                        <h3 class="text-lg font-bold text-white mb-1">Deep Sea Simulator</h3>
+                        <span class="text-xs text-brand-cyan font-mono mb-2">Roblox Studio · Original game (2026)</span>
+                        <div class="flex items-center gap-2 text-[11px] font-mono text-gray-400 mb-4"><i class="fas fa-users text-brand-blue"></i> Team of 2 · Founder of LumiBun Studios & co-developer</div>
+                        <p class="text-xs text-gray-400 mb-4 leading-relaxed">
+                            Our own dive-and-collect game, built over a 1–2 month school holiday. I worked across every part of it, from the gameplay loop to the UI and testing.
+                        </p>
+                        <div class="grid grid-cols-2 gap-2 mb-5 text-[11px] text-gray-300 flex-1 content-start">
+                            <div class="bg-brand-dark/50 border border-brand-border/50 rounded-lg px-2.5 py-2"><span class="text-brand-cyan font-semibold">Dive</span> into the deep waters</div>
+                            <div class="bg-brand-dark/50 border border-brand-border/50 rounded-lg px-2.5 py-2"><span class="text-brand-cyan font-semibold">Collect</span> crystals &amp; scrap</div>
+                            <div class="bg-brand-dark/50 border border-brand-border/50 rounded-lg px-2.5 py-2"><span class="text-brand-cyan font-semibold">Surface</span> before air runs out</div>
+                            <div class="bg-brand-dark/50 border border-brand-border/50 rounded-lg px-2.5 py-2"><span class="text-brand-cyan font-semibold">Upgrade</span> oxygen, cargo, speed &amp; tier</div>
+                        </div>
+                        <button type="button" data-gallery="deepsea" class="inline-flex items-center gap-2 text-xs font-bold text-brand-cyan hover:text-white transition-colors w-max">
+                            <i class="fas fa-expand"></i> Watch Full Screen &amp; Screenshots <i class="fas fa-arrow-right text-[10px]"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Divider between featured game projects and other work (shown on "All") -->
+                <div class="portfolio-divider col-span-full flex items-center gap-4 pt-4" data-category="__divider">
+                    <span class="text-xs font-bold uppercase tracking-widest text-gray-400 whitespace-nowrap">More Work: Art, Animation, Roblox, Design &amp; Music</span>
+                    <span class="h-px flex-1 bg-brand-border"></span>
+                </div>
+
                 <!-- CARD 1: Sora - 3D Character Model -->
                 <div class="portfolio-item bg-brand-card rounded-2xl border border-brand-border overflow-hidden hover-card flex flex-col group" data-category="art">
                     <div class="aspect-video bg-brand-dark relative overflow-hidden flex items-center justify-center">
@@ -519,10 +956,32 @@
                     </div>
                 </div>
 
+                <!-- CARD: Cobblestone Texture Study -->
+                <div class="portfolio-item bg-brand-card rounded-2xl border border-brand-border overflow-hidden hover-card flex flex-col group" data-category="art">
+                    <div class="aspect-video bg-brand-dark relative overflow-hidden flex items-center justify-center">
+                        <img src="images/art/cobblestone-texture-study.jpg" alt="Glowing cyan orb lighting a mossy cobblestone floor, rendered in Blender" onerror="this.remove()" class="object-cover w-full h-full group-hover:scale-105 transition-transform duration-500">
+                        <div class="absolute top-3 left-3 px-2.5 py-1 rounded-md bg-brand-dark/80 backdrop-blur-sm text-[11px] font-semibold text-brand-cyan border border-brand-cyan/20">
+                            Texturing & Lighting
+                        </div>
+                    </div>
+                    <div class="p-6 flex-1 flex flex-col">
+                        <h3 class="text-lg font-bold text-white mb-1">Cobblestone Texture Study</h3>
+                        <span class="text-xs text-brand-cyan font-mono mb-3">Blender • First PBR Texturing</span>
+                        <p class="text-xs text-gray-400 mb-4 flex-1 leading-relaxed">
+                            My first time working with bump maps and realistic materials. I textured a mossy cobblestone floor and lit it with a glowing emissive orb, following Blender Guru's texturing tutorial.
+                        </p>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="text-[11px] px-2.5 py-1 rounded-full bg-brand-dark border border-brand-border text-gray-300">Bump Mapping</span>
+                            <span class="text-[11px] px-2.5 py-1 rounded-full bg-brand-dark border border-brand-border text-gray-300">PBR Materials</span>
+                            <span class="text-[11px] px-2.5 py-1 rounded-full bg-brand-dark border border-brand-border text-gray-300">Emissive Lighting</span>
+                        </div>
+                    </div>
+                </div>
+
                 <!-- CARD 4: 3D Character Animation: Walk, Run & Jump -->
                 <div class="portfolio-item bg-brand-card rounded-2xl border border-brand-border overflow-hidden hover-card flex flex-col group" data-category="anim">
                     <div class="aspect-video bg-brand-dark relative overflow-hidden flex items-center justify-center">
-                        <video autoplay loop muted playsinline class="object-cover w-full h-full">
+                        <video data-autoplay loop muted playsinline preload="none" class="object-cover w-full h-full">
                             <source src="https://cdn.artstation.com/p/video_sources/003/442/108/sngkialent-p2527011-walkcycle.mp4" type="video/mp4">
                             Your browser does not support HTML5 video.
                         </video>
@@ -545,7 +1004,7 @@
                 <!-- CARD 5: 3D Character Idle Animations & Bouncing Ball -->
                 <div class="portfolio-item bg-brand-card rounded-2xl border border-brand-border overflow-hidden hover-card flex flex-col group" data-category="anim">
                     <div class="aspect-video bg-brand-dark relative overflow-hidden flex items-center justify-center">
-                        <video autoplay loop muted playsinline class="object-cover w-full h-full">
+                        <video data-autoplay loop muted playsinline preload="none" class="object-cover w-full h-full">
                             <source src="https://cdn.artstation.com/p/video_sources/003/399/105/md1221-anim2-ag03-sngkialent-ca2-bouncingball-playblast.mp4" type="video/mp4">
                             Your browser does not support HTML5 video.
                         </video>
@@ -568,7 +1027,7 @@
                 <!-- CARD 6: Bouncing Ball, Tail, and Idle Cycle (2D) -->
                 <div class="portfolio-item bg-brand-card rounded-2xl border border-brand-border overflow-hidden hover-card flex flex-col group" data-category="anim">
                     <div class="aspect-video bg-brand-dark relative overflow-hidden flex items-center justify-center">
-                        <video autoplay loop muted playsinline class="object-cover w-full h-full">
+                        <video data-autoplay loop muted playsinline preload="none" class="object-cover w-full h-full">
                             <source src="https://cdn.artstation.com/p/video_sources/002/974/344/sngkialent-ag03-ca1-ball-animation.mp4" type="video/mp4">
                             Your browser does not support HTML5 video.
                         </video>
@@ -588,140 +1047,148 @@
                     </div>
                 </div>
 
-                <!-- CARD 7: Dynamic Gameplay Audio Script & Gameplay Video -->
-                <div class="portfolio-item bg-brand-card rounded-2xl border border-brand-border overflow-hidden hover-card flex flex-col group" data-category="code">
-                    <div class="aspect-video bg-brand-dark relative overflow-hidden flex items-center justify-center border-b border-brand-border/50">
-                        <video controls playsinline class="object-cover w-full h-full">
-                            <source src="videos/ca3-donkeykong-gameplay.mp4" type="video/mp4">
-                            Your browser does not support HTML5 video.
-                        </video>
-                        <div class="absolute top-3 left-3 px-2.5 py-1 rounded-md bg-brand-dark/80 backdrop-blur-sm text-[11px] font-semibold text-brand-cyan border border-brand-cyan/20 flex items-center gap-1.5 pointer-events-none">
-                            <i class="fas fa-volume-high text-[10px]"></i> Gameplay Audio Demo
+                <!-- CARD 12: Roblox UGC Concepts in Blender (2021) -->
+                <!-- Gallery images live in images/ugc/ and are listed in GALLERIES.ugc in the script at the bottom -->
+                <div class="portfolio-item bg-brand-card rounded-2xl border border-brand-border overflow-hidden hover-card flex flex-col group" data-category="roblox">
+                    <div class="aspect-video bg-gradient-to-br from-brand-blue/25 via-brand-dark to-brand-indigo/15 relative overflow-hidden flex items-center justify-center border-b border-brand-border/50 cursor-pointer" data-gallery-open="ugc">
+                        <i class="fas fa-hat-wizard text-5xl text-brand-blue/40"></i>
+                        <img src="images/ugc/pink-bear-hoodie.jpg" alt="Pink Bear Hoodie, a Roblox UGC concept modeled in Blender" onerror="this.remove()" class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                        <div class="absolute top-3 left-3 px-2.5 py-1 rounded-md bg-brand-dark/80 backdrop-blur-sm text-[11px] font-semibold text-brand-cyan border border-brand-cyan/20">
+                            3D Accessories
                         </div>
-                    </div>
-                    <div class="p-4 bg-brand-dark border-b border-brand-border font-mono text-xs text-gray-400 flex items-center justify-between">
-                        <span class="flex items-center gap-2 text-brand-cyan">
-                            <i class="fas fa-code"></i> AdaptiveAudioManager.cs
-                        </span>
-                        <span class="text-[10px] text-gray-500">Unity C# • GCL2 CA3</span>
-                    </div>
-                    <div class="p-4 bg-[#090d1a] font-mono text-xs text-gray-300 overflow-x-auto leading-relaxed border-b border-brand-border/50">
-                        <code>
-                            <span class="text-gray-500">// Calculate height percentage (0.0 to 1.0)</span><br>
-                            <span class="text-brand-cyan">float</span> currentY = player.position.y;<br>
-                            <span class="text-brand-cyan">float</span> percentage = Mathf.Clamp01((currentY - minY) / (maxY - minY));<br><br>
-                            <span class="text-gray-500">// Smoothly crossfade base & intense tracks</span><br>
-                            baseTrack.volume = 1f - percentage;<br>
-                            intenseTrack.volume = percentage;
-                        </code>
                     </div>
                     <div class="p-6 flex-1 flex flex-col">
-                        <div class="flex items-center gap-2 mb-1">
-                            <h3 class="text-lg font-bold text-white">Adaptive Audio & Game Logic</h3>
-                        </div>
-                        <span class="text-xs text-brand-blue font-mono mb-3">Donkey Kong Remake (Year 2 Sem 1 • GCL2 CA3)</span>
-                        <p class="text-xs text-gray-400 mb-4 flex-1 leading-relaxed">
-                            Programmed a real-time dynamic audio crossfader that shifts music intensity as Mario ascends platforms toward the Princess. Watch the gameplay clip above with audio enabled to hear the seamless crossfading!
+                        <h3 class="text-lg font-bold text-white mb-1">Roblox UGC Concepts</h3>
+                        <span class="text-xs text-brand-cyan font-mono mb-3">Blender • 3D Modeling (2021)</span>
+                        <p class="text-xs text-gray-400 mb-6 flex-1 leading-relaxed">
+                            Moved from 2D clothing into 3D by teaching myself Blender to model and render User-Generated Content accessory concepts for Roblox. I made 22 concepts in total, from food-themed hats to hair and hoodies. This is where my 3D art journey began.
                         </p>
-                        <ul class="text-xs text-gray-300 space-y-1.5 mb-6 list-disc list-inside bg-brand-dark/40 p-3 rounded-xl border border-brand-border/40">
-                            <li><strong>Level Manager & Win Condition:</strong> State & game loop handling</li>
-                            <li><strong>Barrel Mechanics:</strong> Spawning & movement physics</li>
-                            <li><strong>Ladder Functionality:</strong> Vertical climbing mechanics</li>
-                        </ul>
-                        <a href="https://github.com/klntxo/Unity-Game-Projects/tree/main/GCL2-CA3-DonkeyKong" target="_blank" class="inline-flex items-center gap-2 text-xs font-bold text-brand-blue hover:text-white transition-colors">
-                            <i class="fab fa-github"></i> View CA3 Code on GitHub <i class="fas fa-arrow-right text-[10px]"></i>
-                        </a>
+                        <button type="button" data-gallery="ugc" class="gallery-btn hidden items-center gap-2 text-xs font-bold text-brand-cyan hover:text-white transition-colors">
+                            <i class="fas fa-images"></i> View Gallery <span class="gallery-count opacity-70"></span> <i class="fas fa-arrow-right text-[10px]"></i>
+                        </button>
                     </div>
                 </div>
 
-                <!-- CARD 8: Left 4 Dead 3-Script Enemy AI System (GCL2 CA4) -->
-                <div class="portfolio-item bg-brand-card rounded-2xl border border-brand-border overflow-hidden hover-card flex flex-col group" data-category="code">
-                    <div class="aspect-video bg-brand-dark relative overflow-hidden flex items-center justify-center border-b border-brand-border/50">
-                        <video controls playsinline class="object-cover w-full h-full">
-                            <source src="videos/ca4-l4d-gameplay.mp4" type="video/mp4">
-                            Your browser does not support HTML5 video.
-                        </video>
-                        <div class="absolute top-3 left-3 px-2.5 py-1 rounded-md bg-brand-dark/80 backdrop-blur-sm text-[11px] font-semibold text-brand-cyan border border-brand-cyan/20 flex items-center gap-1.5 pointer-events-none">
-                            <i class="fas fa-volume-high text-[10px]"></i> 3D Spatial AI Audio
+                <!-- CARD 11: Roblox Clothing Brand & Communities (2020–2021) -->
+                <div class="portfolio-item bg-brand-card rounded-2xl border border-brand-border overflow-hidden hover-card flex flex-col group" data-category="roblox">
+                    <div class="aspect-video bg-gradient-to-br from-brand-indigo/25 via-brand-dark to-brand-cyan/15 relative overflow-hidden px-3 pb-3 pt-11 border-b border-brand-border/50 cursor-pointer" data-gallery-open="clothing">
+                        <div class="grid grid-cols-4 gap-2 h-full">
+                            <div class="relative rounded-xl bg-white overflow-hidden transition-transform duration-300 group-hover:-translate-y-1">
+                                <img src="images/roblox/mom-jeans.png" alt="mom jeans Roblox pants design" class="absolute inset-0 w-full h-full object-contain">
+                            </div>
+                            <div class="relative rounded-xl bg-white overflow-hidden transition-transform duration-300 group-hover:-translate-y-1">
+                                <img src="images/roblox/jeans-and-boots.png" alt="jeans and boots Roblox pants design" class="absolute inset-0 w-full h-full object-contain">
+                            </div>
+                            <div class="relative rounded-xl bg-white overflow-hidden transition-transform duration-300 group-hover:-translate-y-1">
+                                <img src="images/roblox/christmas-jeans.png" alt="christmas jeans Roblox pants design" class="absolute inset-0 w-full h-full object-contain">
+                            </div>
+                            <div class="relative rounded-xl bg-white overflow-hidden transition-transform duration-300 group-hover:-translate-y-1">
+                                <img src="images/roblox/blue-off-shoulder.png" alt="blue off shoulder Roblox shirt design" class="absolute inset-0 w-full h-full object-contain">
+                            </div>
                         </div>
-                    </div>
-                    <div class="p-4 bg-brand-dark border-b border-brand-border font-mono text-xs text-gray-400 flex items-center justify-between">
-                        <span class="flex items-center gap-2 text-brand-cyan">
-                            <i class="fas fa-sitemap"></i> BasicEnemy.cs : EnemyBase
-                        </span>
-                        <span class="text-[10px] text-gray-500">Unity C# • GCL2 CA4</span>
-                    </div>
-                    <div class="p-4 bg-[#090d1a] font-mono text-xs text-gray-300 overflow-x-auto leading-relaxed border-b border-brand-border/50">
-                        <code>
-                            <span class="text-brand-cyan">public class</span> <span class="text-white">BasicEnemy</span> : <span class="text-brand-cyan">EnemyBase</span> {<br>
-                            &nbsp;&nbsp;<span class="text-brand-cyan">protected override void</span> <span class="text-white">Start</span>() {<br>
-                            &nbsp;&nbsp;&nbsp;&nbsp;maxHealth = <span class="text-brand-periwinkle">30f</span>; attackDamage = <span class="text-brand-periwinkle">5f</span>;<br>
-                            &nbsp;&nbsp;&nbsp;&nbsp;detectionRadius = <span class="text-brand-periwinkle">12f</span>; attackRange = <span class="text-brand-periwinkle">1.8f</span>;<br>
-                            &nbsp;&nbsp;&nbsp;&nbsp;playAmbientSounds = <span class="text-brand-cyan">true</span>;<br>
-                            &nbsp;&nbsp;&nbsp;&nbsp;<span class="text-brand-cyan">base</span>.Start();<br>
-                            &nbsp;&nbsp;}<br>
-                            }
-                        </code>
+                        <div class="absolute top-3 left-3 px-2.5 py-1 rounded-md bg-brand-dark/80 backdrop-blur-sm text-[11px] font-semibold text-brand-cyan border border-brand-cyan/20">
+                            Digital Fashion
+                        </div>
                     </div>
                     <div class="p-6 flex-1 flex flex-col">
-                        <div class="flex items-center gap-2 mb-1">
-                            <h3 class="text-lg font-bold text-white">3-Script Enemy AI Architecture</h3>
-                        </div>
-                        <span class="text-xs text-brand-blue font-mono mb-3">Left 4 Dead Remake (Year 2 Sem 1 • GCL2 CA4)</span>
-                        <p class="text-xs text-gray-400 mb-4 flex-1 leading-relaxed">
-                            Engineered an OOP inheritance-based AI system utilizing Unity NavMesh and state machine logic for modular infected behaviors:
+                        <h3 class="text-lg font-bold text-white mb-1">Roblox Clothing Brand & Communities</h3>
+                        <span class="text-xs text-brand-cyan font-mono mb-3">Clothing Design & Community Building (2020–2021)</span>
+                        <p class="text-xs text-gray-400 mb-4 leading-relaxed">
+                            Started my own clothing business on Roblox, designing outfits and selling them through two community groups I founded and ran.
                         </p>
-                        <ul class="text-xs text-gray-300 space-y-1.5 mb-6 list-disc list-inside bg-brand-dark/40 p-3 rounded-xl border border-brand-border/40">
-                            <li><strong>EnemyBase.cs (Parent):</strong> Core template handling state transitions (Idle, Chase, Attack, Flinch, Death), health, and 3D spatial audio.</li>
-                            <li><strong>BasicEnemy.cs (Derived):</strong> Swarm AI with overriden combat stats and periodic idle groaning audio logic.</li>
-                            <li><strong>WitchEnemy.cs (Derived):</strong> High-threat Special Infected with passive crying, 3D audio startle radius, and 1.1x speed attack mode.</li>
-                        </ul>
-                        <a href="https://github.com/klntxo/Unity-Game-Projects/tree/main/GCL2-CA4-L4D" target="_blank" class="inline-flex items-center gap-2 text-xs font-bold text-brand-blue hover:text-white transition-colors">
-                            <i class="fab fa-github"></i> View CA4 AI Code on GitHub <i class="fas fa-arrow-right text-[10px]"></i>
-                        </a>
+                        <div class="grid grid-cols-2 gap-2 mb-3">
+                            <div class="flex items-center gap-2.5 bg-brand-dark/50 border border-brand-border/50 rounded-xl p-2">
+                                <img src="images/roblox/hushed-clothing-logo.png" alt="Hushed Clothing group logo" class="w-9 h-9 rounded-lg object-cover shrink-0">
+                                <p class="text-xs font-semibold text-white leading-tight">Hushed Clothing</p>
+                            </div>
+                            <div class="flex items-center gap-2.5 bg-brand-dark/50 border border-brand-border/50 rounded-xl p-2">
+                                <img src="images/roblox/cozy-creations-logo.png" alt="Cozy Creations group logo" class="w-9 h-9 rounded-lg object-cover shrink-0">
+                                <p class="text-xs font-semibold text-white leading-tight">Cozy Creations</p>
+                            </div>
+                        </div>
+                        <div class="grid grid-cols-3 gap-2 mb-5 flex-1 content-start">
+                            <div class="bg-brand-dark/50 border border-brand-border/50 rounded-xl p-2.5 text-center">
+                                <div class="text-base font-extrabold text-neon">100+</div>
+                                <div class="text-[10px] text-gray-400 font-mono">Designs</div>
+                            </div>
+                            <div class="bg-brand-dark/50 border border-brand-border/50 rounded-xl p-2.5 text-center">
+                                <div class="text-base font-extrabold text-neon">150+</div>
+                                <div class="text-[10px] text-gray-400 font-mono">Members</div>
+                            </div>
+                            <div class="bg-brand-dark/50 border border-brand-border/50 rounded-xl p-2.5 text-center">
+                                <div class="text-base font-extrabold text-neon">5k+</div>
+                                <div class="text-[10px] text-gray-400 font-mono">Robux earned</div>
+                            </div>
+                        </div>
+                        <button type="button" data-gallery="clothing" class="gallery-btn hidden items-center gap-2 text-xs font-bold text-brand-cyan hover:text-white transition-colors">
+                            <i class="fas fa-images"></i> View Gallery <span class="gallery-count opacity-70"></span> <i class="fas fa-arrow-right text-[10px]"></i>
+                        </button>
                     </div>
                 </div>
 
-                <!-- CARD 9: Left 4 Dead Player Shove & Dynamic Audio Engine (GCL2 CA4) -->
-                <div class="portfolio-item bg-brand-card rounded-2xl border border-brand-border overflow-hidden hover-card flex flex-col group" data-category="code">
-                    <div class="aspect-video bg-brand-dark relative overflow-hidden flex items-center justify-center border-b border-brand-border/50">
-                        <video controls playsinline class="object-cover w-full h-full">
-                            <source src="videos/ca4-l4d-gameplay.mp4" type="video/mp4">
-                            Your browser does not support HTML5 video.
-                        </video>
-                        <div class="absolute top-3 left-3 px-2.5 py-1 rounded-md bg-brand-dark/80 backdrop-blur-sm text-[11px] font-semibold text-brand-cyan border border-brand-cyan/20 flex items-center gap-1.5 pointer-events-none">
-                            <i class="fas fa-volume-high text-[10px]"></i> Combat & SFX Demo
+                <!-- CARD 13: Photography & Photo Essay "Youth" (2025) -->
+                <div class="portfolio-item bg-brand-card rounded-2xl border border-brand-border overflow-hidden hover-card flex flex-col group" data-category="design">
+                    <div class="aspect-video bg-gradient-to-br from-brand-indigo/25 via-brand-dark to-brand-periwinkle/15 relative overflow-hidden flex items-center justify-center border-b border-brand-border/50 cursor-pointer" data-gallery-open="photography">
+                        <i class="fas fa-camera-retro text-5xl text-brand-indigo/40"></i>
+                        <img src="images/photography/misty-park-night.jpg" alt="Misty park at night with glowing lamps between large trees" onerror="this.remove()" class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                        <div class="absolute top-3 left-3 px-2.5 py-1 rounded-md bg-brand-dark/80 backdrop-blur-sm text-[11px] font-semibold text-brand-indigo border border-brand-indigo/20">
+                            Photography
                         </div>
-                    </div>
-                    <div class="p-4 bg-brand-dark border-b border-brand-border font-mono text-xs text-gray-400 flex items-center justify-between">
-                        <span class="flex items-center gap-2 text-brand-cyan">
-                            <i class="fas fa-sliders"></i> PlayerShove.cs & PlayerHealth.cs
-                        </span>
-                        <span class="text-[10px] text-gray-500">Unity C# • GCL2 CA4</span>
-                    </div>
-                    <div class="p-4 bg-[#090d1a] font-mono text-xs text-gray-300 overflow-x-auto leading-relaxed border-b border-brand-border/50">
-                        <code>
-                            <span class="text-gray-500">// Shove forward & freeze/fade enemy audio on death</span><br>
-                            RaycastHit[] hits = Physics.SphereCastAll(cam.position, radius, cam.forward, range, enemyLayer);<br>
-                            EnemyBase.suppressEnemyAudio = <span class="text-brand-cyan">true</span>; <span class="text-gray-500">// Death audio sequence</span>
-                        </code>
                     </div>
                     <div class="p-6 flex-1 flex flex-col">
-                        <div class="flex items-center gap-2 mb-1">
-                            <h3 class="text-lg font-bold text-white">Player Shove & Audio Engine</h3>
-                        </div>
-                        <span class="text-xs text-brand-blue font-mono mb-3">Left 4 Dead Remake (Year 2 Sem 1 • GCL2 CA4)</span>
-                        <p class="text-xs text-gray-400 mb-4 flex-1 leading-relaxed">
-                            Developed key combat mechanics and a complete 3D dynamic game audio system for the Left 4 Dead prototype:
+                        <h3 class="text-lg font-bold text-white mb-1">Photography & Photo Essay: Youth</h3>
+                        <span class="text-xs text-brand-indigo font-mono mb-3">Principles of Design Module • Year 1 Sem 1</span>
+                        <p class="text-xs text-gray-400 mb-4 leading-relaxed">
+                            A 7-photo essay capturing the thrill and struggle of being young, from loud nights out to quiet loneliness. Each shot applies a design principle to tell the story, alongside more of my own photography.
                         </p>
-                        <ul class="text-xs text-gray-300 space-y-1.5 mb-6 list-disc list-inside bg-brand-dark/40 p-3 rounded-xl border border-brand-border/40">
-                            <li><strong>Player Shove System (PlayerShove.cs):</strong> Right-click forward SphereCast pushing infected back on NavMesh with custom knockback & cooldowns.</li>
-                            <li><strong>Dynamic Death Audio Sequence (PlayerHealth.cs):</strong> Automatically suppresses and fades out all 3D enemy audio during player death screams.</li>
-                            <li><strong>Complete Audio Integration:</strong> Built menu UI audio, weapon SFX, footsteps, and spatial ambience.</li>
+                        <div class="flex flex-wrap gap-2 mb-5 flex-1 content-start">
+                            <span class="text-[11px] px-2.5 py-1 rounded-full bg-brand-dark border border-brand-border text-gray-300">Golden Triangle</span>
+                            <span class="text-[11px] px-2.5 py-1 rounded-full bg-brand-dark border border-brand-border text-gray-300">Rule of Thirds</span>
+                            <span class="text-[11px] px-2.5 py-1 rounded-full bg-brand-dark border border-brand-border text-gray-300">Contrast</span>
+                            <span class="text-[11px] px-2.5 py-1 rounded-full bg-brand-dark border border-brand-border text-gray-300">Rhythm</span>
+                            <span class="text-[11px] px-2.5 py-1 rounded-full bg-brand-dark border border-brand-border text-gray-300">Leading Lines</span>
+                        </div>
+                        <div class="flex flex-wrap items-center gap-x-5 gap-y-2">
+                            <button type="button" data-gallery="photography" class="gallery-btn hidden items-center gap-2 text-xs font-bold text-brand-indigo hover:text-white transition-colors">
+                                <i class="fas fa-images"></i> View Photos <span class="gallery-count opacity-70"></span> <i class="fas fa-arrow-right text-[10px]"></i>
+                            </button>
+                            <a href="files/photo-essay-youth.pdf" target="_blank" rel="noopener" data-requires="files/photo-essay-youth.pdf" class="hidden items-center gap-2 text-xs font-bold text-brand-indigo hover:text-white transition-colors">
+                                <i class="fas fa-book-open"></i> Read the Photo Essay <i class="fas fa-arrow-up-right-from-square text-[10px]"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- CARD 14: Story Craft – "Pablo Doesn't Think So" (2025) -->
+                <div class="portfolio-item bg-brand-card rounded-2xl border border-brand-border overflow-hidden hover-card flex flex-col group" data-category="design">
+                    <div class="aspect-video bg-gradient-to-br from-brand-lavender/20 via-brand-dark to-brand-blue/15 relative overflow-hidden flex items-center justify-center border-b border-brand-border/50 cursor-pointer" data-gallery-open="storycraft">
+                        <i class="fas fa-book-open text-5xl text-brand-lavender/40"></i>
+                        <img src="images/storycraft/card-cover.jpg" alt="Cover of the children's book Pablo Doesn't Think So, showing a smiling cactus in a pot" onerror="this.remove()" class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                        <div class="absolute top-3 left-3 px-2.5 py-1 rounded-md bg-brand-dark/80 backdrop-blur-sm text-[11px] font-semibold text-brand-lavender border border-brand-lavender/20">
+                            Illustration & Animation
+                        </div>
+                        <div class="absolute bottom-3 right-3 w-11 h-11 rounded-full bg-brand-dark/80 backdrop-blur-sm border border-brand-lavender/50 text-brand-lavender flex items-center justify-center group-hover:scale-110 transition-transform pointer-events-none">
+                            <i class="fas fa-play ml-0.5"></i>
+                        </div>
+                    </div>
+                    <div class="p-6 flex-1 flex flex-col">
+                        <h3 class="text-lg font-bold text-white mb-1">Pablo Doesn't Think So</h3>
+                        <span class="text-xs text-brand-lavender font-mono mb-3">Story Craft Module • Year 1 Sem 1</span>
+                        <p class="text-xs text-gray-400 mb-4 leading-relaxed">
+                            A square-format children's picture book about Pablo, a plain little cactus waiting to be chosen in a plant shop. As the illustrator in my group, I drew every character and spread, then brought the story to life as an animated video.
+                        </p>
+                        <ul class="text-xs text-gray-300 space-y-1.5 mb-5 list-disc list-inside bg-brand-dark/40 p-3 rounded-xl border border-brand-border/40 flex-1">
+                            <li><strong>Illustrations:</strong> Cover and 15 full-colour spreads</li>
+                            <li><strong>Animation:</strong> Story video produced in Canva</li>
                         </ul>
-                        <a href="https://github.com/klntxo/Unity-Game-Projects/tree/main/GCL2-CA4-L4D" target="_blank" class="inline-flex items-center gap-2 text-xs font-bold text-brand-blue hover:text-white transition-colors">
-                            <i class="fab fa-github"></i> View CA4 Systems Code on GitHub <i class="fas fa-arrow-right text-[10px]"></i>
-                        </a>
+                        <div class="flex flex-wrap items-center gap-x-5 gap-y-2">
+                            <button type="button" data-gallery="storycraft" class="gallery-btn hidden items-center gap-2 text-xs font-bold text-brand-lavender hover:text-white transition-colors">
+                                <i class="fas fa-play"></i> Watch & Browse <span class="gallery-count opacity-70"></span> <i class="fas fa-arrow-right text-[10px]"></i>
+                            </button>
+                            <a href="files/storycraft-book.pdf" target="_blank" rel="noopener" data-requires="files/storycraft-book.pdf" class="hidden items-center gap-2 text-xs font-bold text-brand-lavender hover:text-white transition-colors">
+                                <i class="fas fa-book"></i> Read the Full Book <i class="fas fa-arrow-up-right-from-square text-[10px]"></i>
+                            </a>
+                        </div>
                     </div>
                 </div>
 
@@ -747,6 +1214,71 @@
             </div>
         </div>
     </section>
+
+    <section id="contact" class="py-24 bg-brand-dark relative overflow-hidden">
+        <div class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[400px] bg-brand-blue/10 rounded-full blur-[120px] pointer-events-none"></div>
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="text-center mb-12">
+                <span class="text-xs font-bold uppercase tracking-widest text-brand-cyan mb-2 block">Contact</span>
+                <h2 class="text-3xl md:text-4xl font-extrabold">Let's Work <span class="text-neon">Together</span></h2>
+                <div class="w-16 h-1 bg-gradient-to-r from-brand-cyan to-brand-blue mx-auto rounded-full mt-3 mb-5"></div>
+                <p class="text-gray-300 max-w-xl mx-auto">I'm looking for a game development or game audio internship from <strong class="text-white">March to August 2027</strong>. I'm also happy to chat about collaborations or DJ gigs.</p>
+            </div>
+
+            <div class="grid sm:grid-cols-2 gap-4">
+                <a href="mailto:kialentsng@gmail.com" class="flex items-center gap-4 bg-brand-card p-5 rounded-2xl border border-brand-border hover-card">
+                    <span class="w-11 h-11 shrink-0 rounded-xl bg-brand-cyan/10 text-brand-cyan flex items-center justify-center text-lg"><i class="fas fa-envelope"></i></span>
+                    <div class="min-w-0"><p class="text-xs text-gray-400">Email</p><p class="text-sm font-semibold text-white truncate">kialentsng@gmail.com</p></div>
+                </a>
+                <a href="https://www.linkedin.com/in/kia-lent-sng-697416247" target="_blank" rel="noopener" class="flex items-center gap-4 bg-brand-card p-5 rounded-2xl border border-brand-border hover-card">
+                    <span class="w-11 h-11 shrink-0 rounded-xl bg-brand-blue/10 text-brand-blue flex items-center justify-center text-lg"><i class="fab fa-linkedin-in"></i></span>
+                    <div class="min-w-0"><p class="text-xs text-gray-400">LinkedIn</p><p class="text-sm font-semibold text-white truncate">in/kia-lent-sng</p></div>
+                </a>
+                <a href="https://github.com/klntxo" target="_blank" rel="noopener" class="flex items-center gap-4 bg-brand-card p-5 rounded-2xl border border-brand-border hover-card">
+                    <span class="w-11 h-11 shrink-0 rounded-xl bg-brand-indigo/10 text-brand-indigo flex items-center justify-center text-lg"><i class="fab fa-github"></i></span>
+                    <div class="min-w-0"><p class="text-xs text-gray-400">GitHub</p><p class="text-sm font-semibold text-white truncate">github.com/klntxo</p></div>
+                </a>
+                <a href="https://www.artstation.com/distortedfrog" target="_blank" rel="noopener" class="flex items-center gap-4 bg-brand-card p-5 rounded-2xl border border-brand-border hover-card">
+                    <span class="w-11 h-11 shrink-0 rounded-xl bg-brand-periwinkle/10 text-brand-periwinkle flex items-center justify-center text-lg"><i class="fab fa-artstation"></i></span>
+                    <div class="min-w-0"><p class="text-xs text-gray-400">ArtStation</p><p class="text-sm font-semibold text-white truncate">artstation.com/distortedfrog</p></div>
+                </a>
+            </div>
+
+            <div class="mt-8 flex flex-wrap justify-center gap-4">
+                <a href="resume.pdf" target="_blank" rel="noopener" class="px-7 py-3.5 rounded-full bg-gradient-to-r from-brand-cyan via-brand-blue to-brand-indigo text-white font-semibold hover:shadow-[0_0_25px_rgba(59,130,246,0.5)] transition-all transform hover:-translate-y-0.5">
+                    <i class="fas fa-file-lines mr-1.5"></i> View My Resume
+                </a>
+                <a href="https://soundcloud.com/kay-16428286" target="_blank" rel="noopener" class="px-7 py-3.5 rounded-full bg-brand-card border border-brand-border hover:border-brand-lavender hover:text-brand-lavender transition-all font-medium">
+                    <i class="fab fa-soundcloud mr-1.5"></i> DJ Mixes
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Project Breakdown pop-up -->
+    <div id="breakdown" class="bd" role="dialog" aria-modal="true" aria-label="Project breakdown" hidden>
+        <div class="bd-panel">
+            <button type="button" class="bd-close lb-close" aria-label="Close breakdown"><i class="fas fa-xmark"></i></button>
+            <div class="bd-body"></div>
+        </div>
+    </div>
+    <template id="bd-l4d"><p class="bd-kicker">Unity · C# · GCL2 CA4 · Year 2 Sem 1</p><h3>Left 4 Dead Remake</h3><div class="bd-meta"><span><i class="fas fa-users"></i> Team of 4</span><span><i class="fas fa-user"></i> Enemy AI, shove, animations &amp; audio</span></div><section><h4><i class="fas fa-clipboard-list"></i> The Brief</h4><p>Recreate Left 4 Dead in Unity as a team of four.</p></section><section><h4><i class="fas fa-hammer"></i> What I Built</h4><ul><li><b>EnemyBase.cs</b>: a parent class every zombie uses, with idle, chase, attack and death states, health, hit flinches and 3D spatial sound.</li><li><b>BasicEnemy.cs</b>: the swarm zombie, with its own stats and random idle groans.</li><li><b>WitchEnemy.cs</b>: cries louder and higher-pitched as you get closer, screams when startled, then chases at 1.1× your current speed.</li><li><b>PlayerShove.cs</b>: right-click shove with a cooldown that knocks zombies back and interrupts their attacks.</li><li><b>Audio</b>: zombie sounds, weapon SFX, footsteps, ambience, menu music and UI sounds, plus a death sequence that fades all enemies out under the player's scream.</li><li><b>Animations</b>: set up the enemy animations (walking, attacking, flinching, dying).</li><li><b>CameraShake.cs</b>: screen shake when a grenade explodes.</li></ul></section><section><h4><i class="fas fa-lightbulb"></i> Problems I Solved</h4><ul><li><b>Shoved zombies slid through walls.</b> Instead of pushing them with physics, I moved them with their NavMesh agent during the knockback, so they always stay on walkable ground.</li><li><b>The death scream got drowned out by zombie groans.</b> I pause all enemy audio, fade every zombie out over 0.4 seconds, play the scream, then fade them back in at their original volumes.</li><li><b>The shove missed zombies right in front of you.</b> I used a wide sphere cast instead of a thin line, so anything close in front of the camera gets hit.</li></ul></section><section><h4><i class="fas fa-arrow-trend-up"></i> What I'd Improve</h4><ul><li>Use Unity's Audio Mixer (snapshots and ducking) for the death sequence instead of a global on/off switch, which would make it easier to reuse for other moments.</li><li>Reuse zombies with object pooling instead of creating and destroying them, so the game can handle bigger hordes.</li><li>Add a line-of-sight check so zombies can't "hear" you through walls, and give them a proper flinch animation.</li></ul></section></template>
+    <template id="bd-dk"><p class="bd-kicker">Unity · C# · GCL2 CA3 · Year 2 Sem 1</p><h3>Donkey Kong Remake</h3><div class="bd-meta"><span><i class="fas fa-users"></i> Team of 4</span><span><i class="fas fa-user"></i> Gameplay audio &amp; core game logic</span></div><section><h4><i class="fas fa-clipboard-list"></i> The Brief</h4><p>Recreate Donkey Kong in Unity as a team of four, with each member adding one new feature of their own. <b>My feature was the adaptive gameplay audio.</b></p></section><section><h4><i class="fas fa-hammer"></i> What I Built</h4><ul><li><b>AdaptiveAudioManager.cs</b> (my new feature): two music tracks that crossfade from calm to intense based on how high Mario has climbed.</li><li><b>LevelManager.cs</b>: a 3-second countdown before Mario and the barrels can move, restarting the level on death, and loading the win screen.</li><li><b>Barrels</b>: barrel spawning and movement.</li><li><b>Ladder.cs</b>: climbing with gravity switched off, a climb animation that pauses when Mario stops, and dropping down through platforms.</li><li><b>Princess.cs</b>: the win condition when Mario reaches the Princess.</li></ul></section><section><h4><i class="fas fa-lightbulb"></i> Problems I Solved</h4><ul><li><b>Swapping music tracks made the song restart.</b> Both tracks start together and loop the whole time, and only their volumes change, so they always stay in sync.</li><li><b>Reaching the Princess didn't always trigger the win.</b> I added a backup distance check, plus a flag so the win screen can only load once.</li><li><b>Mario couldn't climb down past the platform he was standing on.</b> While the player holds Down on a ladder, Mario's collider stops blocking, and it goes back to normal when he leaves the ladder.</li></ul></section><section><h4><i class="fas fa-arrow-trend-up"></i> What I'd Improve</h4><ul><li>Smooth the crossfade over time (or use an Audio Mixer), so the music doesn't jump suddenly when Mario falls.</li><li>Read the top and bottom heights from the level automatically instead of typing the numbers in.</li><li>Find the real cause of the missed win trigger instead of relying on the backup check, and store the player reference once instead of searching for it every frame.</li><li>Show the countdown on screen and play a death animation before the level restarts.</li></ul></section></template>
+
+    <!-- Gallery Lightbox -->
+    <div id="lightbox" class="lb" role="dialog" aria-modal="true" aria-label="Project gallery" hidden>
+        <div class="lb-top">
+            <div><p class="lb-title"></p><p class="lb-counter"></p></div>
+            <button type="button" class="lb-close" aria-label="Close gallery"><i class="fas fa-xmark"></i></button>
+        </div>
+        <div class="lb-stage">
+            <button type="button" class="lb-nav lb-prev" aria-label="Previous"><i class="fas fa-chevron-left"></i></button>
+            <div class="lb-media"></div>
+            <button type="button" class="lb-nav lb-next" aria-label="Next"><i class="fas fa-chevron-right"></i></button>
+        </div>
+        <p class="lb-caption"></p>
+        <div class="lb-thumbs"></div>
+    </div>
 
     <!-- Footer Section -->
     <footer class="py-10 bg-brand-dark border-t border-brand-border/60 text-gray-400 text-xs">
@@ -787,9 +1319,291 @@
     </footer>
 
     <script>
+        // Scroll reveal
+        (function () {
+            const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+            if (!reduce && 'IntersectionObserver' in window) {
+                document.documentElement.classList.add('js-reveal');
+                window.addEventListener('DOMContentLoaded', () => {
+                    const els = document.querySelectorAll('section .text-center.mb-16, section .text-center.mb-12, .hover-card, #experience .relative.group, #education h3');
+                    const io = new IntersectionObserver((entries) => {
+                        entries.forEach(e => {
+                            if (!e.isIntersecting) return;
+                            const el = e.target;
+                            el.classList.add('is-visible');
+                            io.unobserve(el);
+                            // Hand control back to the normal hover effects once revealed
+                            setTimeout(() => {
+                                el.classList.remove('reveal', 'is-visible');
+                                el.style.transitionDelay = '';
+                            }, 1100);
+                        });
+                    }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+                    els.forEach((el, i) => {
+                        el.classList.add('reveal');
+                        el.style.transitionDelay = ((i % 4) * 70) + 'ms';
+                        io.observe(el);
+                    });
+                });
+            }
+
+        })();
+
+        // ===== Project breakdown pop-up =====
+        (function () {
+            const bd = document.getElementById('breakdown');
+            const body = bd.querySelector('.bd-body');
+            let lastFocus = null;
+            function open(key) {
+                const tpl = document.getElementById('bd-' + key);
+                if (!tpl) return;
+                lastFocus = document.activeElement;
+                body.innerHTML = '';
+                body.appendChild(tpl.content.cloneNode(true));
+                bd.hidden = false;
+                bd.scrollTop = 0;
+                document.body.style.overflow = 'hidden';
+                requestAnimationFrame(() => bd.classList.add('is-open'));
+                bd.querySelector('.bd-close').focus();
+            }
+            function close() {
+                bd.classList.remove('is-open');
+                document.body.style.overflow = '';
+                setTimeout(() => { bd.hidden = true; }, 200);
+                if (lastFocus) lastFocus.focus();
+            }
+            bd.querySelector('.bd-close').addEventListener('click', close);
+            bd.addEventListener('click', e => { if (e.target === bd) close(); });
+            document.addEventListener('keydown', e => { if (!bd.hidden && e.key === 'Escape') close(); });
+            window.addEventListener('DOMContentLoaded', () => {
+                document.querySelectorAll('[data-breakdown]').forEach(b => b.addEventListener('click', () => open(b.dataset.breakdown)));
+            });
+        })();
+
+        // ===== Only play looping preview clips while they are on screen (saves mobile data) =====
+        window.addEventListener('DOMContentLoaded', () => {
+            const clips = document.querySelectorAll('video[data-autoplay]');
+            if (!('IntersectionObserver' in window)) { clips.forEach(v => { v.preload = 'auto'; v.play().catch(() => {}); }); return; }
+            const io = new IntersectionObserver(entries => {
+                entries.forEach(e => {
+                    const v = e.target;
+                    if (e.isIntersecting) { if (v.preload === 'none') v.preload = 'auto'; v.play().catch(() => {}); }
+                    else v.pause();
+                });
+            }, { threshold: 0.25 });
+            clips.forEach(v => io.observe(v));
+        });
+
+        // ===== Project galleries =====
+        // To add more pictures, just upload files with the next number (e.g. ugc-05.png).
+        // Missing numbers are skipped automatically, so you never get broken images.
+        const GALLERIES = {
+            clothing: {
+                title: 'Roblox Clothing Brand & Communities',
+                items: [
+                    { src: 'images/roblox/hushed-clothing-catalogue.png', caption: 'The full Hushed Clothing catalogue: 100+ shirts and pants I designed' },
+                    { src: 'images/roblox/mom-jeans.png', caption: 'mom jeans · Classic Pants · Dec 2020' },
+                    { src: 'images/roblox/jeans-and-boots.png', caption: 'jeans and boots · Classic Pants · Dec 2020' },
+                    { src: 'images/roblox/christmas-jeans.png', caption: 'christmas jeans · Classic Pants · Dec 2020' },
+                    { src: 'images/roblox/blue-off-shoulder.png', caption: 'blue off shoulder · Classic Shirt · Jan 2021' }
+                ]
+            },
+            ugc: {
+                title: 'Roblox UGC Concepts',
+                items: [
+                    { src: 'images/ugc/pink-bear-hoodie.jpg', caption: 'Concept #21 · Pink Bear Hoodie' },
+                    { src: 'images/ugc/donut-crown.jpg', caption: 'Donut Crown' },
+                    { src: 'images/ugc/jam-sandwich-cookie.jpg', caption: 'Jam Sandwich Cookie' },
+                    { src: 'images/ugc/blue-black-fedora.jpg', caption: 'Concept #5 · Blue & Black Fedora' },
+                    { src: 'images/ugc/festive-lantern-earrings.jpg', caption: 'Concept #18 · Festive Lantern Earrings' },
+                    { src: 'images/ugc/shaggy-bowl-cut.jpg', caption: 'Concept #19 · Shaggy Bowl Cut' },
+                    { src: 'images/ugc/no-wifi.jpg', caption: 'Concept #22 · No WiFi (concept by @NobieGFX, modelled by me)' },
+                    { src: 'images/ugc/lamppost.jpg', caption: 'Concept #12 · Lamppost' }
+                ]
+            },
+            photography: {
+                title: 'Photography & Photo Essay: Youth',
+                items: [
+                    { src: 'images/photography/youth-01-nightclub.jpg', caption: 'Youth #1 · Golden triangle: the youth framed by the crowd, an adult judging in the background' },
+                    { src: 'images/photography/youth-02-couch.jpg', caption: 'Youth #2 · Asymmetrical balance and rule of thirds: back to back, disconnected' },
+                    { src: 'images/photography/youth-03-orange-light.jpg', caption: 'Youth #3 · Contrast: warm orange light makes the youth stand out from the dark' },
+                    { src: 'images/photography/youth-04-energy-drinks.jpg', caption: 'Youth #4 · Rhythm: repeating cans and a reaching hand, a late-night impulse buy' },
+                    { src: 'images/photography/youth-05-stairs.jpg', caption: 'Youth #5 · Contrast, repetition and balance: the generational divide' },
+                    { src: 'images/photography/youth-06-industrial.jpg', caption: 'Youth #6 · Unity: repeated bins and signs around an isolated figure' },
+                    { src: 'images/photography/youth-07-mrt.jpg', caption: 'Youth #7 · Leading lines and movement: rushing for the last train' },
+                    { src: 'images/photography/misty-park-night.jpg', caption: 'Misty park at night' },
+                    { src: 'images/photography/curved-walkway.jpg', caption: 'Curved walkway roof' },
+                    { src: 'images/photography/goalpost-cones.jpg', caption: 'Goalpost and cones' },
+                    { src: 'images/photography/stone-bench.jpg', caption: 'Stone bench' },
+                    { src: 'images/photography/rain-window.jpg', caption: 'Rain on a café window' }
+                ]
+            },
+            storycraft: {
+                title: "Pablo Doesn't Think So",
+                items: [
+                    { embed: 'https://drive.google.com/file/d/1jABlaEpLgw0NeRRV56pnE_HPBsPmCP1c/preview', link: 'https://drive.google.com/file/d/1jABlaEpLgw0NeRRV56pnE_HPBsPmCP1c/view', caption: 'Animated story video · made in Canva' },
+                    { src: 'images/storycraft/cover-front.jpg', caption: 'Front cover' },
+                    { src: 'images/storycraft/spread-02.jpg', caption: 'Spread 1' },
+                    { src: 'images/storycraft/spread-03.jpg', caption: 'Spread 2' },
+                    { src: 'images/storycraft/spread-04.jpg', caption: 'Spread 3' },
+                    { src: 'images/storycraft/spread-05.jpg', caption: 'Spread 4' },
+                    { src: 'images/storycraft/spread-06.jpg', caption: 'Spread 5' },
+                    { src: 'images/storycraft/spread-07.jpg', caption: 'Spread 6' },
+                    { src: 'images/storycraft/spread-08.jpg', caption: 'Spread 7' },
+                    { src: 'images/storycraft/spread-09.jpg', caption: 'Spread 8' },
+                    { src: 'images/storycraft/spread-10.jpg', caption: 'Spread 9' },
+                    { src: 'images/storycraft/spread-11.jpg', caption: 'Spread 10' },
+                    { src: 'images/storycraft/spread-12.jpg', caption: 'Spread 11' },
+                    { src: 'images/storycraft/spread-13.jpg', caption: 'Spread 12' },
+                    { src: 'images/storycraft/spread-14.jpg', caption: 'Spread 13' },
+                    { src: 'images/storycraft/spread-15.jpg', caption: 'Spread 14' },
+                    { src: 'images/storycraft/spread-16.jpg', caption: 'Spread 15' },
+                    { src: 'images/storycraft/cover-back.jpg', caption: 'Back cover' }
+                ]
+            },
+            deepsea: {
+                title: 'Deep Sea Simulator',
+                items: [
+                    { video: 'videos/deep-sea-gameplay.mp4', caption: 'Gameplay: dive, collect crystals, surface before your oxygen runs out, then upgrade at the shop' },
+                    { src: 'images/deep-sea-gameplay.jpg', caption: 'In-game screenshot' },
+                    { src: 'images/deep-sea-simulator.jpg', caption: 'Promo thumbnail (made with Gemini AI; the game itself is our own work)' }
+                ]
+            }
+        };
+
+        (function () {
+            const pad = n => String(n).padStart(2, '0');
+            const loadImg = src => new Promise(res => { const i = new Image(); i.onload = () => res(true); i.onerror = () => res(false); i.src = src; });
+            const exists = url => location.protocol === 'file:' ? Promise.resolve(true) : fetch(url, { method: 'HEAD' }).then(r => r.ok).catch(() => false);
+
+            async function resolveGallery(g) {
+                if (g.resolved) return g.resolved;
+                const out = [];
+                for (const it of (g.items || [])) {
+                    if (it.embed || (it.video ? await exists(it.video) : await loadImg(it.src))) out.push(it);
+                }
+                if (g.pattern) {
+                    const checks = [];
+                    for (let n = 1; n <= g.max; n++) {
+                        const base = g.pattern.replace('{n}', pad(n));
+                        checks.push((async () => {
+                            for (const ext of ['.png', '.jpg', '.jpeg', '.webp']) {
+                                if (await loadImg(base + ext)) return { src: base + ext, caption: g.caption ? `${g.caption} ${n}` : '' };
+                            }
+                            return null;
+                        })());
+                    }
+                    (await Promise.all(checks)).forEach(x => x && out.push(x));
+                }
+                g.resolved = out;
+                return out;
+            }
+
+            const lb = document.getElementById('lightbox');
+            const media = lb.querySelector('.lb-media'), thumbs = lb.querySelector('.lb-thumbs');
+            let items = [], idx = 0, lastFocus = null;
+
+            function show(i) {
+                idx = (i + items.length) % items.length;
+                const it = items[idx];
+                media.innerHTML = '';
+                let el;
+                if (it.embed) {
+                    el = document.createElement('iframe');
+                    el.src = it.embed; el.allow = 'autoplay; fullscreen'; el.allowFullscreen = true;
+                    el.title = it.caption || 'Video';
+                } else if (it.video) {
+                    el = document.createElement('video');
+                    el.src = it.video; el.controls = true; el.autoplay = true; el.playsInline = true;
+                } else {
+                    el = document.createElement('img');
+                    el.src = it.src; el.alt = it.caption || '';
+                }
+                media.appendChild(el);
+                lb.querySelector('.lb-caption').textContent = it.caption || '';
+                lb.querySelector('.lb-counter').textContent = `${idx + 1} / ${items.length}`;
+                thumbs.querySelectorAll('button').forEach((b, k) => b.classList.toggle('is-active', k === idx));
+                const active = thumbs.children[idx];
+                if (active) active.scrollIntoView({ block: 'nearest', inline: 'center', behavior: 'smooth' });
+                const multi = items.length > 1;
+                lb.querySelectorAll('.lb-nav').forEach(b => b.style.visibility = multi ? 'visible' : 'hidden');
+                thumbs.style.display = multi ? '' : 'none';
+            }
+
+            async function open(key) {
+                const g = GALLERIES[key];
+                if (!g) return;
+                items = await resolveGallery(g);
+                if (!items.length) return;
+                lastFocus = document.activeElement;
+                lb.querySelector('.lb-title').textContent = g.title;
+                thumbs.innerHTML = '';
+                items.forEach((it, k) => {
+                    const b = document.createElement('button');
+                    b.type = 'button';
+                    b.setAttribute('aria-label', `Show item ${k + 1}`);
+                    b.innerHTML = (it.video || it.embed) ? '<span class="lb-thumb-video"><i class="fas fa-play"></i></span>' : `<img src="${it.src}" alt="">`;
+                    b.addEventListener('click', () => show(k));
+                    thumbs.appendChild(b);
+                });
+                lb.hidden = false;
+                document.body.style.overflow = 'hidden';
+                requestAnimationFrame(() => lb.classList.add('is-open'));
+                show(0);
+                lb.querySelector('.lb-close').focus();
+            }
+
+            function close() {
+                lb.classList.remove('is-open');
+                media.innerHTML = '';
+                document.body.style.overflow = '';
+                setTimeout(() => { lb.hidden = true; }, 200);
+                if (lastFocus) lastFocus.focus();
+            }
+
+            lb.querySelector('.lb-close').addEventListener('click', close);
+            lb.querySelector('.lb-prev').addEventListener('click', () => show(idx - 1));
+            lb.querySelector('.lb-next').addEventListener('click', () => show(idx + 1));
+            lb.addEventListener('click', e => { if (e.target === lb || e.target.classList.contains('lb-stage') || e.target === media) close(); });
+            document.addEventListener('keydown', e => {
+                if (lb.hidden) return;
+                if (e.key === 'Escape') close();
+                if (e.key === 'ArrowLeft') show(idx - 1);
+                if (e.key === 'ArrowRight') show(idx + 1);
+            });
+            let touchX = null;
+            lb.addEventListener('touchstart', e => { touchX = e.touches[0].clientX; }, { passive: true });
+            lb.addEventListener('touchend', e => {
+                if (touchX === null) return;
+                const dx = e.changedTouches[0].clientX - touchX;
+                if (Math.abs(dx) > 50) show(idx + (dx < 0 ? 1 : -1));
+                touchX = null;
+            });
+
+            window.addEventListener('DOMContentLoaded', () => {
+                document.querySelectorAll('[data-gallery], [data-gallery-open]').forEach(el => {
+                    const key = el.dataset.gallery || el.dataset.galleryOpen;
+                    el.addEventListener('click', () => open(key));
+                });
+                // Show gallery buttons (with item counts) only when that gallery has files
+                document.querySelectorAll('.gallery-btn').forEach(async btn => {
+                    const list = await resolveGallery(GALLERIES[btn.dataset.gallery]);
+                    if (!list.length) return;
+                    btn.classList.remove('hidden'); btn.classList.add('inline-flex');
+                    btn.querySelector('.gallery-count').textContent = `(${list.length})`;
+                });
+                // Show links / badges only when their file exists (e.g. the Story Craft PDF)
+                document.querySelectorAll('[data-requires]').forEach(async el => {
+                    if (await exists(el.dataset.requires)) { el.classList.remove('hidden'); el.classList.add(el.tagName === 'A' || el.tagName === 'BUTTON' ? 'inline-flex' : 'flex'); }
+                });
+            });
+        })();
+
         window.addEventListener('DOMContentLoaded', () => {
             const filterBtns = document.querySelectorAll('.filter-btn');
             const portfolioItems = document.querySelectorAll('.portfolio-item');
+            const divider = document.querySelector('.portfolio-divider');
 
             filterBtns.forEach(btn => {
                 btn.addEventListener('click', () => {
@@ -803,8 +1617,10 @@
                     btn.classList.remove('bg-brand-card', 'text-gray-400', 'border-brand-border');
                     btn.classList.add('bg-brand-cyan/20', 'text-brand-cyan', 'border-brand-cyan/40');
 
+                    if (divider) divider.style.display = filter === 'all' ? 'flex' : 'none';
                     portfolioItems.forEach(item => {
-                        if (filter === 'all' || item.getAttribute('data-category') === filter) {
+                        const cats = (item.getAttribute('data-category') || '').split(' ');
+                        if (filter === 'all' || cats.includes(filter)) {
                             item.style.display = 'flex';
                         } else {
                             item.style.display = 'none';
