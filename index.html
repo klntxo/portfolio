@@ -107,10 +107,10 @@
         .lb-thumbs .lb-thumb-video { display: flex; align-items: center; justify-content: center; color: #c084fc; height: 100%; }
         @media (max-width: 640px) { .lb-nav { position: absolute; top: 50%; z-index: 2; } .lb-prev { left: 8px; } .lb-next { right: 8px; } .lb-stage { position: relative; } }
 
-        .tool-chip { display: inline-flex; align-items: center; gap: 8px; padding: 7px 13px 7px 9px; border-radius: 10px; background: #070b15; border: 1px solid #1e293b; color: #e2e8f0; font-size: 13px; font-weight: 500; transition: border-color .2s, transform .2s; }
-        .tool-chip:hover { border-color: rgba(56,189,248,.5); transform: translateY(-2px); }
-        .tool-ico { position: relative; width: 22px; height: 22px; display: inline-flex; align-items: center; justify-content: center; flex-shrink: 0; }
-        .tool-ico img { width: 22px; height: 22px; object-fit: contain; }
+        .tool-chip { display: inline-flex; flex-direction: column; align-items: center; justify-content: flex-start; gap: 7px; width: 92px; padding: 12px 6px 10px; border-radius: 12px; background: #070b15; border: 1px solid #1e293b; color: #cbd5e1; font-size: 11.5px; font-weight: 500; line-height: 1.25; text-align: center; transition: border-color .2s, transform .2s, color .2s; }
+        .tool-chip:hover { border-color: rgba(56,189,248,.5); transform: translateY(-3px); color: #fff; }
+        .tool-ico { width: 34px; height: 34px; display: inline-flex; align-items: center; justify-content: center; flex-shrink: 0; }
+        .tool-ico img { width: 34px; height: 34px; object-fit: contain; }
 
         /* Smooth glass card hover dynamics */
         .hover-card {
@@ -357,7 +357,7 @@
                             <span class="tool-chip"><span class="tool-ico"><img src="images/logos/luau.svg" alt="" loading="lazy"></span>Luau (Lua)</span>
                             <span class="tool-chip"><span class="tool-ico"><img src="images/logos/roblox-studio.svg" alt="" loading="lazy"></span>Roblox Studio</span>
                             <span class="tool-chip"><span class="tool-ico"><img src="images/logos/github.svg" alt="" loading="lazy"></span>GitHub</span>
-                            <span class="tool-chip"><span class="tool-ico"><i class="fas fa-wand-magic-sparkles text-gray-400 text-sm"></i><img src="images/logos/effect-house.png" alt="" loading="lazy" onload="this.previousElementSibling&&this.previousElementSibling.remove()" onerror="this.remove()"></span>Effect House (AR)</span>
+                            <span class="tool-chip"><span class="tool-ico"><img src="images/logos/effect-house.png" alt="" loading="lazy"></span>Effect House (AR)</span>
                     </div>
                 </div>
                 <div class="bg-brand-card/60 rounded-2xl border border-brand-border p-5">
@@ -365,10 +365,10 @@
                     <div class="flex flex-wrap gap-2">
                             <span class="tool-chip"><span class="tool-ico"><img src="images/logos/maya.svg" alt="" loading="lazy"></span>Autodesk Maya</span>
                             <span class="tool-chip"><span class="tool-ico"><img src="images/logos/blender.svg" alt="" loading="lazy"></span>Blender</span>
-                            <span class="tool-chip"><span class="tool-ico"><i class="fas fa-paintbrush text-gray-400 text-sm"></i><img src="images/logos/substance-painter.png" alt="" loading="lazy" onload="this.previousElementSibling&&this.previousElementSibling.remove()" onerror="this.remove()"></span>Substance 3D Painter</span>
-                            <span class="tool-chip"><span class="tool-ico"><i class="fas fa-person-running text-gray-400 text-sm"></i><img src="images/logos/mixamo.png" alt="" loading="lazy" onload="this.previousElementSibling&&this.previousElementSibling.remove()" onerror="this.remove()"></span>Mixamo</span>
+                            <span class="tool-chip"><span class="tool-ico"><img src="images/logos/substance-painter.png" alt="" loading="lazy"></span>Substance 3D Painter</span>
+                            <span class="tool-chip"><span class="tool-ico"><img src="images/logos/mixamo.png" alt="" loading="lazy"></span>Mixamo</span>
                             <span class="tool-chip"><span class="tool-ico"><img src="images/logos/after-effects.svg" alt="" loading="lazy"></span>After Effects</span>
-                            <span class="tool-chip"><span class="tool-ico"><i class="fas fa-film text-gray-400 text-sm"></i><img src="images/logos/alight-motion.png" alt="" loading="lazy" onload="this.previousElementSibling&&this.previousElementSibling.remove()" onerror="this.remove()"></span>Alight Motion</span>
+                            <span class="tool-chip"><span class="tool-ico"><img src="images/logos/alight-motion.png" alt="" loading="lazy"></span>Alight Motion</span>
                     </div>
                 </div>
                 <div class="bg-brand-card/60 rounded-2xl border border-brand-border p-5">
@@ -377,7 +377,7 @@
                             <span class="tool-chip"><span class="tool-ico"><img src="images/logos/photoshop.svg" alt="" loading="lazy"></span>Photoshop</span>
                             <span class="tool-chip"><span class="tool-ico"><img src="images/logos/illustrator.svg" alt="" loading="lazy"></span>Illustrator</span>
                             <span class="tool-chip"><span class="tool-ico"><img src="images/logos/lightroom.svg" alt="" loading="lazy"></span>Lightroom</span>
-                            <span class="tool-chip"><span class="tool-ico"><i class="fas fa-cloud text-gray-400 text-sm"></i><img src="images/logos/creative-cloud.png" alt="" loading="lazy" onload="this.previousElementSibling&&this.previousElementSibling.remove()" onerror="this.remove()"></span>Adobe Creative Cloud</span>
+                            <span class="tool-chip"><span class="tool-ico"><img src="images/logos/creative-cloud.png" alt="" loading="lazy"></span>Adobe Creative Cloud</span>
                             <span class="tool-chip"><span class="tool-ico"><img src="images/logos/figma.svg" alt="" loading="lazy"></span>Figma</span>
                             <span class="tool-chip"><span class="tool-ico"><img src="images/logos/canva.svg" alt="" loading="lazy"></span>Canva</span>
                             <span class="tool-chip"><span class="tool-ico"><img src="images/logos/pixlr.svg" alt="" loading="lazy"></span>Pixlr E</span>
@@ -387,8 +387,8 @@
                     <p class="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-brand-cyan mb-3"><i class="fas fa-headphones"></i> Audio & Video</p>
                     <div class="flex flex-wrap gap-2">
                             <span class="tool-chip"><span class="tool-ico"><img src="images/logos/bandlab.svg" alt="" loading="lazy"></span>BandLab</span>
-                            <span class="tool-chip"><span class="tool-ico"><i class="fas fa-compact-disc text-gray-400 text-sm"></i><img src="images/logos/rekordbox.png" alt="" loading="lazy" onload="this.previousElementSibling&&this.previousElementSibling.remove()" onerror="this.remove()"></span>rekordbox</span>
-                            <span class="tool-chip"><span class="tool-ico"><i class="fas fa-scissors text-gray-400 text-sm"></i><img src="images/logos/capcut.png" alt="" loading="lazy" onload="this.previousElementSibling&&this.previousElementSibling.remove()" onerror="this.remove()"></span>CapCut</span>
+                            <span class="tool-chip"><span class="tool-ico"><img src="images/logos/rekordbox.png" alt="" loading="lazy"></span>rekordbox</span>
+                            <span class="tool-chip"><span class="tool-ico"><img src="images/logos/capcut.png" alt="" loading="lazy"></span>CapCut</span>
                     </div>
                 </div>
             </div>
@@ -960,7 +960,7 @@
 
                 <!-- CARD: Cobblestone Texture Study -->
                 <div class="portfolio-item bg-brand-card rounded-2xl border border-brand-border overflow-hidden hover-card flex flex-col group" data-category="art">
-                    <div class="aspect-video bg-brand-dark relative overflow-hidden flex items-center justify-center">
+                    <div class="aspect-video bg-brand-dark relative overflow-hidden flex items-center justify-center cursor-pointer" data-gallery-open="cobblestone">
                         <img src="images/art/cobblestone-texture-study.jpg" alt="Glowing cyan orb lighting a mossy cobblestone floor, rendered in Blender" onerror="this.remove()" class="object-cover w-full h-full group-hover:scale-105 transition-transform duration-500">
                         <div class="absolute top-3 left-3 px-2.5 py-1 rounded-md bg-brand-dark/80 backdrop-blur-sm text-[11px] font-semibold text-brand-cyan border border-brand-cyan/20">
                             Texturing & Lighting
@@ -977,6 +977,9 @@
                             <span class="text-[11px] px-2.5 py-1 rounded-full bg-brand-dark border border-brand-border text-gray-300">PBR Materials</span>
                             <span class="text-[11px] px-2.5 py-1 rounded-full bg-brand-dark border border-brand-border text-gray-300">Emissive Lighting</span>
                         </div>
+                        <button type="button" data-gallery="cobblestone" class="gallery-btn hidden items-center gap-2 text-xs font-bold text-brand-cyan hover:text-white transition-colors mt-5">
+                            <i class="fas fa-images"></i> View All Renders <span class="gallery-count opacity-70"></span> <i class="fas fa-arrow-right text-[10px]"></i>
+                        </button>
                     </div>
                 </div>
 
@@ -1479,6 +1482,15 @@
                     { src: 'images/storycraft/spread-15.jpg', caption: 'Spread 14' },
                     { src: 'images/storycraft/spread-16.jpg', caption: 'Spread 15' },
                     { src: 'images/storycraft/cover-back.jpg', caption: 'Back cover' }
+                ]
+            },
+            cobblestone: {
+                title: 'Cobblestone Texture Study',
+                items: [
+                    { src: 'images/art/cobblestone-texture-study.jpg', caption: 'Glowing orb lighting the mossy cobblestones' },
+                    { src: 'images/art/cobblestone-texture-study-2.jpg', caption: 'Close-up: bump detail on the stones and moss in the gaps' },
+                    { src: 'images/art/cobblestone-texture-study-3.jpg', caption: 'Darker, wet-looking variation' },
+                    { src: 'images/art/cobblestone-texture-study-4.jpg', caption: 'Warm lighting test' }
                 ]
             },
             deepsea: {
