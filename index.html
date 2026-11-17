@@ -5,44 +5,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Kia Lent Sng | Game Developer & Audio Designer | Portfolio</title>
     
-    <!-- Tailwind CSS CDN -->
-    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Prebuilt Tailwind styles (fast). If you add new Tailwind classes, styles.css must be rebuilt. -->
+    <link rel="stylesheet" href="styles.css">
     <!-- FontAwesome Icons CDN -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <!-- Google Fonts: Plus Jakarta Sans & JetBrains Mono -->
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <!-- Three.js for 3D Viewport Graphic -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js" defer></script>
     
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    fontFamily: {
-                        sans: ['Plus Jakarta Sans', 'sans-serif'],
-                        mono: ['JetBrains Mono', 'monospace'],
-                    },
-                    colors: {
-                        brand: {
-                            dark: '#070b15',        // Deep sapphire midnight background
-                            card: '#10172a',        // Rich dark navy card background
-                            cardHover: '#172036',   // Elevated slate navy card on hover
-                            border: '#1e293b',      // Subtle navy border
-                            blue: '#3b82f6',        // Electric royal blue
-                            indigo: '#6366f1',      // Deep vibrant indigo
-                            periwinkle: '#818cf8',  // Soft periwinkle blue
-                            cyan: '#38bdf8',        // Vivid ice cyan
-                            lavender: '#c084fc',    // Soft lilac glow accent
-                        }
-                    }
-                }
-            }
-        }
-    </script>
     
     <style>
+        html, body { overflow-x: clip; }
         body {
             background-color: #070b15;
             color: #f1f5f9;
@@ -158,7 +135,7 @@
 
     <nav class="fixed w-full z-50 bg-brand-dark/80 backdrop-blur-md border-b border-brand-border/60 transition-all duration-300 py-4">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center">
-            <a href="#" class="text-2xl font-extrabold tracking-tight text-white flex items-center gap-1">
+            <a href="#" class="text-xl sm:text-2xl font-extrabold tracking-tight text-white flex items-center gap-1">
                 KIALENT<span class="text-neon">.DEV</span>
                 <span class="inline-block w-2 h-2 rounded-full bg-brand-cyan animate-ping"></span>
             </a>
@@ -170,17 +147,17 @@
                 <a href="#portfolio" class="text-sm font-medium text-gray-300 hover:text-brand-cyan transition-colors">Portfolio</a>
                 <a href="#contact" class="text-sm font-medium text-gray-300 hover:text-brand-cyan transition-colors">Contact</a>
             </div>
-            <div class="flex items-center space-x-3 sm:space-x-4">
+            <div class="flex items-center space-x-2 sm:space-x-4">
                 <a href="resume.pdf" target="_blank" rel="noopener" class="hidden sm:inline-flex items-center gap-2 px-4 h-10 rounded-full bg-brand-cyan/10 border border-brand-cyan/40 text-brand-cyan text-sm font-semibold hover:bg-brand-cyan hover:text-brand-dark transition-all" title="Open Resume (PDF)">
                     <i class="fas fa-file-lines"></i> Resume
                 </a>
-                <a href="https://github.com/klntxo/Unity-Game-Projects" target="_blank" class="w-10 h-10 rounded-full bg-brand-card flex items-center justify-center border border-brand-border text-gray-300 hover:text-brand-cyan hover:border-brand-cyan transition-all" title="GitHub Repository">
+                <a href="https://github.com/klntxo/Unity-Game-Projects" target="_blank" class="w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-brand-card flex items-center justify-center border border-brand-border text-gray-300 hover:text-brand-cyan hover:border-brand-cyan transition-all" title="GitHub Repository">
                     <i class="fab fa-github text-base"></i>
                 </a>
-                <a href="https://www.linkedin.com/in/kia-lent-sng-697416247" target="_blank" class="w-10 h-10 rounded-full bg-brand-card flex items-center justify-center border border-brand-border text-gray-300 hover:text-brand-cyan hover:border-brand-cyan transition-all" title="LinkedIn Profile">
+                <a href="https://www.linkedin.com/in/kia-lent-sng-697416247" target="_blank" class="w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-brand-card flex items-center justify-center border border-brand-border text-gray-300 hover:text-brand-cyan hover:border-brand-cyan transition-all" title="LinkedIn Profile">
                     <i class="fab fa-linkedin-in text-base"></i>
                 </a>
-                <a href="https://www.artstation.com/distortedfrog" target="_blank" class="w-10 h-10 rounded-full bg-brand-card flex items-center justify-center border border-brand-border text-gray-300 hover:text-brand-periwinkle hover:border-brand-periwinkle transition-all" title="ArtStation Portfolio">
+                <a href="https://www.artstation.com/distortedfrog" target="_blank" class="w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-brand-card flex items-center justify-center border border-brand-border text-gray-300 hover:text-brand-periwinkle hover:border-brand-periwinkle transition-all" title="ArtStation Portfolio">
                     <i class="fab fa-artstation text-base"></i>
                 </a>
             </div>
@@ -825,8 +802,8 @@
                 <!-- CARD: Donkey Kong Remake (GCL2 CA3) -->
                 <div class="portfolio-item bg-brand-card rounded-2xl border border-brand-border overflow-hidden hover-card flex flex-col group" data-category="code">
                     <div class="aspect-video bg-brand-dark relative overflow-hidden flex items-center justify-center border-b border-brand-border/50">
-                        <video controls playsinline preload="metadata" class="object-cover w-full h-full">
-                            <source src="videos/ca3-donkeykong-gameplay.mp4" type="video/mp4">
+                        <video controls playsinline preload="none" poster="images/donkeykong-poster.jpg" class="object-cover w-full h-full">
+                            <source src="videos/donkeykong-gameplay-web.mp4" type="video/mp4">
                         </video>
                         <div class="absolute top-3 left-3 px-2.5 py-1 rounded-md bg-brand-dark/80 backdrop-blur-sm text-[11px] font-semibold text-brand-cyan border border-brand-cyan/20 flex items-center gap-1.5 pointer-events-none">
                             <i class="fas fa-volume-high text-[10px]"></i> Gameplay · sound on
@@ -862,7 +839,7 @@
                 <!-- CARD: Deep Sea Simulator (LumiBun Studios) -->
                 <div class="portfolio-item bg-brand-card rounded-2xl border border-brand-border overflow-hidden hover-card flex flex-col group" data-category="code roblox">
                     <div class="aspect-video bg-black relative overflow-hidden flex items-center justify-center border-b border-brand-border/50">
-                        <video controls playsinline preload="metadata" poster="images/deep-sea-gameplay.jpg" class="w-full h-full object-cover">
+                        <video controls playsinline preload="none" poster="images/deep-sea-gameplay.jpg" class="w-full h-full object-cover">
                             <source src="videos/deep-sea-gameplay.mp4" type="video/mp4">
                         </video>
                         <div class="absolute top-3 left-3 px-2.5 py-1 rounded-md bg-brand-dark/80 backdrop-blur-sm text-[11px] font-semibold text-brand-cyan border border-brand-cyan/20 flex items-center gap-1.5 pointer-events-none">
@@ -891,14 +868,14 @@
 
                 <!-- Divider between featured game projects and other work (shown on "All") -->
                 <div class="portfolio-divider col-span-full flex items-center gap-4 pt-4" data-category="__divider">
-                    <span class="text-xs font-bold uppercase tracking-widest text-gray-400 whitespace-nowrap">More Work: Art, Animation, Roblox, Design &amp; Music</span>
+                    <span class="text-xs font-bold uppercase tracking-widest text-gray-400 sm:whitespace-nowrap">More Work: Art, Animation, Roblox, Design &amp; Music</span>
                     <span class="h-px flex-1 bg-brand-border"></span>
                 </div>
 
                 <!-- CARD 1: Sora - 3D Character Model -->
                 <div class="portfolio-item bg-brand-card rounded-2xl border border-brand-border overflow-hidden hover-card flex flex-col group" data-category="art">
                     <div class="aspect-video bg-brand-dark relative overflow-hidden flex items-center justify-center">
-                        <img src="https://cdna.artstation.com/p/assets/images/images/101/764/744/large/kialent-sora.webp?1787279432" onerror="this.src='https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=800&q=80'" alt="Sora 3D Model" class="object-cover w-full h-full group-hover:scale-105 transition-transform duration-500">
+                        <img loading="lazy" decoding="async" src="https://cdna.artstation.com/p/assets/images/images/101/764/744/large/kialent-sora.webp?1787279432" onerror="this.src='https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=800&q=80'" alt="Sora 3D Model" class="object-cover w-full h-full group-hover:scale-105 transition-transform duration-500">
                         <div class="absolute top-3 left-3 px-2.5 py-1 rounded-md bg-brand-dark/80 backdrop-blur-sm text-[11px] font-semibold text-brand-cyan border border-brand-cyan/20">
                             3D Character / Fan Art
                         </div>
@@ -918,7 +895,7 @@
                 <!-- CARD 2: The Worn Frost Bot -->
                 <div class="portfolio-item bg-brand-card rounded-2xl border border-brand-border overflow-hidden hover-card flex flex-col group" data-category="art">
                     <div class="aspect-video bg-brand-dark relative overflow-hidden flex items-center justify-center">
-                        <img src="https://cdna.artstation.com/p/assets/images/images/094/119/064/large/kialent-md1110-sngkialent-p2527011-robot-beauty-02.webp?1764535739" onerror="this.src='https://images.unsplash.com/photo-1634017839464-5c339ebe3cb4?auto=format&fit=crop&w=800&q=80'" alt="The Worn Frost Bot" class="object-cover w-full h-full group-hover:scale-105 transition-transform duration-500">
+                        <img loading="lazy" decoding="async" src="https://cdna.artstation.com/p/assets/images/images/094/119/064/large/kialent-md1110-sngkialent-p2527011-robot-beauty-02.webp?1764535739" onerror="this.src='https://images.unsplash.com/photo-1634017839464-5c339ebe3cb4?auto=format&fit=crop&w=800&q=80'" alt="The Worn Frost Bot" class="object-cover w-full h-full group-hover:scale-105 transition-transform duration-500">
                         <div class="absolute top-3 left-3 px-2.5 py-1 rounded-md bg-brand-dark/80 backdrop-blur-sm text-[11px] font-semibold text-brand-cyan border border-brand-cyan/20">
                             Semi-Organic Modeling
                         </div>
@@ -941,7 +918,7 @@
                 <!-- CARD 3: Stylized Japanese Street Corner -->
                 <div class="portfolio-item bg-brand-card rounded-2xl border border-brand-border overflow-hidden hover-card flex flex-col group" data-category="art">
                     <div class="aspect-video bg-brand-dark relative overflow-hidden flex items-center justify-center">
-                        <img src="https://cdnb.artstation.com/p/assets/images/images/096/632/429/large/kialent-render-01.webp?1771905966" onerror="this.src='https://images.unsplash.com/photo-1503899036084-c55cdd92da26?auto=format&fit=crop&w=800&q=80'" alt="Stylized Japanese Street Corner" class="object-cover w-full h-full group-hover:scale-105 transition-transform duration-500">
+                        <img loading="lazy" decoding="async" src="https://cdnb.artstation.com/p/assets/images/images/096/632/429/large/kialent-render-01.webp?1771905966" onerror="this.src='https://images.unsplash.com/photo-1503899036084-c55cdd92da26?auto=format&fit=crop&w=800&q=80'" alt="Stylized Japanese Street Corner" class="object-cover w-full h-full group-hover:scale-105 transition-transform duration-500">
                         <div class="absolute top-3 left-3 px-2.5 py-1 rounded-md bg-brand-dark/80 backdrop-blur-sm text-[11px] font-semibold text-brand-cyan border border-brand-cyan/20">
                             3D Environment & Props
                         </div>
@@ -961,7 +938,7 @@
                 <!-- CARD: Cobblestone Texture Study -->
                 <div class="portfolio-item bg-brand-card rounded-2xl border border-brand-border overflow-hidden hover-card flex flex-col group" data-category="art">
                     <div class="aspect-video bg-brand-dark relative overflow-hidden flex items-center justify-center cursor-pointer" data-gallery-open="cobblestone">
-                        <img src="images/art/cobblestone-texture-study.jpg" alt="Glowing cyan orb lighting a mossy cobblestone floor, rendered in Blender" onerror="this.remove()" class="object-cover w-full h-full group-hover:scale-105 transition-transform duration-500">
+                        <img loading="lazy" decoding="async" src="images/art/cobblestone-texture-study.jpg" alt="Glowing cyan orb lighting a mossy cobblestone floor, rendered in Blender" onerror="this.remove()" class="object-cover w-full h-full group-hover:scale-105 transition-transform duration-500">
                         <div class="absolute top-3 left-3 px-2.5 py-1 rounded-md bg-brand-dark/80 backdrop-blur-sm text-[11px] font-semibold text-brand-cyan border border-brand-cyan/20">
                             Texturing & Lighting
                         </div>
@@ -1057,7 +1034,7 @@
                 <div class="portfolio-item bg-brand-card rounded-2xl border border-brand-border overflow-hidden hover-card flex flex-col group" data-category="roblox">
                     <div class="aspect-video bg-gradient-to-br from-brand-blue/25 via-brand-dark to-brand-indigo/15 relative overflow-hidden flex items-center justify-center border-b border-brand-border/50 cursor-pointer" data-gallery-open="ugc">
                         <i class="fas fa-hat-wizard text-5xl text-brand-blue/40"></i>
-                        <img src="images/ugc/pink-bear-hoodie.jpg" alt="Pink Bear Hoodie, a Roblox UGC concept modeled in Blender" onerror="this.remove()" class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                        <img loading="lazy" decoding="async" src="images/ugc/pink-bear-hoodie.jpg" alt="Pink Bear Hoodie, a Roblox UGC concept modeled in Blender" onerror="this.remove()" class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
                         <div class="absolute top-3 left-3 px-2.5 py-1 rounded-md bg-brand-dark/80 backdrop-blur-sm text-[11px] font-semibold text-brand-cyan border border-brand-cyan/20">
                             3D Accessories
                         </div>
@@ -1079,16 +1056,16 @@
                     <div class="aspect-video bg-gradient-to-br from-brand-indigo/25 via-brand-dark to-brand-cyan/15 relative overflow-hidden px-3 pb-3 pt-11 border-b border-brand-border/50 cursor-pointer" data-gallery-open="clothing">
                         <div class="grid grid-cols-4 gap-2 h-full">
                             <div class="relative rounded-xl bg-white overflow-hidden transition-transform duration-300 group-hover:-translate-y-1">
-                                <img src="images/roblox/mom-jeans.png" alt="mom jeans Roblox pants design" class="absolute inset-0 w-full h-full object-contain">
+                                <img loading="lazy" decoding="async" src="images/roblox/mom-jeans.png" alt="mom jeans Roblox pants design" class="absolute inset-0 w-full h-full object-contain">
                             </div>
                             <div class="relative rounded-xl bg-white overflow-hidden transition-transform duration-300 group-hover:-translate-y-1">
-                                <img src="images/roblox/jeans-and-boots.png" alt="jeans and boots Roblox pants design" class="absolute inset-0 w-full h-full object-contain">
+                                <img loading="lazy" decoding="async" src="images/roblox/jeans-and-boots.png" alt="jeans and boots Roblox pants design" class="absolute inset-0 w-full h-full object-contain">
                             </div>
                             <div class="relative rounded-xl bg-white overflow-hidden transition-transform duration-300 group-hover:-translate-y-1">
-                                <img src="images/roblox/christmas-jeans.png" alt="christmas jeans Roblox pants design" class="absolute inset-0 w-full h-full object-contain">
+                                <img loading="lazy" decoding="async" src="images/roblox/christmas-jeans.png" alt="christmas jeans Roblox pants design" class="absolute inset-0 w-full h-full object-contain">
                             </div>
                             <div class="relative rounded-xl bg-white overflow-hidden transition-transform duration-300 group-hover:-translate-y-1">
-                                <img src="images/roblox/blue-off-shoulder.png" alt="blue off shoulder Roblox shirt design" class="absolute inset-0 w-full h-full object-contain">
+                                <img loading="lazy" decoding="async" src="images/roblox/blue-off-shoulder.png" alt="blue off shoulder Roblox shirt design" class="absolute inset-0 w-full h-full object-contain">
                             </div>
                         </div>
                         <div class="absolute top-3 left-3 px-2.5 py-1 rounded-md bg-brand-dark/80 backdrop-blur-sm text-[11px] font-semibold text-brand-cyan border border-brand-cyan/20">
@@ -1103,11 +1080,11 @@
                         </p>
                         <div class="grid grid-cols-2 gap-2 mb-3">
                             <div class="flex items-center gap-2.5 bg-brand-dark/50 border border-brand-border/50 rounded-xl p-2">
-                                <img src="images/roblox/hushed-clothing-logo.png" alt="Hushed Clothing group logo" class="w-9 h-9 rounded-lg object-cover shrink-0">
+                                <img loading="lazy" decoding="async" src="images/roblox/hushed-clothing-logo.png" alt="Hushed Clothing group logo" class="w-9 h-9 rounded-lg object-cover shrink-0">
                                 <p class="text-xs font-semibold text-white leading-tight">Hushed Clothing</p>
                             </div>
                             <div class="flex items-center gap-2.5 bg-brand-dark/50 border border-brand-border/50 rounded-xl p-2">
-                                <img src="images/roblox/cozy-creations-logo.png" alt="Cozy Creations group logo" class="w-9 h-9 rounded-lg object-cover shrink-0">
+                                <img loading="lazy" decoding="async" src="images/roblox/cozy-creations-logo.png" alt="Cozy Creations group logo" class="w-9 h-9 rounded-lg object-cover shrink-0">
                                 <p class="text-xs font-semibold text-white leading-tight">Cozy Creations</p>
                             </div>
                         </div>
@@ -1135,7 +1112,7 @@
                 <div class="portfolio-item bg-brand-card rounded-2xl border border-brand-border overflow-hidden hover-card flex flex-col group" data-category="design">
                     <div class="aspect-video bg-gradient-to-br from-brand-indigo/25 via-brand-dark to-brand-periwinkle/15 relative overflow-hidden flex items-center justify-center border-b border-brand-border/50 cursor-pointer" data-gallery-open="photography">
                         <i class="fas fa-camera-retro text-5xl text-brand-indigo/40"></i>
-                        <img src="images/photography/misty-park-night.jpg" alt="Misty park at night with glowing lamps between large trees" onerror="this.remove()" class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                        <img loading="lazy" decoding="async" src="images/photography/misty-park-night.jpg" alt="Misty park at night with glowing lamps between large trees" onerror="this.remove()" class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
                         <div class="absolute top-3 left-3 px-2.5 py-1 rounded-md bg-brand-dark/80 backdrop-blur-sm text-[11px] font-semibold text-brand-indigo border border-brand-indigo/20">
                             Photography
                         </div>
@@ -1168,7 +1145,7 @@
                 <div class="portfolio-item bg-brand-card rounded-2xl border border-brand-border overflow-hidden hover-card flex flex-col group" data-category="design">
                     <div class="aspect-video bg-gradient-to-br from-brand-lavender/20 via-brand-dark to-brand-blue/15 relative overflow-hidden flex items-center justify-center border-b border-brand-border/50 cursor-pointer" data-gallery-open="storycraft">
                         <i class="fas fa-book-open text-5xl text-brand-lavender/40"></i>
-                        <img src="images/storycraft/card-cover.jpg" alt="Cover of the children's book Pablo Doesn't Think So, showing a smiling cactus in a pot" onerror="this.remove()" class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                        <img loading="lazy" decoding="async" src="images/storycraft/card-cover.jpg" alt="Cover of the children's book Pablo Doesn't Think So, showing a smiling cactus in a pot" onerror="this.remove()" class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
                         <div class="absolute top-3 left-3 px-2.5 py-1 rounded-md bg-brand-dark/80 backdrop-blur-sm text-[11px] font-semibold text-brand-lavender border border-brand-lavender/20">
                             Illustration & Animation
                         </div>
@@ -1200,7 +1177,7 @@
                 <!-- CARD 10: SoundCloud Mixtape Embed -->
                 <div class="portfolio-item bg-brand-card rounded-2xl border border-brand-border overflow-hidden hover-card flex flex-col group" data-category="audio">
                     <div class="aspect-video bg-brand-dark relative overflow-hidden flex items-center justify-center p-2 border-b border-brand-border/50">
-                        <iframe width="100%" height="100%" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//soundcloud.com/kay-16428286/energy-002-baile-funk-miami&color=%23c084fc&auto_play=false&hide_related=true&show_comments=false&show_user=true&show_reposts=false&show_teaser=false" class="rounded-xl"></iframe>
+                        <iframe loading="lazy" title="ENERGY 002 mix on SoundCloud" width="100%" height="100%" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//soundcloud.com/kay-16428286/energy-002-baile-funk-miami&color=%23c084fc&auto_play=false&hide_related=true&show_comments=false&show_user=true&show_reposts=false&show_teaser=false" class="rounded-xl"></iframe>
                     </div>
                     <div class="p-6 flex-1 flex flex-col">
                         <div class="flex items-center gap-2 mb-1">
@@ -1574,7 +1551,7 @@
                     const b = document.createElement('button');
                     b.type = 'button';
                     b.setAttribute('aria-label', `Show item ${k + 1}`);
-                    b.innerHTML = (it.video || it.embed) ? '<span class="lb-thumb-video"><i class="fas fa-play"></i></span>' : `<img src="${it.src}" alt="">`;
+                    b.innerHTML = (it.video || it.embed) ? '<span class="lb-thumb-video"><i class="fas fa-play"></i></span>' : `<img loading="lazy" decoding="async" src="${it.src}" alt="">`;
                     b.addEventListener('click', () => show(k));
                     thumbs.appendChild(b);
                 });
@@ -1618,11 +1595,13 @@
                     el.addEventListener('click', () => open(key));
                 });
                 // Show gallery buttons (with item counts) only when that gallery has files
-                document.querySelectorAll('.gallery-btn').forEach(async btn => {
-                    const list = await resolveGallery(GALLERIES[btn.dataset.gallery]);
-                    if (!list.length) return;
+                // Count from the list (no downloads); images load only when a gallery is opened
+                document.querySelectorAll('.gallery-btn').forEach(btn => {
+                    const g = GALLERIES[btn.dataset.gallery];
+                    const count = g && g.items ? g.items.length : 0;
+                    if (!count) return;
                     btn.classList.remove('hidden'); btn.classList.add('inline-flex');
-                    btn.querySelector('.gallery-count').textContent = `(${list.length})`;
+                    btn.querySelector('.gallery-count').textContent = `(${count})`;
                 });
                 // Show links / badges only when their file exists (e.g. the Story Craft PDF)
                 document.querySelectorAll('[data-requires]').forEach(async el => {
