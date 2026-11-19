@@ -20,6 +20,7 @@
     
     <style>
         html, body { overflow-x: clip; }
+        video:fullscreen, video:-webkit-full-screen { object-fit: contain !important; background: #000; }
         body {
             background-color: #070b15;
             color: #f1f5f9;
@@ -60,6 +61,7 @@
         .bd p, .bd li { font-size: 14px; color: #cbd5e1; line-height: 1.6; }
         .bd ul { list-style: disc; padding-left: 20px; display: grid; gap: 6px; }
         .bd li b { color: #fff; font-weight: 600; }
+        .bd-code { margin-top: 4px; padding: 14px 16px; background: #070b15; border: 1px solid #1e293b; border-radius: 12px; font-family: 'JetBrains Mono', monospace; font-size: 12px; line-height: 1.6; color: #cbd5e1; overflow-x: auto; white-space: pre; tab-size: 4; }
         @media (max-width: 640px) { .bd-panel { padding: 24px 18px; } }
 
         /* Gallery lightbox */
@@ -84,8 +86,8 @@
         .lb-thumbs .lb-thumb-video { display: flex; align-items: center; justify-content: center; color: #c084fc; height: 100%; }
         @media (max-width: 640px) { .lb-nav { position: absolute; top: 50%; z-index: 2; } .lb-prev { left: 8px; } .lb-next { right: 8px; } .lb-stage { position: relative; } }
 
-        .tool-chip { display: inline-flex; flex-direction: column; align-items: center; justify-content: flex-start; gap: 7px; width: 92px; padding: 12px 6px 10px; border-radius: 12px; background: #070b15; border: 1px solid #1e293b; color: #cbd5e1; font-size: 11.5px; font-weight: 500; line-height: 1.25; text-align: center; transition: border-color .2s, transform .2s, color .2s; }
-        .tool-chip:hover { border-color: rgba(56,189,248,.5); transform: translateY(-3px); color: #fff; }
+        .tool-chip { display: inline-flex; flex-direction: column; align-items: center; justify-content: flex-start; gap: 6px; width: 70px; padding: 2px 0; color: #cbd5e1; font-size: 11px; font-weight: 500; line-height: 1.25; text-align: center; transition: transform .2s, color .2s; }
+        .tool-chip:hover { transform: translateY(-3px); color: #fff; }
         .tool-ico { width: 34px; height: 34px; display: inline-flex; align-items: center; justify-content: center; flex-shrink: 0; }
         .tool-ico img { width: 34px; height: 34px; object-fit: contain; }
 
@@ -266,15 +268,15 @@
             </div>
 
             <div class="grid md:grid-cols-2 gap-12 items-center">
-                <div class="space-y-6 text-gray-300 leading-relaxed text-base">
+                <div class="space-y-5 text-gray-300 leading-relaxed text-base">
                     <p>
-                        I've been playing games since I was five, from Minecraft and Growtopia to Roblox, Mobile Legends and Valorant, and that love is what eventually pushed me to start making them. It began on Roblox in 2020, where I designed digital clothing and later taught myself Blender to model UGC concepts. Since then, my passion has expanded into interactive systems, game logic, and sound design.
+                        I've been playing games since I was five, from Minecraft and Growtopia to Roblox and Valorant, and that's what pushed me to start making them. I began on Roblox in 2020, designing clothing and modelling UGC in Blender, and have since moved into game systems, logic and sound design.
                     </p>
                     <p>
-                        I grew up on rhythm games like osu!, Taiko and Project Sekai, which first showed me how closely sound and gameplay can work together. Music is deeply tied to how I craft player experiences. As a DJ and dancer, I leverage rhythm, energy flow, and atmospheric audio to guide player emotions and shape spatial "vibes" within games.
+                        Rhythm games like osu! and Project Sekai showed me how closely sound and gameplay work together. As a DJ and dancer, I use rhythm, energy and atmosphere to shape how a game feels.
                     </p>
                     <p>
-                        Beyond technical and creative work, I value community involvement—from marching in NDP 2024 with Goodhood.sg to youth and senior volunteer initiatives. I strive to bring energy, empathy, and attention to detail into everything I build.
+                        Outside of games, I volunteer with youth and senior initiatives and marched in NDP 2024 with Goodhood.sg.
                     </p>
                 </div>
 
@@ -327,7 +329,7 @@
             <div class="grid md:grid-cols-2 gap-5 mb-12">
                 <div class="bg-brand-card/60 rounded-2xl border border-brand-border p-5">
                     <p class="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-brand-cyan mb-3"><i class="fas fa-gamepad"></i> Engines, Code & AR</p>
-                    <div class="flex flex-wrap gap-2">
+                    <div class="flex flex-wrap" style="gap:16px 6px">
                             <span class="tool-chip"><span class="tool-ico"><img src="images/logos/unity.svg" alt="" loading="lazy"></span>Unity</span>
                             <span class="tool-chip"><span class="tool-ico"><img src="images/logos/unreal.svg" alt="" loading="lazy"></span>Unreal Engine</span>
                             <span class="tool-chip"><span class="tool-ico"><img src="images/logos/csharp.svg" alt="" loading="lazy"></span>C#</span>
@@ -339,7 +341,7 @@
                 </div>
                 <div class="bg-brand-card/60 rounded-2xl border border-brand-border p-5">
                     <p class="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-brand-cyan mb-3"><i class="fas fa-cube"></i> 3D & Motion</p>
-                    <div class="flex flex-wrap gap-2">
+                    <div class="flex flex-wrap" style="gap:16px 6px">
                             <span class="tool-chip"><span class="tool-ico"><img src="images/logos/maya.svg" alt="" loading="lazy"></span>Autodesk Maya</span>
                             <span class="tool-chip"><span class="tool-ico"><img src="images/logos/blender.svg" alt="" loading="lazy"></span>Blender</span>
                             <span class="tool-chip"><span class="tool-ico"><img src="images/logos/substance-painter.png" alt="" loading="lazy"></span>Substance 3D Painter</span>
@@ -350,7 +352,7 @@
                 </div>
                 <div class="bg-brand-card/60 rounded-2xl border border-brand-border p-5">
                     <p class="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-brand-cyan mb-3"><i class="fas fa-pen-nib"></i> Design & Photo</p>
-                    <div class="flex flex-wrap gap-2">
+                    <div class="flex flex-wrap" style="gap:16px 6px">
                             <span class="tool-chip"><span class="tool-ico"><img src="images/logos/photoshop.svg" alt="" loading="lazy"></span>Photoshop</span>
                             <span class="tool-chip"><span class="tool-ico"><img src="images/logos/illustrator.svg" alt="" loading="lazy"></span>Illustrator</span>
                             <span class="tool-chip"><span class="tool-ico"><img src="images/logos/lightroom.svg" alt="" loading="lazy"></span>Lightroom</span>
@@ -362,7 +364,7 @@
                 </div>
                 <div class="bg-brand-card/60 rounded-2xl border border-brand-border p-5">
                     <p class="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-brand-cyan mb-3"><i class="fas fa-headphones"></i> Audio & Video</p>
-                    <div class="flex flex-wrap gap-2">
+                    <div class="flex flex-wrap" style="gap:16px 6px">
                             <span class="tool-chip"><span class="tool-ico"><img src="images/logos/bandlab.svg" alt="" loading="lazy"></span>BandLab</span>
                             <span class="tool-chip"><span class="tool-ico"><img src="images/logos/rekordbox.png" alt="" loading="lazy"></span>rekordbox</span>
                             <span class="tool-chip"><span class="tool-ico"><img src="images/logos/capcut.png" alt="" loading="lazy"></span>CapCut</span>
@@ -802,7 +804,7 @@
                 <!-- CARD: Donkey Kong Remake (GCL2 CA3) -->
                 <div class="portfolio-item bg-brand-card rounded-2xl border border-brand-border overflow-hidden hover-card flex flex-col group" data-category="code">
                     <div class="aspect-video bg-brand-dark relative overflow-hidden flex items-center justify-center border-b border-brand-border/50">
-                        <video controls playsinline preload="none" poster="images/donkeykong-poster.jpg" class="object-cover w-full h-full">
+                        <video controls playsinline preload="none" poster="images/donkeykong-poster.jpg" class="object-contain w-full h-full">
                             <source src="videos/donkeykong-gameplay-web.mp4" type="video/mp4">
                         </video>
                         <div class="absolute top-3 left-3 px-2.5 py-1 rounded-md bg-brand-dark/80 backdrop-blur-sm text-[11px] font-semibold text-brand-cyan border border-brand-cyan/20 flex items-center gap-1.5 pointer-events-none">
@@ -839,7 +841,7 @@
                 <!-- CARD: Deep Sea Simulator (LumiBun Studios) -->
                 <div class="portfolio-item bg-brand-card rounded-2xl border border-brand-border overflow-hidden hover-card flex flex-col group" data-category="code roblox">
                     <div class="aspect-video bg-black relative overflow-hidden flex items-center justify-center border-b border-brand-border/50">
-                        <video controls playsinline preload="none" poster="images/deep-sea-gameplay.jpg" class="w-full h-full object-cover">
+                        <video controls playsinline preload="none" poster="images/deepsea/poster.jpg" class="w-full h-full object-contain">
                             <source src="videos/deep-sea-gameplay.mp4" type="video/mp4">
                         </video>
                         <div class="absolute top-3 left-3 px-2.5 py-1 rounded-md bg-brand-dark/80 backdrop-blur-sm text-[11px] font-semibold text-brand-cyan border border-brand-cyan/20 flex items-center gap-1.5 pointer-events-none">
@@ -850,19 +852,30 @@
                     <div class="p-6 flex-1 flex flex-col">
                         <h3 class="text-lg font-bold text-white mb-1">Deep Sea Simulator</h3>
                         <span class="text-xs text-brand-cyan font-mono mb-2">Roblox Studio · Original game (2026)</span>
-                        <div class="flex items-center gap-2 text-[11px] font-mono text-gray-400 mb-4"><i class="fas fa-users text-brand-blue"></i> Team of 2 · Founder of LumiBun Studios & co-developer</div>
+                        <div class="flex items-center gap-2 text-[11px] font-mono text-gray-400 mb-4"><img src="images/deepsea/lumibun-logo.png" alt="LumiBun Studios logo" loading="lazy" width="20" height="20" style="width:20px;height:20px;border-radius:5px"> Team of 2 · Founder of LumiBun Studios &amp; co-developer</div>
                         <p class="text-xs text-gray-400 mb-4 leading-relaxed">
                             Our own dive-and-collect game, built over a 1–2 month school holiday. I worked across every part of it, from the gameplay loop to the UI and testing.
                         </p>
-                        <div class="grid grid-cols-2 gap-2 mb-5 text-[11px] text-gray-300 flex-1 content-start">
-                            <div class="bg-brand-dark/50 border border-brand-border/50 rounded-lg px-2.5 py-2"><span class="text-brand-cyan font-semibold">Dive</span> into the deep waters</div>
-                            <div class="bg-brand-dark/50 border border-brand-border/50 rounded-lg px-2.5 py-2"><span class="text-brand-cyan font-semibold">Collect</span> crystals &amp; scrap</div>
-                            <div class="bg-brand-dark/50 border border-brand-border/50 rounded-lg px-2.5 py-2"><span class="text-brand-cyan font-semibold">Surface</span> before air runs out</div>
-                            <div class="bg-brand-dark/50 border border-brand-border/50 rounded-lg px-2.5 py-2"><span class="text-brand-cyan font-semibold">Upgrade</span> oxygen, cargo, speed &amp; tier</div>
+                        <ul class="text-xs text-gray-300 space-y-1.5 mb-4 list-disc list-inside bg-brand-dark/40 p-3 rounded-xl border border-brand-border/40">
+                            <li><strong>Game &amp; level design:</strong> the dive, collect, sell and upgrade loop, the surface hub and the deeper tier zones</li>
+                            <li><strong>Oxygen system:</strong> drain by depth and upgrade level, low-oxygen warnings, alarm and heartbeat audio, underwater screen effects</li>
+                            <li><strong>Audio:</strong> sourced and implemented all of the game's sound</li>
+                            <li><strong>UI, upgrades, cargo, selling &amp; leaderboards</strong>, plus the tutorial and testing</li>
+                        </ul>
+                        <div class="p-3 bg-[#090d1a] rounded-xl border border-brand-border/50 font-mono text-[11px] text-gray-300 overflow-x-auto leading-relaxed mb-5 flex-1">
+                            <span class="text-gray-500">-- OxygenSystem: drain scales with the Oxygen upgrade</span><br>
+                            <span class="text-brand-cyan">local</span> drainRate = 5 / (1 + (level - 1) * 0.15)<br>
+                            currentOxygen -= drainRate * dt<br>
+                            setSound(<span class="text-amber-300">"AlarmSound"</span>, low)
                         </div>
-                        <button type="button" data-gallery="deepsea" class="inline-flex items-center gap-2 text-xs font-bold text-brand-cyan hover:text-white transition-colors w-max">
-                            <i class="fas fa-expand"></i> Watch Full Screen &amp; Screenshots <i class="fas fa-arrow-right text-[10px]"></i>
-                        </button>
+                        <div class="flex flex-wrap items-center gap-x-5 gap-y-2">
+                            <button type="button" data-breakdown="deepsea" class="inline-flex items-center gap-2 text-xs font-bold text-brand-cyan hover:text-white transition-colors">
+                                <i class="fas fa-book-open"></i> Read Breakdown <i class="fas fa-arrow-right text-[10px]"></i>
+                            </button>
+                            <button type="button" data-gallery="deepsea" class="inline-flex items-center gap-2 text-xs font-bold text-brand-blue hover:text-white transition-colors">
+                                <i class="fas fa-expand"></i> Video &amp; Screenshots <i class="fas fa-arrow-right text-[10px]"></i>
+                            </button>
+                        </div>
                     </div>
                 </div>
 
@@ -1241,6 +1254,35 @@
             <div class="bd-body"></div>
         </div>
     </div>
+    <template id="bd-deepsea"><p class="bd-kicker">Roblox Studio · Luau · LumiBun Studios · 2026</p><h3>Deep Sea Simulator</h3><div class="bd-meta"><span><i class="fas fa-users"></i> Team of 2</span><span><i class="fas fa-user"></i> Game &amp; level design, scripting, UI &amp; audio</span></div><section><h4><i class="fas fa-clipboard-list"></i> The Game</h4><p>Our own Roblox simulator, built over a 1–2 month school holiday. Players dive from the surface hub, collect crystals and scrap, and race back up before their oxygen runs out. They sell their cargo on the sell pad and spend the money on upgrades that let them dive deeper.</p></section><section><h4><i class="fas fa-hammer"></i> What I Built</h4><ul><li><b>Game design</b>: the core loop (dive, collect, surface, sell, upgrade) and the tier progression that unlocks deeper zones.</li><li><b>Level design</b>: the surface hub with the shop, sell pad, elevator and leaderboards, and the underwater zones.</li><li><b>Oxygen system</b>: oxygen drains while you're underwater, more slowly with each Oxygen upgrade. The bar turns yellow, then red. Below 25% a LOW OXYGEN warning and alarm kick in, and at 0% you start losing health with a heartbeat sound. The water gets darker the deeper you go.</li><li><b>Audio</b>: sourced every sound in the game and implemented all of it, including the bubbles, alarm and heartbeat that react to your oxygen level.</li><li><b>UI</b>: the HUD, cargo hold, upgrade menus and tutorial panels.</li><li><b>Upgrades, cargo &amp; selling</b>: oxygen, swim speed, cargo bag and tier upgrades, item rarities and values, and the sell pad.</li><li><b>Leaderboards</b>: saved leaderboards for top time played and top donators.</li><li><b>Teamwork</b>: my partner designed the LumiBun logo and built the first versions of swimming, item spawning and collecting, and the loading screen, which I then improved. We built the upgrade shop together.</li></ul></section><section><h4><i class="fas fa-lightbulb"></i> Problems I Solved</h4><ul><li><b>The low-oxygen alarm never stopped.</b> The sound was being told to play every frame. Now each sound remembers whether it's on and only starts or stops when that changes. Stopping fades the sound out, then puts its volume back so it plays normally next time.</li><li><b>Sounds kept playing after respawning.</b> The script stops every oxygen sound when it starts up and when the UI is destroyed, so nothing carries over from your last life.</li></ul></section><section><h4><i class="fas fa-code"></i> Code: OxygenSystem (Luau)</h4><pre class="bd-code">-- Starts or stops a sound only when the wanted state changes
+local function setSound(name, want)
+	if want == (soundOn[name] or false) then return end
+	soundOn[name] = want
+	if want then
+		startSound(name)
+	else
+		stopSound(name, SOUND_FADE) -- fade out, then restore volume
+	end
+end
+
+-- Every frame (RenderStepped)
+if underwater then
+	local drainRate = 5 / (1 + ((oxygenLevelStat.Value - 1) * 0.15))
+	currentOxygen = math.clamp(currentOxygen - (drainRate * dt), 0, maxOxygen)
+	if currentOxygen &lt;= 0 then
+		humanoid.Health -= 15 * dt
+	end
+else
+	currentOxygen = maxOxygen -- surfacing, dying or respawning refills it
+end
+
+local pct = currentOxygen / maxOxygen
+local low = underwater and pct &lt;= LOW_OXYGEN
+local suffocating = underwater and currentOxygen &lt;= 0
+
+setSound(&quot;BubbleSound&quot;, underwater)
+setSound(&quot;AlarmSound&quot;, low)
+setSound(&quot;HeartbeatSound&quot;, suffocating)</pre></section><section><h4><i class="fas fa-arrow-trend-up"></i> What I'd Improve</h4><ul><li>Track oxygen and damage on the server instead of in a LocalScript, so players can't cheat it. The client would only draw the bar and effects.</li><li>Read the sea level from the map instead of a fixed number, so the water height can change without editing the script.</li></ul></section></template>
     <template id="bd-l4d"><p class="bd-kicker">Unity · C# · GCL2 CA4 · Year 2 Sem 1</p><h3>Left 4 Dead Remake</h3><div class="bd-meta"><span><i class="fas fa-users"></i> Team of 4</span><span><i class="fas fa-user"></i> Enemy AI, shove, animations &amp; audio</span></div><section><h4><i class="fas fa-clipboard-list"></i> The Brief</h4><p>Recreate Left 4 Dead in Unity as a team of four.</p></section><section><h4><i class="fas fa-hammer"></i> What I Built</h4><ul><li><b>EnemyBase.cs</b>: a parent class every zombie uses, with idle, chase, attack and death states, health, hit flinches and 3D spatial sound.</li><li><b>BasicEnemy.cs</b>: the swarm zombie, with its own stats and random idle groans.</li><li><b>WitchEnemy.cs</b>: cries louder and higher-pitched as you get closer, screams when startled, then chases at 1.1× your current speed.</li><li><b>PlayerShove.cs</b>: right-click shove with a cooldown that knocks zombies back and interrupts their attacks.</li><li><b>Audio</b>: zombie sounds, weapon SFX, footsteps, ambience, menu music and UI sounds, plus a death sequence that fades all enemies out under the player's scream.</li><li><b>Animations</b>: set up the enemy animations (walking, attacking, flinching, dying).</li><li><b>CameraShake.cs</b>: screen shake when a grenade explodes.</li></ul></section><section><h4><i class="fas fa-lightbulb"></i> Problems I Solved</h4><ul><li><b>Shoved zombies slid through walls.</b> Instead of pushing them with physics, I moved them with their NavMesh agent during the knockback, so they always stay on walkable ground.</li><li><b>The death scream got drowned out by zombie groans.</b> I pause all enemy audio, fade every zombie out over 0.4 seconds, play the scream, then fade them back in at their original volumes.</li><li><b>The shove missed zombies right in front of you.</b> I used a wide sphere cast instead of a thin line, so anything close in front of the camera gets hit.</li></ul></section><section><h4><i class="fas fa-arrow-trend-up"></i> What I'd Improve</h4><ul><li>Use Unity's Audio Mixer (snapshots and ducking) for the death sequence instead of a global on/off switch, which would make it easier to reuse for other moments.</li><li>Reuse zombies with object pooling instead of creating and destroying them, so the game can handle bigger hordes.</li><li>Add a line-of-sight check so zombies can't "hear" you through walls, and give them a proper flinch animation.</li></ul></section></template>
     <template id="bd-dk"><p class="bd-kicker">Unity · C# · GCL2 CA3 · Year 2 Sem 1</p><h3>Donkey Kong Remake</h3><div class="bd-meta"><span><i class="fas fa-users"></i> Team of 4</span><span><i class="fas fa-user"></i> Gameplay audio &amp; core game logic</span></div><section><h4><i class="fas fa-clipboard-list"></i> The Brief</h4><p>Recreate Donkey Kong in Unity as a team of four, with each member adding one new feature of their own. <b>My feature was the adaptive gameplay audio.</b></p></section><section><h4><i class="fas fa-hammer"></i> What I Built</h4><ul><li><b>AdaptiveAudioManager.cs</b> (my new feature): two music tracks that crossfade from calm to intense based on how high Mario has climbed.</li><li><b>LevelManager.cs</b>: a 3-second countdown before Mario and the barrels can move, restarting the level on death, and loading the win screen.</li><li><b>Barrels</b>: barrel spawning and movement.</li><li><b>Ladder.cs</b>: climbing with gravity switched off, a climb animation that pauses when Mario stops, and dropping down through platforms.</li><li><b>Princess.cs</b>: the win condition when Mario reaches the Princess.</li></ul></section><section><h4><i class="fas fa-lightbulb"></i> Problems I Solved</h4><ul><li><b>Swapping music tracks made the song restart.</b> Both tracks start together and loop the whole time, and only their volumes change, so they always stay in sync.</li><li><b>Reaching the Princess didn't always trigger the win.</b> I added a backup distance check, plus a flag so the win screen can only load once.</li><li><b>Mario couldn't climb down past the platform he was standing on.</b> While the player holds Down on a ladder, Mario's collider stops blocking, and it goes back to normal when he leaves the ladder.</li></ul></section><section><h4><i class="fas fa-arrow-trend-up"></i> What I'd Improve</h4><ul><li>Smooth the crossfade over time (or use an Audio Mixer), so the music doesn't jump suddenly when Mario falls.</li><li>Read the top and bottom heights from the level automatically instead of typing the numbers in.</li><li>Find the real cause of the missed win trigger instead of relying on the backup check, and store the player reference once instead of searching for it every frame.</li><li>Show the countdown on screen and play a death animation before the level restarts.</li></ul></section></template>
 
@@ -1470,8 +1512,17 @@
                 title: 'Deep Sea Simulator',
                 items: [
                     { video: 'videos/deep-sea-gameplay.mp4', caption: 'Gameplay: dive, collect crystals, surface before your oxygen runs out, then upgrade at the shop' },
-                    { src: 'images/deep-sea-gameplay.jpg', caption: 'In-game screenshot' },
-                    { src: 'images/deep-sea-simulator.jpg', caption: 'Promo thumbnail (made with Gemini AI; the game itself is our own work)' }
+                    { video: 'videos/deep-sea-ipad.mp4', caption: 'Running on iPad with touch controls (mobile-compatible)' },
+                    { src: 'images/deepsea/01-surface-hub.jpg', caption: 'Surface hub: the upgrade shop, leaderboards, the yellow sell pad and the elevator down into the sea' },
+                    { src: 'images/deepsea/02-upgrade-shop.jpg', caption: 'Diver upgrades: oxygen tank, tier rating, swim speed and cargo bag' },
+                    { src: 'images/deepsea/03-oxygen-tutorial.jpg', caption: 'Step-by-step tutorial: oxygen drains while you dive' },
+                    { src: 'images/deepsea/04-crystal-cluster.jpg', caption: 'Collecting glowing crystals on the sea floor' },
+                    { src: 'images/deepsea/05-cargo-full.jpg', caption: 'Cargo full: race back up before your oxygen runs out' },
+                    { src: 'images/deepsea/06-cargo-hold.jpg', caption: 'Cargo hold: items have rarities and values before you sell' },
+                    { src: 'images/deepsea/07-deeper-tier.jpg', caption: 'Higher tiers unlock deeper zones' },
+                    { src: 'images/deepsea/08-leaderboard.jpg', caption: 'Saved leaderboards for top time played and top donators' },
+                    { src: 'images/deep-sea-simulator.jpg', caption: 'Promo thumbnail (made with Gemini AI; the game itself is our own work)' },
+                    { src: 'images/deepsea/09-lumibun-banner.jpg', caption: 'LumiBun Studios, the Roblox group I founded to publish our games (cover art not made by me)' }
                 ]
             }
         };
