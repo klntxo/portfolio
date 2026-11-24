@@ -29,6 +29,8 @@
     
     <style>
         html, body { overflow-x: clip; }
+        .bb-media { aspect-ratio: 16 / 9; background: #0b0820; }
+        @media (min-width: 768px) { .bb-media { aspect-ratio: auto; min-height: 100%; } }
         video:fullscreen, video:-webkit-full-screen { object-fit: contain !important; background: #000; }
         body {
             background-color: #070b15;
@@ -771,6 +773,9 @@
                     <button data-filter="roblox" class="filter-btn px-4 py-2 rounded-full text-xs font-semibold bg-brand-card text-gray-400 border border-brand-border hover:border-brand-cyan hover:text-white transition-all">
                         <i class="fas fa-shirt mr-1 text-brand-cyan"></i> Roblox & UGC
                     </button>
+                    <button data-filter="ai" class="filter-btn px-4 py-2 rounded-full text-xs font-semibold bg-brand-card text-gray-400 border border-brand-border hover:border-brand-lavender hover:text-white transition-all">
+                        <i class="fas fa-wand-magic-sparkles mr-1 text-brand-lavender"></i> AI Projects
+                    </button>
                     <button data-filter="design" class="filter-btn px-4 py-2 rounded-full text-xs font-semibold bg-brand-card text-gray-400 border border-brand-border hover:border-brand-indigo hover:text-white transition-all">
                         <i class="fas fa-camera mr-1 text-brand-indigo"></i> Design & Illustration
                     </button>
@@ -889,6 +894,41 @@
                             <button type="button" data-gallery="deepsea" class="inline-flex items-center gap-2 text-xs font-bold text-brand-blue hover:text-white transition-colors">
                                 <i class="fas fa-expand"></i> Video &amp; Screenshots <i class="fas fa-arrow-right text-[10px]"></i>
                             </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- AI-ASSISTED PROJECTS (full-width) -->
+                <div class="portfolio-divider col-span-full flex items-center gap-4 pt-4" data-category="__divider">
+                    <span class="text-xs font-bold uppercase tracking-widest text-gray-400 sm:whitespace-nowrap">Built with AI</span>
+                    <span class="h-px flex-1 bg-brand-border"></span>
+                </div>
+                <div class="portfolio-item col-span-full bg-brand-card rounded-2xl border border-brand-border overflow-hidden hover-card group grid grid-cols-1 md:grid-cols-2" data-category="code audio ai">
+                    <div class="bg-black relative overflow-hidden bb-media">
+                        <video controls playsinline preload="none" poster="images/bassline/poster.jpg" class="w-full h-full object-contain" style="position:absolute;inset:0">
+                            <source src="videos/bassline-break-gameplay.mp4" type="video/mp4">
+                        </video>
+                        <div class="absolute top-3 left-3 px-2.5 py-1 rounded-md bg-brand-dark/80 backdrop-blur-sm text-[11px] font-semibold text-brand-lavender border border-brand-lavender/30 flex items-center gap-1.5 pointer-events-none"><i class="fas fa-play text-[9px]"></i> Gameplay · sound on</div>
+                        <div class="absolute top-3 right-3 px-2.5 py-1 rounded-md text-[11px] font-bold text-brand-dark pointer-events-none" style="background:#c4b5fd"><i class="fas fa-wand-magic-sparkles text-[9px] mr-1"></i>AI-Assisted</div>
+                    </div>
+                    <div class="p-6 flex flex-col">
+                        <h3 class="text-lg font-bold text-white mb-1">Bassline Break</h3>
+                        <span class="text-xs text-brand-lavender font-mono mb-2">Web (HTML5) · Web Audio · itch.io (2026)</span>
+                        <div class="flex items-center gap-2 text-[11px] font-mono text-gray-400 mb-4"><i class="fas fa-user text-brand-lavender"></i> Solo · Built with Claude Code &amp; Gemini</div>
+                        <p class="text-xs text-gray-400 mb-4 leading-relaxed">
+                            A 4-key rhythm game inspired by Project SEKAI and RoBeats. Every note you hit plays part of the melody, so you perform the song as you play it.
+                        </p>
+                        <ul class="text-xs text-gray-300 space-y-1.5 mb-5 list-disc list-inside bg-brand-dark/40 p-3 rounded-xl border border-brand-border/40">
+                            <li><strong>How I used AI:</strong> directed Claude Code to build the game, and used Gemini to write and refine my prompts</li>
+                            <li><strong>Design:</strong> 3 tracks (128–136 BPM), 3 difficulties (Chill, Groove, Club), tap and hold notes, S-rank scoring</li>
+                            <li><strong>Audio:</strong> all sound is generated live with Web Audio; hits play synth notes locked to the song's key</li>
+                            <li><strong>Plays anywhere:</strong> desktop (D F J K) and mobile touch, with audio latency calibration</li>
+                        </ul>
+                        <p class="text-[11px] text-gray-500 mb-4">AI-assisted code, graphics and text, as disclosed on itch.io.</p>
+                        <div class="mt-auto flex flex-wrap items-center gap-x-5 gap-y-2">
+                            <a href="games/bassline-break/" target="_blank" rel="noopener" class="inline-flex items-center gap-2 text-xs font-bold text-brand-lavender hover:text-white transition-colors"><i class="fas fa-gamepad"></i> Play It Here <i class="fas fa-arrow-up-right-from-square text-[10px]"></i></a>
+                            <button type="button" data-gallery="bassline" class="inline-flex items-center gap-2 text-xs font-bold text-brand-blue hover:text-white transition-colors"><i class="fas fa-expand"></i> Video &amp; Screenshots <i class="fas fa-arrow-right text-[10px]"></i></button>
+                            <a href="https://klntxo.itch.io/bassline-break" target="_blank" rel="noopener" class="inline-flex items-center gap-2 text-xs font-bold text-gray-400 hover:text-white transition-colors">itch.io page <i class="fas fa-arrow-up-right-from-square text-[10px]"></i></a>
                         </div>
                     </div>
                 </div>
@@ -1522,6 +1562,19 @@ setSound(&quot;HeartbeatSound&quot;, suffocating)</pre></section><section><h4><i
                     { src: 'images/art/cobblestone-texture-study-4.jpg', caption: 'Warm lighting test' }
                 ]
             },
+            bassline: {
+                title: 'Bassline Break',
+                items: [
+                    { video: 'videos/bassline-break-gameplay.mp4', caption: 'Gameplay: Neon Drift on Groove difficulty, from the first notes to an S rank' },
+                    { src: 'images/bassline/01-song-select.jpg', caption: 'Song select: 3 tracks, each with its own key and BPM, 3 difficulties and an audio offset slider' },
+                    { src: 'images/bassline/02-hold-note.jpg', caption: 'Hold notes: keep the key down for a Full Hold bonus' },
+                    { src: 'images/bassline/03-fever.jpg', caption: 'Fever mode: the lanes and visualiser change colour and score multiplies x4' },
+                    { src: 'images/bassline/04-combo.jpg', caption: 'Combo counter, Perfect judgement and the live audio visualiser behind the highway' },
+                    { src: 'images/bassline/05-results.jpg', caption: 'Results: rank, accuracy, max combo, judgements and saved personal best' },
+                    { src: 'images/bassline/06-cover-wide.jpg', caption: 'Promo cover art (AI-generated)' },
+                    { src: 'images/bassline/07-cover.jpg', caption: 'Alternate promo cover art (AI-generated)' }
+                ]
+            },
             deepsea: {
                 title: 'Deep Sea Simulator',
                 items: [
@@ -1661,7 +1714,7 @@ setSound(&quot;HeartbeatSound&quot;, suffocating)</pre></section><section><h4><i
         window.addEventListener('DOMContentLoaded', () => {
             const filterBtns = document.querySelectorAll('.filter-btn');
             const portfolioItems = document.querySelectorAll('.portfolio-item');
-            const divider = document.querySelector('.portfolio-divider');
+            const dividers = document.querySelectorAll('.portfolio-divider');
 
             filterBtns.forEach(btn => {
                 btn.addEventListener('click', () => {
@@ -1675,11 +1728,11 @@ setSound(&quot;HeartbeatSound&quot;, suffocating)</pre></section><section><h4><i
                     btn.classList.remove('bg-brand-card', 'text-gray-400', 'border-brand-border');
                     btn.classList.add('bg-brand-cyan/20', 'text-brand-cyan', 'border-brand-cyan/40');
 
-                    if (divider) divider.style.display = filter === 'all' ? 'flex' : 'none';
+                    dividers.forEach(d => { d.style.display = filter === 'all' ? '' : 'none'; });
                     portfolioItems.forEach(item => {
                         const cats = (item.getAttribute('data-category') || '').split(' ');
                         if (filter === 'all' || cats.includes(filter)) {
-                            item.style.display = 'flex';
+                            item.style.display = '';
                         } else {
                             item.style.display = 'none';
                         }
